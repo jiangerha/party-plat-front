@@ -2,6 +2,38 @@
 <html>
 <head>
 <title>重庆大学智慧党建云平台</title>
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/login.min.css" />
+<script src="../js/jquery.js"></script>
 </head>
-
+<div class="login_page full_screen">
+    <div class="user_info_container">
+        <div class="title_container"></div>
+        <div class="info_container">
+            <div class="info_title">
+                <span class="active">普通登录</span>
+                <span>统一身份认证</span>
+            </div>
+            <form class="login_form" action="" method="post">
+                <div class="user_container">
+                    <i class="input_icon"></i>
+                    <input type="text" maxlength="20"/>
+                </div>
+                <div class="pwd_container">
+                    <i class="input_icon"></i>
+                    <input type="password" maxlength="20"/>
+                </div>
+                <input type="submit" class="submit_btn" value="登录" />
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    //tab切换
+   $('.info_title span').click(function(e){
+        if(e.target.className === "active") return;
+        $('.info_title span').removeClass("active");
+        e.target.className = 'active';
+    });
+</script>
 </html>

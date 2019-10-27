@@ -1,0 +1,101 @@
+.login_page{
+    background-image: url('../images/login-bg.png');
+    height: 100vh;
+    position: relative;
+    .user_info_container{
+        // width: 1140px;
+        // height: 500px;
+        width: 60%;
+        height: 46%;
+        background: #fff;
+        position: absolute;
+        top: 27%;
+        left: 20%;
+        // margin-left: -570px;
+        // margin-top: -250px;
+        >div{
+            float: left;
+            display: inline-block;
+        }
+        .title_container{
+            width: 65%;
+            height: 100%;
+            background-image: url('../images/login-title.png');
+            background-size: cover;
+        }
+        .info_container{
+            width: 35%;
+            height: 100%;
+            padding: 6.5% 3.5% 0 3.5%;
+            .info_title{
+                span{
+                    width: 50%;
+                    float: left;
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 1.4vw;
+                    line-height: 6vh;
+                    color: #CBCBCB;
+                    border-bottom: 1px solid #E5E5E5;
+                    &.active{
+                        color: #0579E6;
+                        border-color: #0579E6;
+                    }
+                }
+            }
+            .login_form{
+                padding:4vh 1.5vw 0 3.7vh;
+                clear: both;
+                .user_container{
+                    position: relative;
+                }
+                .input_icon{
+                    position: absolute;
+                    width: 2.2vh;
+                    height: 2.2vh;
+                    top: 1vh;
+                    left: 0.75vh;
+                    background-size: cover;
+                    background-image: url('../images/user-icon.png');
+                    &::after{
+                        width: 1px;
+                        height: 100%;
+                        background: #ccc;
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        margin-left: 2.5vh;
+                    }
+                }
+                .pwd_container{
+                    position: relative;
+                    input{
+                        margin: 3.2vh 0 3.4vh 0;
+                    }
+                    .input_icon{
+                        top: 4.2vh;
+                        background-image: url('../images/pwd-icon.png');
+                    }
+                }
+                input{
+                    width: 100%;
+                    height: 3.7vh;
+                    border-radius: 10px;
+                    text-indent: 3.5vh;
+                    border: 1px solid #CDCDCD;
+                }
+                .submit_btn{
+                    background: #0579E6;
+                    color: #fff;
+                    cursor: pointer;
+                    font-size: 1vw;
+                    border-color: #0579E6;
+                    text-indent: 0;
+                    &:hover{
+                        opacity: .9;
+                    }
+                }
+            }
+        }
+    }
+}

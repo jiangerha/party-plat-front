@@ -1,0 +1,15 @@
+html,body,p,ul,li{
+    margin: 0;
+    padding: 0;
+}
+div{
+    box-sizing: border-box;
+}
+input{
+    outline: none;
+    text-indent: 1em;
+}
+.full_screen{
+    width: 100%;
+    max-width: 1920px;
+}
