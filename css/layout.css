@@ -78,12 +78,6 @@
   float: right;
 }
 
-.layout_page .content_container .main_content iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
 @media screen and (max-width: 1536px) {
   .layout_page .top_nav .left_logo {
     height: 36px;

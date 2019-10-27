@@ -6,7 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/summary.min.css" />
 <script src="../js/jquery.js"></script>
+<script src="../js/echarts.min.js"></script>
 </head>
 <div class="layout_page full_screen">
     <div class="top_nav">
@@ -33,7 +35,62 @@
         <ul class="menu_tree" id="menu_tree">
         </ul>
         <div class="main_content">
-            <iframe src="./data-statistics/summary.html"></iframe>
+            <!-- <iframe src="./data-statistics/summary.html"></iframe> -->
+            <!-- 右侧盒子内容 -->
+            <div class="summary_page">
+                <ul class="total_account_group">
+                    <li>
+                        <p class="title_group">
+                            <span class="title_icon"></span>
+                            <span>全校二级党组织数目</span>
+                        </p>
+                        <p class="total_num">
+                            <span>29999</span>个
+                        </p>
+                    </li>
+                    <li>
+                        <p class="title_group">
+                            <span class="title_icon"></span>
+                            <span>全校党支部数目</span>
+                        </p>
+                        <p class="total_num">
+                            <span>29999</span>个
+                        </p>
+                    </li>
+                    <li>
+                        <p class="title_group">
+                            <span class="title_icon"></span>
+                            <span>全校党员数目</span>
+                        </p>
+                        <p class="total_num">
+                            <span>29999</span>个
+                        </p>
+                    </li>
+                    <li>
+                        <p class="title_group">
+                            <span class="title_icon"></span>
+                            <span>组织生活总数</span>
+                        </p>
+                        <p class="total_num">
+                            <span>29999</span>个
+                        </p>
+                    </li>
+                </ul>
+                <div class="attend_views_activity">
+                    <div class="attend_views_group">
+                        <div class="attend_rate_group">
+                            <!-- <div class="operate_container">
+                                <p>活动出勤率统计图</p>
+                            </div> -->
+                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                        </div>
+                        <div class="views_group"></div>
+                    </div>
+                    <div class="activity_plan_group">
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧盒子内容 -->
         </div>
     </div>
 </div>
@@ -87,6 +144,14 @@
         },
     ]
     $(document).ready(() => {
+        this.renderMenuTree();
+        this.renderAttendEcharts();
+    });
+    $("#menu_tree").on("click"," > li", (e) => {
+        console.log(e)
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
         var treeNodes = '';
         var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.title}</a>`;
         menuData.map(i => {
@@ -98,9 +163,73 @@
             treeNodes += treeNode;
         })
         $("#menu_tree").html(treeNodes);
-    });
-    $("#menu_tree").on("click"," > li", (e) => {
-        console.log(e)
-    })
+    }
+    //渲染出勤率图表
+    function renderAttendEcharts(){
+        var AttendChart = echarts.init(document.getElementById('attend_rate_container'));
+        option = {
+            title: {
+                text: '活动出勤率统计图'
+            },
+            tooltip: {},
+            // legend: {
+            //     data:['销量']
+            // },
+            grid: {
+                left: 0,
+                right: '10%',
+                top:'15%',
+                bottom: '10%',
+                containLabel: true
+            },
+            xAxis: {
+                axisTick:{
+                    show:true,
+                },
+                axisLabel: {  
+                    interval:0,
+                    // formatter:function(value){  
+                    //     return value.split('').join('\n');  
+                    // },    
+                    rotate:-40,
+                    textStyle: {
+                        color: '#666',
+                        fontSize:12,
+                    },
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#f6f6f6',
+                            width:6,   //这里是坐标轴的宽度,可以去掉
+                    }
+                },
+                data: ["音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术..."]
+            },
+            yAxis: {
+                show:false,
+                // axisLine:{       //y轴
+                //     show:false
+                // },
+                // axisTick:{       //y轴刻度线
+                //     show:false
+                // },
+                // splitLine: {     //网格线
+                //     show: false
+                // }
+            },
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
+                barWidth: 12,
+                itemStyle:{
+                    normal:{
+                        barBorderRadius:[7, 7, 7, 7],
+                    }
+                }
+            }]
+        };
+        AttendChart.setOption(option);
+    }
 </script>
 </html>

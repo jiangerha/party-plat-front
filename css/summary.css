@@ -5,14 +5,14 @@
 
 .summary_page .total_account_group {
   width: 100%;
-  height: 100%;
+  height: 17.2%;
   color: #fff;
 }
 
 .summary_page .total_account_group > li {
   width: 22.7%;
+  height: 100%;
   margin-right: 3.06%;
-  height: 17.2%;
   border-radius: 10px;
   float: left;
   background-size: cover;
@@ -52,12 +52,13 @@
 }
 
 .summary_page .total_account_group > li .title_group {
-  height: 38.4%;
+  height: 34.2%;
   font-size: 18px;
+  margin: 6.5% 0 6.5% 6.5%;
 }
 
 .summary_page .total_account_group > li .title_group .title_icon {
-  width: 14.4%;
+  width: 15.5%;
   height: 100%;
   display: inline-block;
   background-size: cover;
@@ -67,11 +68,63 @@
 
 .summary_page .total_account_group > li .total_num {
   font-size: 36px;
+  margin-left: 12.1%;
+  line-height: 1;
+}
+
+.summary_page .attend_views_activity {
+  height: 82.8%;
+  padding-top: 3.92%;
+}
+
+.summary_page .attend_views_activity > div {
+  display: inline-block;
+  float: left;
+}
+
+.summary_page .attend_views_activity .attend_views_group {
+  padding-right: 2.61%;
+  width: 52.4%;
+  height: 100%;
+}
+
+.summary_page .attend_views_activity .attend_views_group > div {
+  width: 100%;
+  border: 1px solid #F2F3F5;
+  box-shadow: 3px 3px 12px 0px rgba(228, 228, 228, 0.5);
+  border-radius: 9px;
+}
+
+.summary_page .attend_views_activity .attend_views_group .attend_rate_group {
+  height: 50%;
+  margin-bottom: 6%;
+  padding: 5% 5% 3.25% 5%;
+}
+
+.summary_page .attend_views_activity .attend_views_group .attend_rate_group .operate_container {
+  height: 11.9%;
+  width: 100%;
+}
+
+.summary_page .attend_views_activity .attend_views_group .attend_rate_group .attend_rate_container {
+  width: 100%;
+  height: 100%;
+}
+
+.summary_page .attend_views_activity .attend_views_group .views_group {
+  height: 44%;
+}
+
+.summary_page .attend_views_activity .activity_plan_group {
+  height: 100%;
+  width: 44.99%;
 }
 
 @media screen and (max-width: 1536px) {
   .summary_page .total_account_group > li .title_group {
+    height: 38.4%;
     font-size: 14px;
+    margin: 4.5% 0 4.5% 6.5%;
   }
   .summary_page .total_account_group > li .total_num {
     font-size: 24px;
