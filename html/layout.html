@@ -2,18 +2,105 @@
 <html>
 <head>
 <title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
 <script src="../js/jquery.js"></script>
 </head>
 <div class="layout_page full_screen">
     <div class="top_nav">
-        <img class="left_logo" src="../images/logo.png"/>
-        <div class="user-info-group">
-            
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <span>[组织部管理员]</span>
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="menu_tree" id="menu_tree">
+        </ul>
+        <div class="main_content">
+            <iframe src="./data-statistics/summary.html"></iframe>
         </div>
     </div>
 </div>
 <script>
+    var menuData = [
+        {
+            title:'数据统计',
+            link:'',
+            icon:'../images/tree-icon1',
+            children:[
+                {
+                    title:'数据汇总',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            link:'',
+            children:[]
+        },
+        {
+            title:'基础数据管理',
+            link:'',
+            children:[]
+        },
+        {
+            title:'系统管理',
+            link:'',
+            children:[]
+        },
+    ]
+    $(document).ready(() => {
+        var treeNodes = '';
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="children_node">${i.children.map(ii => {
+                    return getNode(ii)
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    });
+    $("#menu_tree").on("click"," > li", (e) => {
+        console.log(e)
+    })
 </script>
 </html>

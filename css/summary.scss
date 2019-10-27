@@ -1,0 +1,74 @@
+.summary_page{
+    width: 100%;
+    height: 100%;
+    // width: 79.25%;
+    // height: 90%;
+    .total_account_group{
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        >li{
+            width: 22.7%;
+            margin-right: 3.06%;
+            height: 17.2%;
+            border-radius: 10px;
+            float: left;
+            background-size: cover;
+            &:last-child{
+                margin-right: 0;
+                background-image: url('../images/account-bg4.png');
+                .title_icon{
+                    background-image: url('../images/account-icon4.png');
+                }
+            }
+            &:nth-child(1){
+                background-image: url('../images/account-bg1.png');
+                .title_icon{
+                    background-image: url('../images/account-icon1.png');
+                }
+            }
+            &:nth-child(2){
+                background-image: url('../images/account-bg2.png');
+                .title_icon{
+                    background-image: url('../images/account-icon2.png');
+                }
+            }
+            &:nth-child(3){
+                background-image: url('../images/account-bg3.png');
+                .title_icon{
+                    background-image: url('../images/account-icon3.png');
+                }
+
+            }
+            .title_group{
+                height: 38.4%;
+                font-size: 18px;
+                .title_icon{
+                    width: 14.4%;
+                    height: 100%;
+                    display: inline-block;
+                    background-size: cover;
+                    vertical-align: middle;
+                    margin-right: 16px;
+                }
+            }
+            .total_num{
+                font-size: 36px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1536px) {
+    .summary_page{
+        .total_account_group{
+            >li{
+                .title_group{
+                    font-size: 14px;
+                }
+                .total_num{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
