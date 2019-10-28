@@ -65,6 +65,45 @@
             display: inline-block;
             float: left;
         }
+        .operate_container{
+            height: 11.9%;
+            width: 100%;
+            text-align: right;
+            position: relative;
+            p{
+                font-size: 24px;
+                display: inline-block;
+                left: 0;
+                position: absolute;
+            }
+            .custom_select{
+                padding: 10px 16px;
+                font-size: 16px;
+                height: 40px;
+                z-index: 20;
+                color: #fff;
+                &.month_select{
+                    background:rgba(116,77,254,1);
+                    border-color: rgba(116,77,254,1);
+                    box-shadow:0px 4px 9px 0px rgba(116,77,254,0.5);
+                    border-radius:6px;
+                    margin-right: 15px;
+                }
+                &.terms_select{
+                    background:rgba(237,232,254,1);
+                    border-color: rgba(237,232,254,1);
+                    box-shadow:0px 4px 9px 0px rgba(237,232,254,0.5);
+                    border-radius:6px;
+                }
+            }
+        }
+        .desc_text{
+            color: #0ACD5E;
+            font-size: 20px;
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+        }
         .attend_views_group{
             padding-right:2.61%;
             width: 52.4%;
@@ -79,23 +118,86 @@
                 height: 50%;
                 margin-bottom: 6%;
                 padding: 5% 5% 3.25% 5%;
-                .operate_container{
-                    height: 11.9%;
-                    width: 100%;
-                }
                 .attend_rate_container{
                     width: 100%;
                     // height: 88.1%;
                     height: 100%;
+                    >div{
+                        padding: 0!important;
+                    }
+                    .attend_tooltip{
+                        background: '#7f7f7f';
+                        padding: 10px 50px 10px 10px;
+                        border-radius: 10px;
+                        p{
+                            color: #fff;
+                            line-height: 18px;
+                            font-size: 12px;
+                        }
+                    }
                 }
             }
             .views_group{
                 height: 44%;
+                padding: 5% 5% 3.25% 5%;
+                position: relative;
+                >div{
+                    display: inline-block;
+                    float: left;
+                }
+                .text_container{
+                    width: 41.875%;
+                    .title{
+                        font-size: 24px;
+                    }
+                    .sub_text_container{
+                        margin-top: 20%;
+                    }
+                    .sub_text{
+                        display: inline-block;
+                        float: left;
+                        &.current_view{
+                            margin-right: 15%;
+                        }
+                        .sub_title{
+                            color: #364064;
+                            font-size: 16px;
+                            line-height: 1;
+                            margin-bottom: 15%;
+                        }
+                        .sub_num{
+                            font-size: 32px;
+                            line-height: 1;
+                        }
+                    }
+                }
+                .view_conteiner{
+                    width: 58.125%;
+                    height: 70%;
+                }
             }
         }
         .activity_plan_group{
             height: 100%;
             width: 44.99%;
+            border: 1px solid #F2F3F5;
+            box-shadow:3px 3px 12px 0px rgba(228,228,228,0.5);
+            border-radius:9px;
+            padding: 2.68%;
+            position: relative;
+            .desc_text{
+                bottom: 5%;
+            }
+            .activity_plan_conteiner{
+                height: 74.57%;
+                width: 100%;
+                >div{
+                    width: 33.33%;
+                    height: 50%;
+                    display: inline-block;
+                    float: left;
+                }
+            }
         }
     }
     
@@ -111,6 +213,49 @@
                 }
                 .total_num{
                     font-size: 24px;
+                }
+            }
+        }
+        .attend_views_activity{
+            .attend_views_group{
+                .attend_rate_group{
+                    // .operate_container{
+                    //     p{
+                    //         font-size: 18px;
+                    //     }
+                    //     .custom_select{
+                    //         padding: 6px 12px;
+                    //         font-size: 14px;
+                    //         height: 34px;
+                    //     }
+                    // }
+                }
+                .views_group{
+                    .text_container{
+                        .title{
+                            font-size: 18px;
+                        }
+                        .sub_text{
+                            .sub_title{
+                                font-size: 14px;
+                            }
+                            .sub_num{
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .attend_views_activity{
+            .operate_container{
+                p{
+                    font-size: 18px;
+                }
+                .custom_select{
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    height: 34px;
                 }
             }
         }

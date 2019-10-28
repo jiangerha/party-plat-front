@@ -4,6 +4,7 @@
 <title>重庆大学智慧党建云平台</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/summary.min.css" />
@@ -79,14 +80,70 @@
                 <div class="attend_views_activity">
                     <div class="attend_views_group">
                         <div class="attend_rate_group">
-                            <!-- <div class="operate_container">
+                            <div class="operate_container">
                                 <p>活动出勤率统计图</p>
-                            </div> -->
+                                <select class="custom_select month_select" id="attend-month-select">
+                                    <option value="0">9月</option>
+                                    <option value="1">9月</option>
+                                    <option value="2">9月</option>
+                                    <option value="3">9月</option>
+                                </select>
+                                <select class="custom_select terms_select" id="attend-terms-select">
+                                    <option value="">按学期</option>
+                                    <option value="0">按学期</option>
+                                    <option value="1">22</option>
+                                    <option value="2">22</option>
+                                    <option value="3">22</option>
+                                    <option value="4">22222</option>
+                                </select>
+                            </div>
                             <div class="attend_rate_container" id="attend_rate_container"></div>
                         </div>
-                        <div class="views_group"></div>
+                        <div class="views_group">
+                            <div class="text_container">
+                                <p class="title">系统访问量统计</p>
+                                <div class="sub_text_container">
+                                    <div class="sub_text current_view">
+                                        <p class="sub_title">今日访问量</p>
+                                        <p class="sub_num">3888</p>
+                                    </div>
+                                </div>
+                                <div class="sub_text">
+                                    <p class="sub_title">总访问量</p>
+                                    <p class="sub_num">388866</p>
+                                </div>
+                            </div>
+                            <div class="view_conteiner" id="view_conteiner"></div>
+                            <p class="desc_text">同比昨日+7.9%</p>
+                        </div>
                     </div>
                     <div class="activity_plan_group">
+                        <div class="operate_container">
+                            <p>活动出勤率统计图</p>
+                            <select class="custom_select month_select" id="attend-month-select">
+                                <option value="0">9月</option>
+                                <option value="1">9月</option>
+                                <option value="2">9月</option>
+                                <option value="3">9月</option>
+                            </select>
+                            <select class="custom_select terms_select" id="attend-terms-select">
+                                <option value="">按学期</option>
+                                <option value="0">按学期</option>
+                                <option value="1">22</option>
+                                <option value="2">22</option>
+                                <option value="3">22</option>
+                                <option value="4">22222</option>
+                            </select>
+                        </div>
+                        <div class="activity_plan_conteiner" id="activity_plan_conteiner">
+                            <div id="activity_plan_conteiner1"></div>
+                            <div id="activity_plan_conteiner2"></div>
+                            <div id="activity_plan_conteiner3"></div>
+                            <div id="activity_plan_conteiner4"></div>
+                            <div id="activity_plan_conteiner5"></div>
+                            <div id="activity_plan_conteiner6"></div>
+                        </div>
+                        <p class="desc_text">查看更多</p>
                     </div>
                 </div>
             </div>
@@ -94,7 +151,16 @@
         </div>
     </div>
 </div>
+<script src="../js/layui.js"></script>
 <script>
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
     var menuData = [
         {
             title:'数据统计',
@@ -145,7 +211,9 @@
     ]
     $(document).ready(() => {
         this.renderMenuTree();
-        this.renderAttendEcharts();
+        this.renderAttendcharts();
+        this.renderViewCharts();
+        this.renderActivityCharts();
     });
     $("#menu_tree").on("click"," > li", (e) => {
         
@@ -165,21 +233,25 @@
         $("#menu_tree").html(treeNodes);
     }
     //渲染出勤率图表
-    function renderAttendEcharts(){
+    function renderAttendcharts(){
         var AttendChart = echarts.init(document.getElementById('attend_rate_container'));
         option = {
             title: {
-                text: '活动出勤率统计图'
+                // text: '活动出勤率统计图',
             },
-            tooltip: {},
-            // legend: {
-            //     data:['销量']
-            // },
+            tooltip: {
+                formatter:(obj) => {
+                    return `<div class="attend_tooltip">
+                            <p>${obj.name}</p>
+                            <p>${obj.seriesName}:${obj.data}%</p>
+                        </div>`
+                }
+            },
             grid: {
                 left: 0,
                 right: '10%',
                 top:'15%',
-                bottom: '10%',
+                bottom: '20%',
                 containLabel: true
             },
             xAxis: {
@@ -188,9 +260,6 @@
                 },
                 axisLabel: {  
                     interval:0,
-                    // formatter:function(value){  
-                    //     return value.split('').join('\n');  
-                    // },    
                     rotate:-40,
                     textStyle: {
                         color: '#666',
@@ -218,18 +287,112 @@
                 // }
             },
             series: [{
-                name: '销量',
+                name: '出勤率',
                 type: 'bar',
-                data: [5, 20, 36, 10, 10, 20,5, 20, 36, 10, 10, 20],
+                data: [5, 20, 36, 10, 10, 20,5, 20, 100, 10, 10, 20],
                 barWidth: 12,
                 itemStyle:{
+                    marginBottom:6,
                     normal:{
                         barBorderRadius:[7, 7, 7, 7],
+                        color:'#744DFE',
+                    },
+                    emphasis:{
+                        color:'#FF523A'
                     }
                 }
             }]
         };
         AttendChart.setOption(option);
+    }
+    //出勤率 月份
+    $("#attend-month-select").on("change", '', (e) => {
+        console.log(e.target.value)
+    });
+    //出勤率 学期
+    $("#attend-terms-select").on("change", '', (e) => {
+        console.log(e.target.value)
+    })
+    //渲染出勤率
+    function renderViewCharts(){
+        var ViewChart = echarts.init(document.getElementById('view_conteiner'));
+        option = {
+            xAxis: {
+                show:false,
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            },
+            yAxis: {
+                type: 'value',
+                show:false,
+            },
+            series: [{
+                data: [1820, 9232, 9301, 1934, 11290, 13130, 13820],
+                type: 'line',
+                smooth: true,
+                itemStyle: {
+                    normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: '#FD5D9F'},
+                                    {offset: 0.4, color: '#EB5BAB'},
+                                    {offset: 0.6, color: '#A152DE'},
+                                    {offset: 1, color: '#744DFE'}
+                                ]
+                            )
+                         }
+                    }
+            }]
+        };
+        ViewChart.setOption(option);
+    }
+    function renderActivityCharts(){
+        var data = [10,20,30,40,50,60];
+        var colorList = ['#FF523A', '#33A6FF', '#41FF33', '#FFFFD233', '#FFEA33FF', '#FF7133'];
+        var titleList = ['国防生选拔培养办公室','国防生选拔培养办公','国防生选拔培养办','国防生选拔培养','国防生选拔培','国防生选拔'];
+        var option = {
+                title : {
+                    text: '',
+                    x:'center',
+                    y:'bottom',
+                    textStyle:{
+                        fontSize:14,
+                        fontWeight:'normal',
+                        color:'#000'
+                    }
+                },
+                series: [
+                    {
+                        name:'',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        label: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        itemStyle:{
+                            normal:{
+                                color:['#FF523A', '#E5E5E5'],
+                            }
+                        },
+                        data:[
+                            {value:33},
+                            {value:77}
+                        ]
+                    }
+                ]
+            };
+        data.map((i, idx) => {
+            var activityChart = echarts.init(document.getElementById(`activity_plan_conteiner${idx + 1}`));
+            var chartOpt = option;
+            var text = titleList[idx];
+            chartOpt.title.text = chartOpt.series[0].name = text;
+            chartOpt.series[0].data[0].value = data[idx];
+            chartOpt.series[0].data[1].value = 100 - data[idx];
+            chartOpt.series[0].itemStyle.normal.color[0] = colorList[idx];
+            activityChart.setOption(chartOpt);
+        })
     }
 </script>
 </html>
