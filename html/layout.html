@@ -33,27 +33,7 @@
         </div>
     </div>
     <div class="content_container">
-        <!-- <ul class="menu_tree" id="menu_tree">
-        </ul> -->
         <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree">
-            <!-- <li class="layui-nav-item">
-            <a href="javascript:;">默认展开</a>
-            <ul class="layui-nav-child">
-                <li><a href="javascript:;">选项1</a></li>
-                <li><a href="javascript:;">选项2</a></li>
-                <li><a href="">跳转</a></li>
-            </ul>
-            </li>
-            <li class="layui-nav-item">
-            <a href="javascript:;">解决方案</a>
-            <ul class="layui-nav-child">
-                <li><a href="javascript:;">选项1</a></li>
-                <li><a href="javascript:;">选项2</a></li>
-                <li><a href="">跳转</a></li>
-            </ul>
-            </li>
-            <li class="layui-nav-item"><a href="">产品</a></li>
-            <li class=""><a href="">大数据</a></li> -->
         </ul>
         <div class="main_content">
             <!-- <iframe src="./data-statistics/summary.html"></iframe> -->
@@ -171,16 +151,17 @@
         </div>
     </div>
 </div>
-<script src="../js/layui.js"></script>
+<!-- <script src="../js/layui.js"></script> -->
 <script>
-    layui.use('element', function(){
-        var element = layui.element;
+    // layui.use('element', function(){
+    //     var element = layui.element;
         
-        //一些事件监听
-        element.on('nav(menuTree)', function(data){
-            console.log(data);
-        });
-    });
+    //     //一些事件监听
+    //     element.on('nav(menuTree)', function(data){
+    //         console.log(data);
+    //     });
+    // });
+    //菜单list
     var menuData = [
         {
             title:'数据统计',
@@ -335,7 +316,7 @@
     $("#attend-terms-select").on("change", '', (e) => {
         console.log(e.target.value)
     })
-    //渲染出勤率
+    //渲染访问量 图表
     function renderViewCharts(){
         var ViewChart = echarts.init(document.getElementById('view_conteiner'));
         option = {
@@ -368,6 +349,7 @@
         };
         ViewChart.setOption(option);
     }
+    //渲染计划上报 图表
     function renderActivityCharts(){
         var isLg = window.innerWidth > 1536;
         var data = [10,20,20,20,40,60];
