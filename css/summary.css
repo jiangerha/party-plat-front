@@ -99,7 +99,7 @@
 .summary_page .attend_views_activity .operate_container .custom_select {
   padding: 10px 16px;
   font-size: 16px;
-  height: 40px;
+  height: 42px;
   z-index: 20;
   color: #fff;
 }
@@ -168,7 +168,7 @@
 }
 
 .summary_page .attend_views_activity .attend_views_group .views_group {
-  height: 44%;
+  height: 42%;
   padding: 5% 5% 3.25% 5%;
   position: relative;
 }
@@ -226,12 +226,20 @@
   position: relative;
 }
 
+.summary_page .attend_views_activity .activity_plan_group .operate_container {
+  height: 7%;
+}
+
 .summary_page .attend_views_activity .activity_plan_group .desc_text {
   bottom: 5%;
 }
 
+.summary_page .attend_views_activity .activity_plan_group .desc_text a {
+  color: #0ACD5E;
+}
+
 .summary_page .attend_views_activity .activity_plan_group .activity_plan_conteiner {
-  height: 74.57%;
+  height: 82%;
   width: 100%;
 }
 
@@ -251,6 +259,9 @@
   .summary_page .total_account_group > li .total_num {
     font-size: 24px;
   }
+  .summary_page .attend_views_activity .desc_text {
+    font-size: 16px;
+  }
   .summary_page .attend_views_activity .attend_views_group .views_group .text_container .title {
     font-size: 18px;
   }
@@ -259,6 +270,9 @@
   }
   .summary_page .attend_views_activity .attend_views_group .views_group .text_container .sub_text .sub_num {
     font-size: 24px;
+  }
+  .summary_page .attend_views_activity .activity_plan_group .operate_container {
+    height: 10%;
   }
   .summary_page .attend_views_activity .operate_container p {
     font-size: 18px;

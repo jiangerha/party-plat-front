@@ -79,7 +79,7 @@
             .custom_select{
                 padding: 10px 16px;
                 font-size: 16px;
-                height: 40px;
+                height: 42px;
                 z-index: 20;
                 color: #fff;
                 &.month_select{
@@ -138,7 +138,7 @@
                 }
             }
             .views_group{
-                height: 44%;
+                height: 42%;
                 padding: 5% 5% 3.25% 5%;
                 position: relative;
                 >div{
@@ -185,11 +185,17 @@
             border-radius:9px;
             padding: 2.68%;
             position: relative;
+            .operate_container{
+                height: 7%;
+            }
             .desc_text{
+                a{
+                    color: #0ACD5E;
+                }
                 bottom: 5%;
             }
             .activity_plan_conteiner{
-                height: 74.57%;
+                height: 82%;
                 width: 100%;
                 >div{
                     width: 33.33%;
@@ -217,18 +223,11 @@
             }
         }
         .attend_views_activity{
+            .desc_text{
+                font-size: 16px;
+            }
             .attend_views_group{
                 .attend_rate_group{
-                    // .operate_container{
-                    //     p{
-                    //         font-size: 18px;
-                    //     }
-                    //     .custom_select{
-                    //         padding: 6px 12px;
-                    //         font-size: 14px;
-                    //         height: 34px;
-                    //     }
-                    // }
                 }
                 .views_group{
                     .text_container{
@@ -244,6 +243,11 @@
                             }
                         }
                     }
+                }
+            }
+            .activity_plan_group{
+                .operate_container{
+                    height: 10%;
                 }
             }
         }

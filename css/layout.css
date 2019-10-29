@@ -55,19 +55,72 @@
   background: #F6F8FC;
   overflow: auto;
   float: left;
+  padding-top: 40px;
+}
+
+.layout_page .content_container .menu_tree .layui-nav-bar {
+  display: none;
+}
+
+.layout_page .content_container .menu_tree .layui-nav-more {
+  border: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  right: 40px;
+  background-image: url("../images/arrow-right.png");
+  background-size: cover;
+}
+
+.layout_page .content_container .menu_tree .menu_icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+}
+
+.layout_page .content_container .menu_tree .layui-nav-itemed .layui-nav-more {
+  background-image: url("../images/arrow-down.png");
+}
+
+.layout_page .content_container .menu_tree .layui-this {
+  border-radius: 0 10px 10px 0;
+}
+
+.layout_page .content_container .menu_tree .layui-this a {
+  background-color: #744DFE;
+  color: #fff !important;
+  border-radius: 0 10px 10px 0;
+}
+
+.layout_page .content_container .menu_tree li.layui-nav-item.layui-nav-itemed > a {
+  color: #333 !important;
 }
 
 .layout_page .content_container .menu_tree li a {
   font-size: 16px;
   color: #333;
+  padding: 0 40px;
+  height: 56px !important;
+  line-height: 56px !important;
 }
 
-.layout_page .content_container .menu_tree .children_node {
-  display: none;
+.layout_page .content_container .menu_tree li a:hover {
+  background-color: transparent;
 }
 
-.layout_page .content_container .menu_tree .children_node li a {
+.layout_page .content_container .menu_tree .layui-nav-child {
+  background: #F6F8FC !important;
+}
+
+.layout_page .content_container .menu_tree .layui-nav-child li a {
   color: #666;
+  padding-left: 100px;
+}
+
+.layout_page .content_container .menu_tree .layui-nav-child li a:hover {
+  background-color: #744DFE;
+  color: #fff !important;
+  border-radius: 0 10px 10px 0;
 }
 
 .layout_page .content_container .main_content {
@@ -90,5 +143,20 @@
   }
   .layout_page .top_nav .user_info_group > p span {
     font-size: 14px;
+  }
+  .layout_page .content_container .menu_tree {
+    padding-top: 20px;
+  }
+  .layout_page .content_container .menu_tree .layui-nav-more {
+    right: 20px;
+  }
+  .layout_page .content_container .menu_tree li a {
+    padding: 0 20px;
+    font-size: 14px;
+    height: 40px !important;
+    line-height: 40px !important;
+  }
+  .layout_page .content_container .menu_tree .layui-nav-child li a {
+    padding-left: 80px;
   }
 }

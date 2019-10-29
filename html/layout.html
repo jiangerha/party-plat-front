@@ -33,7 +33,27 @@
         </div>
     </div>
     <div class="content_container">
-        <ul class="menu_tree" id="menu_tree">
+        <!-- <ul class="menu_tree" id="menu_tree">
+        </ul> -->
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree">
+            <!-- <li class="layui-nav-item">
+            <a href="javascript:;">默认展开</a>
+            <ul class="layui-nav-child">
+                <li><a href="javascript:;">选项1</a></li>
+                <li><a href="javascript:;">选项2</a></li>
+                <li><a href="">跳转</a></li>
+            </ul>
+            </li>
+            <li class="layui-nav-item">
+            <a href="javascript:;">解决方案</a>
+            <ul class="layui-nav-child">
+                <li><a href="javascript:;">选项1</a></li>
+                <li><a href="javascript:;">选项2</a></li>
+                <li><a href="">跳转</a></li>
+            </ul>
+            </li>
+            <li class="layui-nav-item"><a href="">产品</a></li>
+            <li class=""><a href="">大数据</a></li> -->
         </ul>
         <div class="main_content">
             <!-- <iframe src="./data-statistics/summary.html"></iframe> -->
@@ -119,7 +139,7 @@
                     </div>
                     <div class="activity_plan_group">
                         <div class="operate_container">
-                            <p>活动出勤率统计图</p>
+                            <p>活动计划上报统计图</p>
                             <select class="custom_select month_select" id="attend-month-select">
                                 <option value="0">9月</option>
                                 <option value="1">9月</option>
@@ -143,7 +163,7 @@
                             <div id="activity_plan_conteiner5"></div>
                             <div id="activity_plan_conteiner6"></div>
                         </div>
-                        <p class="desc_text">查看更多</p>
+                        <p class="desc_text"><a href="javascript:;">查看更多</a></p>
                     </div>
                 </div>
             </div>
@@ -153,19 +173,19 @@
 </div>
 <script src="../js/layui.js"></script>
 <script>
-    layui.use('form', function(){
-        var form = layui.form;
-        //监听提交
-        form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
+    layui.use('element', function(){
+        var element = layui.element;
+        
+        //一些事件监听
+        element.on('nav(menuTree)', function(data){
+            console.log(data);
         });
     });
     var menuData = [
         {
             title:'数据统计',
             link:'',
-            icon:'../images/tree-icon1',
+            icon:'../images/tree-icon1.png',
             children:[
                 {
                     title:'数据汇总',
@@ -176,6 +196,7 @@
         {
             title:'组织生活管理',
             link:'',
+            icon:'../images/tree-icon2.png',
             children:[
                 {
                     title:'活动管理',
@@ -185,6 +206,7 @@
         },
         {
             title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
             link:'',
             children:[
                 {
@@ -195,16 +217,19 @@
         },
         {
             title:'数据报送',
+            icon:'../images/tree-icon4.png',
             link:'',
             children:[]
         },
         {
             title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
             link:'',
             children:[]
         },
         {
             title:'系统管理',
+            icon:'../images/tree-icon6.png',
             link:'',
             children:[]
         },
@@ -215,17 +240,14 @@
         this.renderViewCharts();
         this.renderActivityCharts();
     });
-    $("#menu_tree").on("click"," > li", (e) => {
-        
-    });
     //渲染左侧菜单
     function renderMenuTree(){
         var treeNodes = '';
-        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.title}</a>`;
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
         menuData.map(i => {
-            var treeNode = `<li>${getNode(i)}${
-                ((i.children || []).length) ? `<ul class="children_node">${i.children.map(ii => {
-                    return getNode(ii)
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
                 })}</ul>` : ''
             }</li>`;
             treeNodes += treeNode;
@@ -347,20 +369,23 @@
         ViewChart.setOption(option);
     }
     function renderActivityCharts(){
-        var data = [10,20,30,40,50,60];
-        var colorList = ['#FF523A', '#33A6FF', '#41FF33', '#FFFFD233', '#FFEA33FF', '#FF7133'];
+        var isLg = window.innerWidth > 1536;
+        var data = [10,20,20,20,40,60];
+        var colorList = ['#FF523A', '#33A6FF', '#41FF33', '#FFD233', '#EA33FF', '#FF7133'];
         var titleList = ['国防生选拔培养办公室','国防生选拔培养办公','国防生选拔培养办','国防生选拔培养','国防生选拔培','国防生选拔'];
         var option = {
                 title : {
                     text: '',
                     x:'center',
-                    y:'bottom',
+                    // y:'bottom',
+                    bottom:isLg ? 0 : '-4%',
                     textStyle:{
-                        fontSize:14,
+                        fontSize:isLg ? 14 : 12,
                         fontWeight:'normal',
-                        color:'#000'
+                        color:'#000',
                     }
                 },
+                color:['#FF523A', '#E5E5E5'],
                 series: [
                     {
                         name:'',
@@ -368,16 +393,14 @@
                         radius: ['50%', '70%'],
                         label: {
                             normal: {
-                                show: false
-                            }
-                        },
-                        itemStyle:{
-                            normal:{
-                                color:['#FF523A', '#E5E5E5'],
+                                show: true,
+                                position:'center',
+                                color:'#000',
+                                fontSize:isLg ? 30 : 20
                             }
                         },
                         data:[
-                            {value:33},
+                            {value:33,name:'33%'},
                             {value:77}
                         ]
                     }
@@ -388,9 +411,12 @@
             var chartOpt = option;
             var text = titleList[idx];
             chartOpt.title.text = chartOpt.series[0].name = text;
-            chartOpt.series[0].data[0].value = data[idx];
-            chartOpt.series[0].data[1].value = 100 - data[idx];
-            chartOpt.series[0].itemStyle.normal.color[0] = colorList[idx];
+            var newData = [
+                {value:data[idx],name:`${data[idx]}%`},
+                {value:100 - data[idx]}
+            ]
+            chartOpt.series[0].data = newData;
+            chartOpt.color[0] = colorList[idx];
             activityChart.setOption(chartOpt);
         })
     }

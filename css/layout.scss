@@ -43,26 +43,71 @@
         width: 100%;
         height: 92.6vh;
         overflow: hidden;
-        >div,>ul{
-            
-        }
         .menu_tree{
             height: 100%;
             width: 14.2vw;
             background: #F6F8FC;
             overflow: auto;
             float: left;
+            padding-top: 40px;
+            .layui-nav-bar{
+                display: none;
+            }
+            .layui-nav-more{
+                border: none;
+                width: 20px;
+                height: 20px;
+                margin-top: -10px;
+                right: 40px;
+                background-image: url('../images/arrow-right.png');
+                background-size: cover;
+            }
+            .menu_icon{
+                width: 20px;
+                height: 20px;
+                margin-right: 20px;
+            }
+            .layui-nav-itemed{
+                .layui-nav-more{
+                    background-image: url('../images/arrow-down.png');
+                }
+            }
+            .layui-this{
+                border-radius: 0 10px 10px 0;
+                a{
+                    background-color: #744DFE;
+                    color: #fff!important;
+                    border-radius: 0 10px 10px 0;
+                }
+            }
             li{
+                &.layui-nav-item.layui-nav-itemed{
+                    > a{
+                        color: #333!important;
+                    }
+                }
                 a{
                     font-size: 16px;
                     color: #333;
+                    padding: 0 40px;
+                    height: 56px!important;
+                    line-height: 56px!important;
+                    &:hover{
+                        background-color: transparent;
+                    }
                 }
             }
-            .children_node{
-                display: none;
+            .layui-nav-child{
+                background: #F6F8FC!important;
                 li{
                     a{
                         color: #666;
+                        padding-left: 100px;
+                        &:hover{
+                            background-color: #744DFE;
+                            color: #fff!important;
+                            border-radius: 0 10px 10px 0;
+                        }
                     }
                 }
             }
@@ -93,6 +138,29 @@
                     }
                     span{
                         font-size: 14px;
+                    }
+                }
+            }
+        }
+        .content_container{
+            .menu_tree{
+                padding-top: 20px;
+                .layui-nav-more{
+                    right: 20px;
+                }
+                li{
+                    a{
+                        padding: 0 20px;
+                        font-size: 14px;
+                        height: 40px!important;
+                        line-height: 40px!important;
+                    }
+                }
+                .layui-nav-child{
+                    li{
+                        a{
+                            padding-left: 80px;
+                        }
                     }
                 }
             }
