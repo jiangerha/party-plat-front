@@ -15,28 +15,15 @@
             &:last-child{
                 margin-right: 0;
                 background-image: url('../images/account-bg4.png');
-                .title_icon{
-                    background-image: url('../images/account-icon4.png');
-                }
             }
             &:nth-child(1){
                 background-image: url('../images/account-bg1.png');
-                .title_icon{
-                    background-image: url('../images/account-icon1.png');
-                }
             }
             &:nth-child(2){
                 background-image: url('../images/account-bg2.png');
-                .title_icon{
-                    background-image: url('../images/account-icon2.png');
-                }
             }
             &:nth-child(3){
                 background-image: url('../images/account-bg3.png');
-                .title_icon{
-                    background-image: url('../images/account-icon3.png');
-                }
-
             }
             .title_group{
                 height: 34.2%;
@@ -44,7 +31,7 @@
                 margin: 6.5% 0 6.5% 6.5%;
                 .title_icon{
                     width: 15.5%;
-                    height: 100%;
+                    // height: 100%;
                     display: inline-block;
                     background-size: cover;
                     vertical-align: middle;
@@ -105,7 +92,7 @@
             right: 5%;
         }
         .attend_views_group{
-            padding-right:2.61%;
+            margin-right:2.61%;
             width: 52.4%;
             height: 100%;
             >div{
@@ -116,7 +103,7 @@
             }
             .attend_rate_group{
                 height: 50%;
-                margin-bottom: 6%;
+                margin-bottom: 40px;
                 padding: 5% 5% 3.25% 5%;
                 .attend_rate_container{
                     width: 100%;
@@ -138,7 +125,7 @@
                 }
             }
             .views_group{
-                height: 42%;
+                height: calc(50% - 40px);
                 padding: 5% 5% 3.25% 5%;
                 position: relative;
                 >div{

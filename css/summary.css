@@ -23,32 +23,16 @@
   background-image: url("../images/account-bg4.png");
 }
 
-.summary_page .total_account_group > li:last-child .title_icon {
-  background-image: url("../images/account-icon4.png");
-}
-
 .summary_page .total_account_group > li:nth-child(1) {
   background-image: url("../images/account-bg1.png");
-}
-
-.summary_page .total_account_group > li:nth-child(1) .title_icon {
-  background-image: url("../images/account-icon1.png");
 }
 
 .summary_page .total_account_group > li:nth-child(2) {
   background-image: url("../images/account-bg2.png");
 }
 
-.summary_page .total_account_group > li:nth-child(2) .title_icon {
-  background-image: url("../images/account-icon2.png");
-}
-
 .summary_page .total_account_group > li:nth-child(3) {
   background-image: url("../images/account-bg3.png");
-}
-
-.summary_page .total_account_group > li:nth-child(3) .title_icon {
-  background-image: url("../images/account-icon3.png");
 }
 
 .summary_page .total_account_group > li .title_group {
@@ -59,7 +43,6 @@
 
 .summary_page .total_account_group > li .title_group .title_icon {
   width: 15.5%;
-  height: 100%;
   display: inline-block;
   background-size: cover;
   vertical-align: middle;
@@ -128,7 +111,7 @@
 }
 
 .summary_page .attend_views_activity .attend_views_group {
-  padding-right: 2.61%;
+  margin-right: 2.61%;
   width: 52.4%;
   height: 100%;
 }
@@ -142,7 +125,7 @@
 
 .summary_page .attend_views_activity .attend_views_group .attend_rate_group {
   height: 50%;
-  margin-bottom: 6%;
+  margin-bottom: 40px;
   padding: 5% 5% 3.25% 5%;
 }
 
@@ -168,7 +151,7 @@
 }
 
 .summary_page .attend_views_activity .attend_views_group .views_group {
-  height: 42%;
+  height: calc(50% - 40px);
   padding: 5% 5% 3.25% 5%;
   position: relative;
 }
