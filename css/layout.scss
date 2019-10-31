@@ -37,6 +37,36 @@
                     vertical-align: middle;
                 }
             }
+            .user_nav_container{
+                &.layui-nav{
+                    display: inline;
+                    padding: 0 0 0 10px;
+                    .layui-nav-item{
+                        line-height: 1;
+                        vertical-align: sub;
+                        a{
+                            color: #1F93FF;
+                            padding: 0;
+                        }
+                    }
+                    .layui-nav-child{
+                        padding: 0;
+                        top: calc(3.7vh + 6px);
+                        li{
+                            color: #333;
+                            font-size: 16px;
+                            cursor: pointer;
+                            padding: 0 10px;
+                            &:hover{
+                                background: #F6F8FD;
+                            }
+                        }
+                    }
+                    .layui-nav-bar,.layui-nav-more{
+                        display: none;
+                    }
+                }
+            }
         }
     }
     .content_container{
@@ -150,6 +180,13 @@
                 margin-top: -18px;
             }
             .user_info_group{
+                .user_nav_container{
+                    .layui-nav-child{
+                        li{
+                            font-size: 14px;
+                        }
+                    }
+                }
                 >p{
                     img{
                         width: 16px;

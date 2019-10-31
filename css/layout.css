@@ -43,6 +43,41 @@
   vertical-align: middle;
 }
 
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav {
+  display: inline;
+  padding: 0 0 0 10px;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-item {
+  line-height: 1;
+  vertical-align: sub;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-item a {
+  color: #1F93FF;
+  padding: 0;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child {
+  padding: 0;
+  top: calc(3.7vh + 6px);
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child li {
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child li:hover {
+  background: #F6F8FD;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-bar, .layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-more {
+  display: none;
+}
+
 .layout_page .content_container {
   width: 100%;
   height: 92.6vh;
@@ -156,6 +191,9 @@
   .layout_page .top_nav .left_logo {
     height: 36px;
     margin-top: -18px;
+  }
+  .layout_page .top_nav .user_info_group .user_nav_container .layui-nav-child li {
+    font-size: 14px;
   }
   .layout_page .top_nav .user_info_group > p img {
     width: 16px;

@@ -45,11 +45,11 @@
                         <a href="javascript:;">发布活动</a>
                     </span>
                 </div>
-                <form class="layui-form custom_form"> 
+                <form class="layui-form custom_form" id="activityForm"> 
                     <div class="layui-inline">
                         <label class="layui-form-label">活动名称：</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="activityName" autocomplete="off" class="layui-input">
+                            <input type="text" maxlength="20" name="activityName" lay-verify="required" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-inline datepicker_item">
@@ -61,8 +61,27 @@
                     <div class="layui-inline tree_select_item">
                         <label class="layui-form-label">发布对象：</label>
                         <div class="layui-input-inline">
-                            <div id="test13" class="demo-tree-more"></div>
-                            <!-- <input type="text" name="releaseTarget"  class="layui-input"/> -->
+                            <div id="partyTree" class="party_tree_container"></div>
+                        </div>
+                    </div>
+                    <div class="layui-inline box_item_container">
+                        <label class="layui-form-label">已选对象：</label>
+                        <div class="layui-input-inline">
+                            <p class="box_title">已选择发布对象</p>
+                            <div class="box_item"></div>
+                        </div>
+                    </div>
+                    <div class="layui-inline ueditor_container">
+                        <label class="layui-form-label">发布内容：</label>
+                        <div class="layui-input-inline">
+                            <div class="ueditor_box"></div>
+                        </div>
+                    </div>
+                    <div class="layui-inline btn_group">
+                        <label class="layui-form-label"></label>
+                        <div class="layui-input-inline">
+                            <button type="button" class="layui-btn" lay-submit="" lay-filter="activityForm">确定</button>
+                            <button type="button" class="layui-btn layui-btn-primary">取消</button>
                         </div>
                     </div>
                   </form>
@@ -73,15 +92,20 @@
 </div>
 <script src="../js/layui.js"></script>
 <script>
-    //左侧惨淡
+    //左侧菜单
     layui.use('element', function(){
         var element = layui.element;
     });
     //表单
     layui.use('form', function(){
-    var form = layui.form;
-    
-    //各种基于事件的操作，下面会有进一步介绍
+        var form = layui.form;
+        //表单提交
+        form.on('submit(activityForm)', function(data){
+            // layer.alert(JSON.stringify(data.field), {
+            //     title: '最终的提交信息'
+            // })
+            return false;
+        });
     });
     //时间选择器
     layui.use('laydate', function(){
@@ -93,53 +117,55 @@
     });
     //时间选择器
     layui.use('tree', function(){
+        var selectedNode = [];
         var tree = layui.tree;
         tree.render({
-            elem: '#test13', //指定元素
-            data:[{
-    title: '江西'
-    ,id: 1
-    ,children: [{
-      title: '南昌'
-      ,id: 1000
-      ,children: [{
-        title: '青山湖区'
-        ,id: 10001
-      },{
-        title: '高新区'
-        ,id: 10002
-      }]
-    },{
-      title: '九江'
-      ,id: 1001
-    },{
-      title: '赣州'
-      ,id: 1002
-    }]
-  },{
-    title: '广西'
-    ,id: 2
-    ,children: [{
-      title: '南宁'
-      ,id: 2000
-    },{
-      title: '桂林'
-      ,id: 2001
-    }]
-  },{
-    title: '陕西'
-    ,id: 3
-    ,children: [{
-      title: '西安'
-      ,id: 3000
-    },{
-      title: '延安'
-      ,id: 3001
-    }]
-  }],
-  showLine:false,
-  showCheckbox: true
-
+            elem: '#partyTree', //指定元素
+            data:[
+                {
+                title: '重庆大学党委',
+                id: 1,
+                children: [
+                    {
+                        title: '马克思主义学院党委',
+                        id: 1000,
+                    },
+                    {
+                        title: '政治与公共管理学院党委',
+                        id: 1001,
+                    },
+                    {
+                        title: '经济管理学院党委',
+                        id: 1002,
+                    },
+                    {
+                        title: '马克思主义学院党委11',
+                        id: 1004,
+                    },
+                    {
+                        title: '马克思主义学院党委22',
+                        id: 1005,
+                    },
+                    {
+                        title: '政治与公共管理学院党委33',
+                        id: 1006,
+                    },
+                    {
+                        title: '经济管理学院党委555',
+                        id: 1007,
+                    },
+                ]
+            }],
+            showLine:false,
+            showCheckbox: true,
+            oncheck:function(e){ //复选框选中事件
+                e.checked && selectedNode.push(e.data.title)
+                !e.checked && (selectedNode.filter((i, idx) => i === e.data.title && selectedNode.splice(idx, 1)));
+                console.log(selectedNode,'selectedNode')
+                var selectedDom = '';
+                selectedNode.map(i => selectedDom += `<span>${i};</span>`);
+                $(".box_item").html(selectedDom);
+            },
         });
     });
     

@@ -1,69 +1,30 @@
-.release_event_page{
-    width: 100%;
-    height: 100%;
-    // overflow-y: auto;
-    .custom_form{
-        padding-top: 3.7vh;
-        .layui-inline{
-            height: 30px;
-            margin-bottom: 48px;
-            width: 50%;
-            clear: unset;
-            float: left;
-            .layui-form-label{
-                line-height: 32px;
-                padding: 0;
-                margin-right: 10px;
-            }
-            .layui-input-inline{
-                width: calc(100% - 120px);
-                margin: 0;
-            }
-            .layui-input, .layui-select, .layui-textarea{
-                height: 32px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-            }
-        }
-        .datepicker_item{
-            position: relative;
-            .layui-input-inline{
-                position: relative;
-                &:before{
-                    width: 24px;
-                    height: 24px;
-                    content: url('../images/date-icon.png');
-                    position: absolute;
-                    top: 3px;
-                    right: 10px;
-                    cursor: pointer;
-                }
-            }
-            .layui-input{
-                &:focus{
-                    + .custom_datepicker{
-                        display: block;
-                    }
-                }
-            }
-            .custom_datepicker{
-                position: absolute;
-                z-index: 10;
-                display: none;
-            }
-        }
-    }
-}
-@media screen and (max-width: 1536px){
+.release_event_container{
+    overflow-y: auto;
     .release_event_page{
+        width: 100%;
+        height: 100%;
         .custom_form{
+            padding-top: 3.7vh;
             .layui-inline{
-                margin-bottom: 30px;
+                height: 30px;
+                margin-bottom: 48px;
+                width: 50%;
+                clear: unset;
+                float: left;
                 .layui-form-label{
+                    line-height: 32px;
+                    height: 32px;
+                    padding: 0;
+                    margin-right: 10px;
                 }
                 .layui-input-inline{
+                    width: calc(100% - 120px);
+                    margin: 0;
                 }
                 .layui-input, .layui-select, .layui-textarea{
+                    height: 32px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
                 }
             }
             .datepicker_item{
@@ -91,6 +52,167 @@
                     position: absolute;
                     z-index: 10;
                     display: none;
+                }
+            }
+            .tree_select_item{
+                height: 300px;
+                .layui-input-inline{
+                    height: 298px;
+                    border: 1px solid #ccc;
+                    overflow-y: auto;
+                    padding: 20px;
+                    border-radius: 8px;
+                    ::-webkit-scrollbar{
+                        width:14px;
+                        background: transparent;
+                    }
+                    /* 滚动槽 */
+                    ::-webkit-scrollbar-track {
+                        border-radius:10px;
+                    }
+                    /* 滚动条滑块 */
+                    ::-webkit-scrollbar-thumb {
+                        border-radius:10px;
+                        background:black;
+                    }
+                    .layui-form-checked[lay-skin=primary] i{
+                        background-color: #5160FF;
+                    }
+                }
+                .party_tree_container{
+                    .layui-tree-iconArrow {
+                        width: 20px;
+                        height: 20px;
+                        content: url('../images/tree-arrow.png');
+                        transform: rotate(-90deg);
+                        padding: 0;
+                    }
+                    .layui-tree-spread{
+                        .layui-tree-iconArrow{
+                            transform: none;
+                        }
+                    }
+                    .layui-tree-entry{
+                        height: 40px;
+                        padding: 0;
+                        &:hover{
+                            background-color: transparent;
+                        }
+                    }
+                    .layui-tree-txt{
+                        font-size: 14px;
+                        color: #333;
+                    }
+                }
+            }
+            .box_item_container{
+                height: 300px;
+                .layui-input-inline{
+                    height: 298px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    .box_title{
+                        background: #5160FF;
+                        font-size: 16px;
+                        color: #fff;
+                        height: 48px;
+                        border-radius: 8px;
+                        line-height: 48px;
+                        text-align: center;
+                    }
+                    .box_item{
+                        height: 250px;
+                        padding: 20px;
+                        overflow: auto;
+                        span{
+                            color: #333;
+                            font-size: 14px;
+                            line-height: 26px;
+                            margin-left: 10px;
+                            &:first-child{
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .ueditor_container{
+                height: 300px;
+                width: 100%;
+                .layui-input-inline{
+                    height: 100%;
+                    .ueditor_box{
+                        height: 100%;
+                        background: #ccc;
+                    }
+                }
+                
+            }
+            .btn_group{
+                .layui-btn{
+                    padding: 0 20px;
+                    font-size: 14px;
+                    height: 32px;
+                    line-height: 32px;
+                    background-color: #5161FF;
+                    &:hover{
+                        border-color: #5161FF;
+                    }
+                    &.layui-btn-primary{
+                        background-color: transparent;
+                        color: #666;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1536px){
+    .release_event_container{
+        .release_event_page{
+            .custom_form{
+                .layui-inline{
+                    margin-bottom: 30px;
+                    .layui-form-label{
+                    }
+                    .layui-input-inline{
+                    }
+                    .layui-input, .layui-select, .layui-textarea{
+                    }
+                }
+                .datepicker_item{
+                    position: relative;
+                    .layui-input-inline{
+                        position: relative;
+                        &:before{
+                            width: 24px;
+                            height: 24px;
+                            content: url('../images/date-icon.png');
+                            position: absolute;
+                            top: 3px;
+                            right: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                    .layui-input{
+                        &:focus{
+                            + .custom_datepicker{
+                                display: block;
+                            }
+                        }
+                    }
+                    .custom_datepicker{
+                        position: absolute;
+                        z-index: 10;
+                        display: none;
+                    }
+                }
+                .tree_select_item{
+                    .party_tree_container{
+                        .layui-tree-entry{
+                            height: 30px;
+                        }
+                    }
                 }
             }
         }

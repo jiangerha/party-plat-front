@@ -24,3 +24,10 @@ a{
     width: 100%;
     max-width: 1920px;
 }
+
+/*充值layui  样式*/
+body{
+    .layui-laydate .layui-this{
+        background-color: #5160FF!important;
+    }
+}
