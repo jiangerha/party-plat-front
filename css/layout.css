@@ -47,6 +47,7 @@
   width: 100%;
   height: 92.6vh;
   overflow: hidden;
+  position: relative;
 }
 
 .layout_page .content_container .menu_tree {
@@ -129,6 +130,26 @@
   width: 85.8vw;
   height: 100%;
   float: right;
+}
+
+.layout_page .content_container .main_content.table_form_content {
+  padding: 3.7vh 2.08vw 10.18vh 2.08vw;
+  position: absolute;
+  right: 0;
+  top: 0;
+  float: unset;
+}
+
+.layout_page .content_container .main_content .breadcrumb_group {
+  color: #999;
+}
+
+.layout_page .content_container .main_content .breadcrumb_group .layui-breadcrumb {
+  margin-left: 5px;
+}
+
+.layout_page .content_container .main_content .breadcrumb_group .layui-breadcrumb a:hover {
+  color: #999 !important;
 }
 
 @media screen and (max-width: 1536px) {

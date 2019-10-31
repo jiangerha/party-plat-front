@@ -1,0 +1,98 @@
+.release_event_page{
+    width: 100%;
+    height: 100%;
+    // overflow-y: auto;
+    .custom_form{
+        padding-top: 3.7vh;
+        .layui-inline{
+            height: 30px;
+            margin-bottom: 48px;
+            width: 50%;
+            clear: unset;
+            float: left;
+            .layui-form-label{
+                line-height: 32px;
+                padding: 0;
+                margin-right: 10px;
+            }
+            .layui-input-inline{
+                width: calc(100% - 120px);
+                margin: 0;
+            }
+            .layui-input, .layui-select, .layui-textarea{
+                height: 32px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+        }
+        .datepicker_item{
+            position: relative;
+            .layui-input-inline{
+                position: relative;
+                &:before{
+                    width: 24px;
+                    height: 24px;
+                    content: url('../images/date-icon.png');
+                    position: absolute;
+                    top: 3px;
+                    right: 10px;
+                    cursor: pointer;
+                }
+            }
+            .layui-input{
+                &:focus{
+                    + .custom_datepicker{
+                        display: block;
+                    }
+                }
+            }
+            .custom_datepicker{
+                position: absolute;
+                z-index: 10;
+                display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1536px){
+    .release_event_page{
+        .custom_form{
+            .layui-inline{
+                margin-bottom: 30px;
+                .layui-form-label{
+                }
+                .layui-input-inline{
+                }
+                .layui-input, .layui-select, .layui-textarea{
+                }
+            }
+            .datepicker_item{
+                position: relative;
+                .layui-input-inline{
+                    position: relative;
+                    &:before{
+                        width: 24px;
+                        height: 24px;
+                        content: url('../images/date-icon.png');
+                        position: absolute;
+                        top: 3px;
+                        right: 10px;
+                        cursor: pointer;
+                    }
+                }
+                .layui-input{
+                    &:focus{
+                        + .custom_datepicker{
+                            display: block;
+                        }
+                    }
+                }
+                .custom_datepicker{
+                    position: absolute;
+                    z-index: 10;
+                    display: none;
+                }
+            }
+        }
+    }
+}

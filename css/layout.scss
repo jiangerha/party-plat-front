@@ -43,6 +43,7 @@
         width: 100%;
         height: 92.6vh;
         overflow: hidden;
+        position: relative;
         .menu_tree{
             height: 100%;
             width: 14.2vw;
@@ -118,6 +119,25 @@
             width: 85.8vw;
             height: 100%;
             float: right;
+            &.table_form_content{
+                padding: 3.7vh 2.08vw 10.18vh 2.08vw;
+                position: absolute;
+                right: 0;
+                top: 0;
+                float: unset;
+            }
+            .breadcrumb_group{
+                color: #999;
+                .layui-breadcrumb{
+                    margin-left: 5px;
+                    a{
+                        &:hover{
+                            color: #999!important;
+                        }
+                    }
+                    
+                }
+            }
         }
     }
 }

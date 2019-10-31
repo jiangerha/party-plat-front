@@ -7,18 +7,19 @@
     .activity_manage_page{
         height: 100%;
         width: 100%;
-        .breadcrumb_group{
-            color: #999;
-            .layui-breadcrumb{
-                margin-left: 5px;
-                a{
-                    &:hover{
-                        color: #999!important;
-                    }
-                }
+        /**移至layout.scss**/
+        // .breadcrumb_group{
+        //     color: #999;
+        //     .layui-breadcrumb{
+        //         margin-left: 5px;
+        //         a{
+        //             &:hover{
+        //                 color: #999!important;
+        //             }
+        //         }
                 
-            }
-        }
+        //     }
+        // }
         .operate_form_group{
             height: 32px;
             margin: 3.7vh 0 1.85vh 0;
@@ -64,6 +65,24 @@
             th,td{
                 border-right: 0;
                 border-color: #E6E6E6;
+                font-size: 16px;
+                .operate_btns{
+                    >span{
+                        margin-right: 40px;
+                        float: left;
+                        cursor: pointer;
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                    }
+                    .blue_text{
+                        color: #2E87FF;
+                    }
+                    .red_text{
+                        color: #FE4D4D;
+                    }
+                }
+                
             }
             thead{
                 th{
@@ -84,6 +103,11 @@
                 height: calc(100% - 40px - 4.44vh);
                 .layui-table-body{
                     height: calc(100% - 40px)!important;
+                    tr{
+                        &:hover{
+                            background: transparent;
+                        }
+                    }
                 }
             }
             .layui-table-page{
@@ -95,12 +119,32 @@
                 bottom: 0;
                 font-size: 16px;
                 color: #4D4D4D;
-                a{
-                    color: #4D4D4D;
-                    font-size: 14px;
+                >div{
+                    text-align: center;
                 }
-                span{
+                button{
+                    padding: 14px;
+                    background: #f5f5f5;
+                    border: 1px solid #ddd;
+                    height: 38px;
+                    box-sizing: border-box;
+                    line-height: 1;
+                    color: #4d4d4d;
+                }
+                a,span{
+                    height: 38px;
+                    line-height: 38px;
+                    margin-bottom: 0;
                     font-size: 14px;
+                    color: #4D4D4D;
+                }
+                a{
+                    background: #f5f5f5;
+                    border: 1px solid #ddd;
+                    margin: 0 5px;
+                }
+                .layui-disabled{
+                    background: #fff;
                 }
                 .layui-laypage-prev{
                     margin-left: 0!important;
@@ -109,18 +153,60 @@
                     margin-right: 20px;
                 }
                 .layui-laypage-prev,.layui-laypage-next{
+                    padding: 0 20px;
                     border: 1px solid #ddd;
                 }
                 .layui-laypage-limits{
                     display: none;
                 }
+                .layui-laypage-skip{
+                    margin-bottom: 0;
+                    color: #4d4d4d;
+                    .layui-input{
+                        height: 38px;
+                        &:focus{
+                            border-color:#5161FF!important;
+                        }
+                    }
+                }
                 .layui-laypage-curr{
+                    margin-bottom: 0;
                     .layui-laypage-em{
                         background-color: transparent;
                     }
                     em{
                         color: #5161FF;
                         font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1536px){
+    .activity_manage_container{
+        .activity_manage_page{
+            .custom_table + .layui-table-view{
+                th,td{
+                    font-size: 14px;
+                }
+                .layui-table-page{
+                    a,span{
+                        height: 26px;
+                        line-height: 26px;
+                    }
+                    button{
+                        padding: 0 14px;
+                        height: 28px;
+                    }
+                    .layui-laypage-prev,.layui-laypage-next{
+                        padding: 0 10px;
+                    }
+                    .layui-laypage-skip{
+                        .layui-input{
+                            height: 26px;
+                        }
                     }
                 }
             }

@@ -1,0 +1,90 @@
+.release_event_page {
+  width: 100%;
+  height: 100%;
+}
+
+.release_event_page .custom_form {
+  padding-top: 3.7vh;
+}
+
+.release_event_page .custom_form .layui-inline {
+  height: 30px;
+  margin-bottom: 48px;
+  width: 50%;
+  clear: unset;
+  float: left;
+}
+
+.release_event_page .custom_form .layui-inline .layui-form-label {
+  line-height: 32px;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.release_event_page .custom_form .layui-inline .layui-input-inline {
+  width: calc(100% - 120px);
+  margin: 0;
+}
+
+.release_event_page .custom_form .layui-inline .layui-input, .release_event_page .custom_form .layui-inline .layui-select, .release_event_page .custom_form .layui-inline .layui-textarea {
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.release_event_page .custom_form .datepicker_item {
+  position: relative;
+}
+
+.release_event_page .custom_form .datepicker_item .layui-input-inline {
+  position: relative;
+}
+
+.release_event_page .custom_form .datepicker_item .layui-input-inline:before {
+  width: 24px;
+  height: 24px;
+  content: url("../images/date-icon.png");
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.release_event_page .custom_form .datepicker_item .layui-input:focus + .custom_datepicker {
+  display: block;
+}
+
+.release_event_page .custom_form .datepicker_item .custom_datepicker {
+  position: absolute;
+  z-index: 10;
+  display: none;
+}
+
+@media screen and (max-width: 1536px) {
+  .release_event_page .custom_form .layui-inline {
+    margin-bottom: 30px;
+  }
+  .release_event_page .custom_form .datepicker_item {
+    position: relative;
+  }
+  .release_event_page .custom_form .datepicker_item .layui-input-inline {
+    position: relative;
+  }
+  .release_event_page .custom_form .datepicker_item .layui-input-inline:before {
+    width: 24px;
+    height: 24px;
+    content: url("../images/date-icon.png");
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .release_event_page .custom_form .datepicker_item .layui-input:focus + .custom_datepicker {
+    display: block;
+  }
+  .release_event_page .custom_form .datepicker_item .custom_datepicker {
+    position: absolute;
+    z-index: 10;
+    display: none;
+  }
+}

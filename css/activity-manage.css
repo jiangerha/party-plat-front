@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .activity_manage_container {
   padding: 3.7vh 2.08vw 10.18vh 2.08vw;
   background: #fff;
@@ -9,18 +10,7 @@
 .activity_manage_container .activity_manage_page {
   height: 100%;
   width: 100%;
-}
-
-.activity_manage_container .activity_manage_page .breadcrumb_group {
-  color: #999;
-}
-
-.activity_manage_container .activity_manage_page .breadcrumb_group .layui-breadcrumb {
-  margin-left: 5px;
-}
-
-.activity_manage_container .activity_manage_page .breadcrumb_group .layui-breadcrumb a:hover {
-  color: #999 !important;
+  /**移至layout.scss**/
 }
 
 .activity_manage_container .activity_manage_page .operate_form_group {
@@ -78,6 +68,25 @@
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view th, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td {
   border-right: 0;
   border-color: #E6E6E6;
+  font-size: 16px;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view th .operate_btns > span, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td .operate_btns > span {
+  margin-right: 40px;
+  float: left;
+  cursor: pointer;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view th .operate_btns > span:last-child, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td .operate_btns > span:last-child {
+  margin-right: 0;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view th .operate_btns .blue_text, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td .operate_btns .blue_text {
+  color: #2E87FF;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view th .operate_btns .red_text, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td .operate_btns .red_text {
+  color: #FE4D4D;
 }
 
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view thead th {
@@ -101,6 +110,10 @@
   height: calc(100% - 40px) !important;
 }
 
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-box .layui-table-body tr:hover {
+  background: transparent;
+}
+
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page {
   height: 40px;
   padding: 0;
@@ -111,13 +124,36 @@
   color: #4D4D4D;
 }
 
-.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page a {
-  color: #4D4D4D;
-  font-size: 14px;
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page > div {
+  text-align: center;
 }
 
-.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page span {
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page button {
+  padding: 14px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  height: 38px;
+  box-sizing: border-box;
+  line-height: 1;
+  color: #4d4d4d;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page a, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page span {
+  height: 38px;
+  line-height: 38px;
+  margin-bottom: 0;
   font-size: 14px;
+  color: #4D4D4D;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page a {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-disabled {
+  background: #fff;
 }
 
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-prev {
@@ -129,11 +165,29 @@
 }
 
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-prev, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-next {
+  padding: 0 20px;
   border: 1px solid #ddd;
 }
 
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-limits {
   display: none;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-skip {
+  margin-bottom: 0;
+  color: #4d4d4d;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-skip .layui-input {
+  height: 38px;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-skip .layui-input:focus {
+  border-color: #5161FF !important;
+}
+
+.activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-curr {
+  margin-bottom: 0;
 }
 
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-curr .layui-laypage-em {
@@ -143,4 +197,24 @@
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-curr em {
   color: #5161FF;
   font-size: 14px;
+}
+
+@media screen and (max-width: 1536px) {
+  .activity_manage_container .activity_manage_page .custom_table + .layui-table-view th, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td {
+    font-size: 14px;
+  }
+  .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page a, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page span {
+    height: 26px;
+    line-height: 26px;
+  }
+  .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page button {
+    padding: 0 14px;
+    height: 28px;
+  }
+  .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-prev, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-next {
+    padding: 0 10px;
+  }
+  .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-skip .layui-input {
+    height: 26px;
+  }
 }
