@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/approval-plan.min.css" />
+<script src="../js/jquery.js"></script>
+</head>
+<div class="layout_page full_screen">
+    <div class="top_nav">
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <span>[组织部管理员]</span>
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
+        </ul>
+        <div class="main_content table_form_content approval_plan_container">
+            <!-- 右侧盒子内容 -->
+            <div class="approval_plan_page">
+                <div class="breadcrumb_group">
+                    当前位置：
+                    <span class="layui-breadcrumb" lay-separator=">">
+                        <a href="javascript:;">组织生活管理</a>
+                        <a href="javascript:;">审批计划</a>
+                    </span>
+                </div>
+                <div class="operate_form_group">
+                    <div class="btn_group">
+                        <button type="button" class="layui-btn custom_btn">待审批</button>
+                        <button type="button" class="layui-btn custom_btn active">已审批</button>
+                    </div>
+                    <div class="search_container">
+                        <input type="text" name="title" placeholder="搜索条件" autocomplete="off" class="layui-input custom_input">    
+                        <button type="button" class="layui-btn custom_btn search_btn">查询</button>
+                    </div>
+                </div>
+                <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
+            </div>
+            <!-- 右侧盒子内容 -->
+        </div>
+    </div>
+</div>
+<script src="../js/layui.js"></script>
+<!-- 操作列 -->
+<script type="text/html" id="operateBtns">
+    <div class="operate_btns">
+        <span class="blue_text" onclick="test();">通过</span>    
+        <span class="red_text">驳回</span>
+    </div>
+</script>
+<!-- 操作列 -->
+<script>
+    //编辑按钮 测试
+    test = function(){
+        console.log(1111)
+    }
+    //左侧菜单
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    //列表
+    layui.use('table', function(){
+        var table = layui.table;
+        var mockItem = {
+            partyName:'音乐学院党组织',
+            title:'主题党日',
+            createdDate:'2019/11/11 11:11:11',
+            place:'302会议室',
+            joinNum:'12',
+            contactPerson:'汪老师',
+            remark:'党的十九大把习近平新时代中国特色社会党的十九大把习近平新时代中国特色社会',
+            // status:'待审批',
+            status:0,
+        };
+        var data = [];
+        var getData = (num) => {
+            if(num < 200){
+                data.push({...mockItem,partyName:`音乐学院党组织${num}`,status:num % 2 === 0 ? 0 : 1});
+                return getData(num+1)
+            }
+        }
+        getData(0);
+        //第一个实例
+        table.render({
+            elem: '#activityTable',
+            // url: '/demo/table/user/', //数据接口
+            data:data,
+            page: {
+                limit:10,   //每页条数
+                limits:[],
+                prev:'&lt;上一页',
+                next:'下一页&gt;',
+                groups:4,
+            }, 
+            cols: [[ //表头
+            {field: 'partyName', title: '党组织', width:'15%'},
+            {field: 'title', title: '开展主题', width:'15%', templet:(d) => {
+                return `<a class="blue_title" href="javascript:;">${d.title}</a>`
+            }},
+            {field: 'createdDate', title: '开展时间', width:'15%'},
+            {field: 'place', title: '开展地点', width:'10%'},
+            {field: 'joinNum', title: '参会人数', width:'10%'},
+            {field: 'contactPerson', title: '联系人', width:'10%'},
+            {field: 'status', title: '任务状态', width: '10%', templet:(d) => {
+                return `<span class=${d.status ? 'allow_color' : 'reject_color'}>${d.status ? '通过' : '驳回'}</span>`
+            }},
+            {field: 'remark', title: '备注', width:'15%'},
+            // {field: 'status', title: '操作', width: '10%', toolbar: '#operateBtns'},
+            ]]
+        });
+    });
+    
+    //菜单list
+    var menuData = [
+        {
+            title:'数据统计',
+            link:'',
+            icon:'../images/tree-icon1.png',
+            children:[
+                {
+                    title:'数据汇总',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            icon:'../images/tree-icon2.png',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            icon:'../images/tree-icon4.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'系统管理',
+            icon:'../images/tree-icon6.png',
+            link:'',
+            children:[]
+        },
+    ]
+    $(document).ready(() => {
+        this.renderMenuTree();
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
+        var treeNodes = '';
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    }
+    //  已审批未审批  切换数据
+    $(".btn_group").on("click", "button", (e) => {
+        var classNameText = e.target.className;
+        if(classNameText.indexOf("active") > -1) return;
+        $('.btn_group button').removeClass("active");
+        e.target.className = `${classNameText} active`;
+        // todo
+    })
+    //  搜索查询
+    $(".search_container").on("click", ".search_btn", (e) => {
+        var searchVal = $(".search_container input").val();
+        //todo 
+    })
+</script>
+</html>

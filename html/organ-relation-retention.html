@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/organ-relation-retention.min.css" />
+<script src="../js/jquery.js"></script>
+</head>
+<div class="layout_page full_screen">
+    <div class="top_nav">
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <span>[组织部管理员]</span>
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
+        </ul>
+        <div class="main_content table_form_content organ_retention_container">
+            <!-- 右侧盒子内容 -->
+            <div class="organ_retention_page">
+                <div class="breadcrumb_group">
+                    当前位置：
+                    <span class="layui-breadcrumb" lay-separator=">">
+                        <a href="javascript:;">组织关系转接</a>
+                        <a href="javascript:;">组织关系保留</a>
+                    </span>
+                </div>
+                <div class="form_content">
+                    <p class="form_title">出国保留组织关系信息填写说明</p>
+                    <div class="table_form">
+                        <div class="title_label">
+                            <p>基本信息</p>
+                            <p>详细信息</p>
+                        </div>
+                        <form class="layui-form custom_form" id="retentionForm"> 
+                            <div class="layui-inline">
+                                <label class="layui-form-label">姓名：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">性别：</label>
+                                <div class="layui-input-inline">
+                                    <select name="" lay-filter="">
+                                        <option value="0">男</option>
+                                        <option value="1" selected="">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">民族：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">党员类型：</label>
+                                <div class="layui-input-inline">
+                                    <select name="" lay-filter="">
+                                        <option value="0">类型1</option>
+                                        <option value="1" selected="">类型2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline datepicker_item">
+                                <label class="layui-form-label">入党日期：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="date1" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">现所在支部：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">编入支部名称：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">编入支部联系人：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline datepicker_item">
+                                <label class="layui-form-label">出生日期：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">籍贯：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">联系方式：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">QQ号码：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">微信号：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">常用邮箱：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">出国期限：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline datepicker_item">
+                                <label class="layui-form-label">出境日期：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                                </div>
+                            </div>
+                            <div class="layui-inline datepicker_item">
+                                <label class="layui-form-label">返境日期：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">前往国家及学习单位：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">攻读学位：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">学历：</label>
+                                <div class="layui-input-inline">
+                                    <select name="" lay-filter="">
+                                        <option value="0">类型1</option>
+                                        <option value="1" selected="">类型2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">学习方式：</label>
+                                <div class="layui-input-inline">
+                                    <select name="" lay-filter="">
+                                        <option value="0">类型1</option>
+                                        <option value="1" selected="">类型2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">国内家庭住址：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">国内联系人：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">国内联系人手机号：</label>
+                                <div class="layui-input-inline">
+                                        <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">备注：</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline btn_group">
+                                <label class="layui-form-label"></label>
+                                <div class="layui-input-inline">
+                                    <button type="button" class="layui-btn" lay-submit="" lay-filter="retentionForm">确定</button>
+                                    <button type="button" class="layui-btn layui-btn-primary">取消</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧盒子内容 -->
+        </div>
+    </div>
+</div>
+<script src="../js/layui.js"></script>
+<script>
+    //左侧菜单
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    //表单
+    layui.use('form', function(){
+        var form = layui.form;
+        //表单提交
+        form.on('submit(organRelaForm)', function(data){
+            // layer.alert(JSON.stringify(data.field), {
+            //     title: '最终的提交信息'
+            // })
+            return false;
+        });
+    });
+    //时间选择器
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#date1', //指定元素
+        });
+        laydate.render({
+            elem: '#date2', //指定元素
+        });
+        laydate.render({
+            elem: '#date3', //指定元素
+        });
+    });
+    //tree
+    layui.use('tree', function(){
+        var selectedNode = [];
+        var tree = layui.tree;
+        tree.render({
+            elem: '#partyTree', //指定元素
+            data:[
+                {
+                title: '重庆大学党委',
+                id: 1,
+                children: [
+                    {
+                        title: '马克思主义学院党委',
+                        id: 1000,
+                    },
+                    {
+                        title: '政治与公共管理学院党委',
+                        id: 1001,
+                    },
+                    {
+                        title: '经济管理学院党委',
+                        id: 1002,
+                    },
+                    {
+                        title: '马克思主义学院党委11',
+                        id: 1004,
+                    },
+                    {
+                        title: '马克思主义学院党委22',
+                        id: 1005,
+                    },
+                    {
+                        title: '政治与公共管理学院党委33',
+                        id: 1006,
+                    },
+                    {
+                        title: '经济管理学院党委555',
+                        id: 1007,
+                    },
+                ]
+            }],
+            showLine:false,
+            showCheckbox: true,
+            oncheck:function(e){ //复选框选中事件
+                e.checked && selectedNode.push(e.data.title)
+                !e.checked && (selectedNode.filter((i, idx) => i === e.data.title && selectedNode.splice(idx, 1)));
+                console.log(selectedNode,'selectedNode')
+                var selectedDom = '';
+                selectedNode.map(i => selectedDom += `<span>${i};</span>`);
+                $(".box_item").html(selectedDom);
+            },
+        });
+    });
+    
+    //菜单list
+    var menuData = [
+        {
+            title:'数据统计',
+            link:'',
+            icon:'../images/tree-icon1.png',
+            children:[
+                {
+                    title:'数据汇总',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            icon:'../images/tree-icon2.png',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            icon:'../images/tree-icon4.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'系统管理',
+            icon:'../images/tree-icon6.png',
+            link:'',
+            children:[]
+        },
+    ]
+    $(document).ready(() => {
+        this.renderMenuTree();
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
+        var treeNodes = '';
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    }
+</script>
+</html>

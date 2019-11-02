@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="../css/layui.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/release-event.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/activity-check.min.css" />
 <script src="../js/jquery.js"></script>
 </head>
 <div class="layout_page full_screen">
@@ -34,138 +34,101 @@
     <div class="content_container">
         <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
         </ul>
-        <div class="main_content table_form_content release_event_container">
+        <div class="main_content table_form_content activity_check_container">
             <!-- 右侧盒子内容 -->
-            <div class="release_event_page">
+            <div class="activity_check_page">
                 <div class="breadcrumb_group">
                     当前位置：
                     <span class="layui-breadcrumb" lay-separator=">">
                         <a href="javascript:;">组织生活管理</a>
-                        <a href="javascript:;">活动管理</a>
-                        <a href="javascript:;">发布活动</a>
+                        <a href="javascript:;">活动抽查</a>
                     </span>
                 </div>
-                <form class="layui-form custom_form" id="activityForm"> 
-                    <div class="layui-inline">
-                        <label class="layui-form-label">活动名称：</label>
-                        <div class="layui-input-inline">
-                            <input type="text" maxlength="20" name="activityName" lay-verify="required" autocomplete="off" class="layui-input">
-                        </div>
-                    </div>
-                    <div class="layui-inline datepicker_item">
+                <div class="operate_form_group">
+                    <div class="datepicker_item">
                         <label class="layui-form-label">发布时间：</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="releaseDate" id="date" lay-verify="date" autocomplete="off" class="layui-input">
+                            <input type="text" placeholder="请选择起始时间" id="date1" lay-verify="date" autocomplete="off" class="layui-input custom_input">
                         </div>
                     </div>
-                    <div class="layui-inline tree_select_item">
-                        <label class="layui-form-label">发布对象：</label>
+                    <span class="connect_line">——</span>
+                    <div class="datepicker_item">
                         <div class="layui-input-inline">
-                            <div id="partyTree" class="party_tree_container"></div>
+                            <input type="text" placeholder="请选择截止时间" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
                         </div>
                     </div>
-                    <div class="layui-inline box_item_container">
-                        <label class="layui-form-label">已选对象：</label>
-                        <div class="layui-input-inline">
-                            <p class="box_title">已选择发布对象</p>
-                            <div class="box_item"></div>
-                        </div>
-                    </div>
-                    <div class="layui-inline ueditor_container">
-                        <label class="layui-form-label">发布内容：</label>
-                        <div class="layui-input-inline">
-                            <div class="ueditor_box"></div>
-                        </div>
-                    </div>
-                    <div class="layui-inline btn_group">
-                        <label class="layui-form-label"></label>
-                        <div class="layui-input-inline">
-                            <button type="button" class="layui-btn" lay-submit="" lay-filter="activityForm">确定</button>
-                            <button type="button" class="layui-btn layui-btn-primary">取消</button>
-                        </div>
-                    </div>
-                  </form>
+                    <button type="button" class="layui-btn custom_btn search_btn">查询</button>
+                    <button type="button" class="layui-btn custom_btn publish_acti_btn">导出Excel</button>
+                </div>
+                <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
             </div>
             <!-- 右侧盒子内容 -->
         </div>
     </div>
 </div>
 <script src="../js/layui.js"></script>
+<script type="text/html" id="operateBtns">
+    <div class="operate_btns">
+        <span class="blue_text" onclick="test();">抽查</span>    
+    </div>
+</script>
 <script>
+    //按钮 测试
+    test = function(){
+        console.log(1111)
+    }
     //左侧菜单
     layui.use('element', function(){
         var element = layui.element;
     });
-    //表单
-    layui.use('form', function(){
-        var form = layui.form;
-        //表单提交
-        form.on('submit(activityForm)', function(data){
-            // layer.alert(JSON.stringify(data.field), {
-            //     title: '最终的提交信息'
-            // })
-            return false;
+    //列表
+    layui.use('table', function(){
+        var table = layui.table;
+        var mockItem = {
+            name:'111111',
+            createdDate:'2019-08-20  09：00',
+            content:'.....党的十九大把习近平新时代中国特色社会党的十九大把习近平新时代中国特色社会',
+            operate:'',
+        };
+        var data = [];
+        var getData = (num) => {
+            if(num < 200){
+                data.push({...mockItem,name:num});
+                return getData(num+1)
+            }
+        }
+        getData(0);
+        //第一个实例
+        table.render({
+            elem: '#activityTable',
+            // url: '/demo/table/user/', //数据接口
+            data:data,
+            page: {
+                limit:10,   //每页条数
+                limits:[],
+                prev:'&lt;上一页',
+                next:'下一页&gt;',
+                groups:4,
+            }, 
+            cols: [[ //表头
+            {field: 'name', title: '活动名称', width:'20%'},
+            {field: 'createdDate', title: '发布时间', width:'20%'},
+            {field: 'content', title: '发布内容', width:'40%'},
+            {field: 'operate', title: '操作', width: '20%', toolbar: '#operateBtns'}
+            ]]
         });
     });
+    
     //时间选择器
     layui.use('laydate', function(){
         var laydate = layui.laydate;
         //执行一个laydate实例
         laydate.render({
-            elem: '#date', //指定元素
+            elem: '#date1', //指定元素
         });
-    });
-    //tree
-    layui.use('tree', function(){
-        var selectedNode = [];
-        var tree = layui.tree;
-        tree.render({
-            elem: '#partyTree', //指定元素
-            data:[
-                {
-                title: '重庆大学党委',
-                id: 1,
-                children: [
-                    {
-                        title: '马克思主义学院党委',
-                        id: 1000,
-                    },
-                    {
-                        title: '政治与公共管理学院党委',
-                        id: 1001,
-                    },
-                    {
-                        title: '经济管理学院党委',
-                        id: 1002,
-                    },
-                    {
-                        title: '马克思主义学院党委11',
-                        id: 1004,
-                    },
-                    {
-                        title: '马克思主义学院党委22',
-                        id: 1005,
-                    },
-                    {
-                        title: '政治与公共管理学院党委33',
-                        id: 1006,
-                    },
-                    {
-                        title: '经济管理学院党委555',
-                        id: 1007,
-                    },
-                ]
-            }],
-            showLine:false,
-            showCheckbox: true,
-            oncheck:function(e){ //复选框选中事件
-                e.checked && selectedNode.push(e.data.title)
-                !e.checked && (selectedNode.filter((i, idx) => i === e.data.title && selectedNode.splice(idx, 1)));
-                console.log(selectedNode,'selectedNode')
-                var selectedDom = '';
-                selectedNode.map(i => selectedDom += `<span>${i};</span>`);
-                $(".box_item").html(selectedDom);
-            },
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#date2', //指定元素
         });
     });
     
@@ -240,5 +203,12 @@
         })
         $("#menu_tree").html(treeNodes);
     }
+
+    // 查询 按钮 点击事件
+    $(".operate_form_group").on("click", ".search_btn", () => {
+        var startDate = $("#date1").val();
+        var endDate = $("#date2").val();
+        console.log(startDate, endDate)
+    })
 </script>
 </html>

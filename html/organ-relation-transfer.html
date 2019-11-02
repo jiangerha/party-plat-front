@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="../css/layui.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/release-event.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/organ-relation-transfer.min.css" />
 <script src="../js/jquery.js"></script>
 </head>
 <div class="layout_page full_screen">
@@ -34,57 +34,63 @@
     <div class="content_container">
         <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
         </ul>
-        <div class="main_content table_form_content release_event_container">
+        <div class="main_content table_form_content organ_relation_container">
             <!-- 右侧盒子内容 -->
-            <div class="release_event_page">
+            <div class="organ_relation_page">
                 <div class="breadcrumb_group">
                     当前位置：
                     <span class="layui-breadcrumb" lay-separator=">">
-                        <a href="javascript:;">组织生活管理</a>
-                        <a href="javascript:;">活动管理</a>
-                        <a href="javascript:;">发布活动</a>
+                        <a href="javascript:;">组织关系转接</a>
+                        <a href="javascript:;">组织关系转入</a>
                     </span>
                 </div>
-                <form class="layui-form custom_form" id="activityForm"> 
-                    <div class="layui-inline">
-                        <label class="layui-form-label">活动名称：</label>
-                        <div class="layui-input-inline">
-                            <input type="text" maxlength="20" name="activityName" lay-verify="required" autocomplete="off" class="layui-input">
+                <div class="form_content">
+                    <form class="layui-form custom_form" id="organRelaForm"> 
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">转入单位：</label>
+                            <div class="layui-input-block">
+                                <input type="text" placeholder="按照转入单位要求填转入往单位" maxlength="20" name="organRelaName" lay-verify="required" autocomplete="off" class="layui-input">
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline datepicker_item">
-                        <label class="layui-form-label">发布时间：</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="releaseDate" id="date" lay-verify="date" autocomplete="off" class="layui-input">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">转入类型：</label>
+                            <div class="layui-input-block">
+                                <select name="interest" lay-filter="aihao">
+                                    <option value="0">重庆市外</option>
+                                    <option value="1" selected="">重庆市内</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline tree_select_item">
-                        <label class="layui-form-label">发布对象：</label>
-                        <div class="layui-input-inline">
-                            <div id="partyTree" class="party_tree_container"></div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">转入形式：</label>
+                            <div class="layui-input-block">
+                                <select name="interest" lay-filter="aihao">
+                                <option value="0"  selected="">纸质</option>
+                                <option value="1">电子</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline box_item_container">
-                        <label class="layui-form-label">已选对象：</label>
-                        <div class="layui-input-inline">
-                            <p class="box_title">已选择发布对象</p>
-                            <div class="box_item"></div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">介绍信抬头：</label>
+                            <div class="layui-input-block">
+                                <textarea maxlength="200" placeholder="转入/挂靠党组织名称（详见注意事项）" class="layui-textarea"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline ueditor_container">
-                        <label class="layui-form-label">发布内容：</label>
-                        <div class="layui-input-inline">
-                            <div class="ueditor_box"></div>
+                        <div class="layui-form-item btn_group">
+                            <div class="layui-input-block">
+                                <button type="submit" class="layui-btn" lay-submit="" lay-filter="organRelaForm">提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
                         </div>
+                    </form>
+                    <div class="tips_container">
+                        <p class="tips_title">注意事项</p>
+                        <p>1.请与转入单位党务工作部门（非人事）落实；</p>
+                        <p> 2.市外原则上需县级以上党组织，不应出现支部、街道等；</p>
+                        <p>3.室外则通过12371平台进行转接，抬头需落实到支部；</p>
+                        <p>4.以转入“重庆大学外国语学院”为例，【由市外转入】去往单位：重庆大学外国语学院，介绍信抬头：重庆市委教育工作；【由市内转入】去往单位：重庆大学外国语学院，介绍信抬头：市委教工委-重庆大学党委-外语学院党务-XX支部</p>
                     </div>
-                    <div class="layui-inline btn_group">
-                        <label class="layui-form-label"></label>
-                        <div class="layui-input-inline">
-                            <button type="button" class="layui-btn" lay-submit="" lay-filter="activityForm">确定</button>
-                            <button type="button" class="layui-btn layui-btn-primary">取消</button>
-                        </div>
-                    </div>
-                  </form>
+                </div>
             </div>
             <!-- 右侧盒子内容 -->
         </div>
@@ -100,7 +106,7 @@
     layui.use('form', function(){
         var form = layui.form;
         //表单提交
-        form.on('submit(activityForm)', function(data){
+        form.on('submit(organRelaForm)', function(data){
             // layer.alert(JSON.stringify(data.field), {
             //     title: '最终的提交信息'
             // })
