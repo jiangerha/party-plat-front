@@ -45,46 +45,48 @@
                         <a href="javascript:;">发布活动</a>
                     </span>
                 </div>
-                <form class="layui-form custom_form" id="activityForm"> 
-                    <div class="layui-inline">
-                        <label class="layui-form-label">活动名称：</label>
-                        <div class="layui-input-inline">
-                            <input type="text" maxlength="20" name="activityName" lay-verify="required" autocomplete="off" class="layui-input">
+                <div class="form_container">
+                    <form class="layui-form custom_form" id="activityForm"> 
+                        <div class="layui-inline">
+                            <label class="layui-form-label">活动名称：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" maxlength="20" name="activityName" lay-verify="required" autocomplete="off" class="layui-input">
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline datepicker_item">
-                        <label class="layui-form-label">发布时间：</label>
-                        <div class="layui-input-inline">
-                            <input type="text" name="releaseDate" id="date" lay-verify="date" autocomplete="off" class="layui-input">
+                        <div class="layui-inline datepicker_item">
+                            <label class="layui-form-label">发布时间：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="releaseDate" id="date" lay-verify="date" autocomplete="off" class="layui-input">
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline tree_select_item">
-                        <label class="layui-form-label">发布对象：</label>
-                        <div class="layui-input-inline">
-                            <div id="partyTree" class="party_tree_container"></div>
+                        <div class="layui-inline tree_select_item">
+                            <label class="layui-form-label">发布对象：</label>
+                            <div class="layui-input-inline">
+                                <div id="partyTree" class="party_tree_container"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline box_item_container">
-                        <label class="layui-form-label">已选对象：</label>
-                        <div class="layui-input-inline">
-                            <p class="box_title">已选择发布对象</p>
-                            <div class="box_item"></div>
+                        <div class="layui-inline box_item_container">
+                            <label class="layui-form-label">已选对象：</label>
+                            <div class="layui-input-inline">
+                                <p class="box_title">已选择发布对象</p>
+                                <div class="box_item"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline ueditor_container">
-                        <label class="layui-form-label">发布内容：</label>
-                        <div class="layui-input-inline">
-                            <div class="ueditor_box"></div>
+                        <div class="layui-inline ueditor_container">
+                            <label class="layui-form-label">发布内容：</label>
+                            <div class="layui-input-inline">
+                                <div class="ueditor_box"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="layui-inline btn_group">
-                        <label class="layui-form-label"></label>
-                        <div class="layui-input-inline">
-                            <button type="button" class="layui-btn" lay-submit="" lay-filter="activityForm">确定</button>
-                            <button type="button" class="layui-btn layui-btn-primary">取消</button>
+                        <div class="layui-inline btn_group">
+                            <label class="layui-form-label"></label>
+                            <div class="layui-input-inline">
+                                <button type="button" class="layui-btn" lay-submit="" lay-filter="activityForm">确定</button>
+                                <button type="button" class="layui-btn layui-btn-primary">取消</button>
+                            </div>
                         </div>
-                    </div>
-                  </form>
+                      </form>
+                </div>
             </div>
             <!-- 右侧盒子内容 -->
         </div>

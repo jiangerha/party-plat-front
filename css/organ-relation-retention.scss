@@ -1,0 +1,101 @@
+.organ_retention_container{
+    overflow-y: auto;
+    padding-bottom: 0!important;
+    .organ_retention_page{
+        width: 100%;
+        height: 100%;
+        .form_content{
+            padding-top: 3.7vh;
+            .form_title{
+                width: 100%;
+                height: 48px;
+                background: #EAEEF5;
+                font-size: 16px;
+                line-height: 48px;
+                text-align: center;
+            }
+            .table_form{
+                width: 100%;
+                .title_label{
+                    height: 651px;
+                    width: 48px;
+                    display: inline-block;
+                    float: left;
+                    p{
+                       margin-top: 8px; 
+                       background: #EAEEF5;
+                       font-size: 16px;
+                       line-height: 16px;
+                       &:first-child{
+                           height: 196px;
+                            padding: 66px 16px;
+                       }
+                       &:last-child{
+                           height: 441px;
+                           padding: 188.5px 16px;
+                       }
+                    }
+                }
+                .custom_form{
+                    display: inline-block;
+                    width: calc(100% - 48px);
+                    padding-top: 8px;
+                    .layui-inline{
+                        width: 50%;
+                        float: left;
+                        border-bottom: 1px solid #CCC;
+                        label,.layui-input-inline{
+                            width: 50%;
+                        }
+                        .layui-form-label{
+                            line-height: 48px;
+                            background-color: #F6F8FC;
+                        }
+                        .layui-input-inline{
+                            padding: 8px 9.5px;
+                        }
+                    }
+                    .datepicker_item{
+                        .layui-input-inline{
+                            &::before{
+                                top: 11px;
+                                right: 20px;
+                            }
+                        }
+                    }
+                    .mrt8{
+                        margin-top: 8px;
+                    }
+                    .table_text_container{
+                        width: 100%;
+                        .layui-form-label{
+                            width: 25%;
+                        }
+                        .layui-input-inline{
+                            width: 75%;
+                        }
+                    }
+                    .btn_group{
+                        margin-left: -48px;
+                        .layui-input-inline{
+                            padding: 3.7vh 0 12.68vh 0;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+@media screen and (max-width: 1536px){
+    .organ_retention_container{
+        .organ_retention_page{
+            .form_content{
+                .form_title{
+                    height: 30px;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}

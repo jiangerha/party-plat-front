@@ -1,0 +1,27 @@
+.approval_plan_page{
+    width: 100%;
+    height: 100%;
+    .operate_form_group{
+        .btn_group{
+            display: inline-block;
+            button{
+                background: transparent;
+                color: #666;
+                border: 1px solid #ccc;
+                &:hover{
+                    background-color: #5161FF;
+                    border-color: #5161FF;
+                    color: #fff;
+                }
+                &.active{
+                    background-color: #5161FF;
+                    border-color: #5161FF;
+                    color: #fff;
+                }
+            }
+        }
+        .search_container{
+            float: right;
+        }
+    }
+}

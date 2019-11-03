@@ -1,16 +1,26 @@
 .release_event_container{
     overflow-y: auto;
+    padding-bottom: 0!important;
     .release_event_page{
         width: 100%;
-        height: 100%;
+        margin-bottom: 3.7vh;
+        .form_container{
+            background: #F6F8FC;
+            width: 100%;
+        }
         .custom_form{
-            padding-top: 3.7vh;
+            padding: 3.7vh 0 0 20px;
+            margin-top: 1.85vh;
+            max-width: 960px;
             .layui-inline{
                 height: 30px;
                 margin-bottom: 48px;
                 width: 50%;
                 clear: unset;
-                float: left;
+                // float: left;
+                &:nth-child(2n){
+                    float: right;
+                }
                 .layui-form-label{
                     line-height: 32px;
                     height: 32px;
@@ -40,18 +50,6 @@
                         right: 10px;
                         cursor: pointer;
                     }
-                }
-                .layui-input{
-                    &:focus{
-                        + .custom_datepicker{
-                            display: block;
-                        }
-                    }
-                }
-                .custom_datepicker{
-                    position: absolute;
-                    z-index: 10;
-                    display: none;
                 }
             }
             .tree_select_item{
@@ -149,6 +147,8 @@
                 
             }
             .btn_group{
+                margin-bottom: 64px !important;
+                float: unset!important;
                 .layui-btn{
                     padding: 0 20px;
                     font-size: 14px;

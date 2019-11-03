@@ -106,13 +106,13 @@
                                     <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
-                            <div class="layui-inline datepicker_item">
+                            <div class="layui-inline datepicker_item mrt8">
                                 <label class="layui-form-label">出生日期：</label>
                                 <div class="layui-input-inline">
                                     <input type="text" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
                                 </div>
                             </div>
-                            <div class="layui-inline">
+                            <div class="layui-inline mrt8">
                                 <label class="layui-form-label">籍贯：</label>
                                 <div class="layui-input-inline">
                                         <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
@@ -151,13 +151,13 @@
                             <div class="layui-inline datepicker_item">
                                 <label class="layui-form-label">出境日期：</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                                    <input type="text" id="date3" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
                                 </div>
                             </div>
                             <div class="layui-inline datepicker_item">
                                 <label class="layui-form-label">返境日期：</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                                    <input type="text" id="date4" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
                                 </div>
                             </div>
                             <div class="layui-inline">
@@ -208,7 +208,7 @@
                                         <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
-                            <div class="layui-inline">
+                            <div class="layui-inline table_text_container">
                                 <label class="layui-form-label">备注：</label>
                                 <div class="layui-input-inline">
                                     <input type="text" maxlength="20" lay-verify="required" autocomplete="off" class="layui-input">
@@ -217,8 +217,8 @@
                             <div class="layui-inline btn_group">
                                 <label class="layui-form-label"></label>
                                 <div class="layui-input-inline">
-                                    <button type="button" class="layui-btn" lay-submit="" lay-filter="retentionForm">确定</button>
-                                    <button type="button" class="layui-btn layui-btn-primary">取消</button>
+                                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="retentionForm">提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                                 </div>
                             </div>
                         </form>
@@ -258,6 +258,9 @@
         });
         laydate.render({
             elem: '#date3', //指定元素
+        });
+        laydate.render({
+            elem: '#date4', //指定元素
         });
     });
     //tree

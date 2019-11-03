@@ -10,7 +10,7 @@ html,body{
 li{
     list-style: none;
 }
-div{
+div, p{
     box-sizing: border-box;
 }
 input{
@@ -29,5 +29,284 @@ a{
 body{
     .layui-laydate .layui-this{
         background-color: #5160FF!important;
+    }
+}
+.table_form_content{
+    /*公共列表样式*/
+    .custom_table + .layui-table-view{
+        height: calc(100% - 46px - 5.55vh) !important;
+        margin: 0;
+        border: 0;
+        position: relative;
+        clear: both;
+        th,td{
+            border-right: 0;
+            border-color: #E6E6E6;
+            font-size: 16px;
+            .operate_btns{
+                >span{
+                    margin-right: 10%;
+                    float: left;
+                    cursor: pointer;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+                .blue_text{
+                    color: #2E87FF;
+                }
+                .red_text{
+                    color: #FE4D4D;
+                }
+            }
+            .reject_color{
+                color: #FF523A;
+            }
+            .allow_color{
+                color: #11D43B;
+            }
+            .blue_title{
+                color: #5161FF;
+            }
+        }
+        thead{
+            th{
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                height: 48px;
+                background: #F6F8FC;
+            }
+        }
+        tbody{
+            tr{
+                &:nth-child(2n){
+                    background: #FBFCFE;
+                }
+            }
+            td{
+                color: #666;
+                height: 48px;
+            }
+        }
+        .layui-table-box{
+            height: calc(100% - 40px - 4.44vh);
+            .layui-table-body{
+                height: calc(100% - 40px)!important;
+                tr{
+                    &:hover{
+                        background: transparent;
+                    }
+                }
+            }
+        }
+        .layui-table-page{
+            height: 40px;
+            // padding: 4.44vh 0 0 0;
+            padding: 0;
+            border: 0;
+            position: absolute;
+            bottom: 0;
+            font-size: 16px;
+            color: #4D4D4D;
+            >div{
+                text-align: center;
+            }
+            button{
+                padding: 14px;
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+                height: 38px;
+                box-sizing: border-box;
+                line-height: 1;
+                color: #4d4d4d;
+            }
+            a,span{
+                height: 38px;
+                line-height: 38px;
+                margin-bottom: 0;
+                font-size: 14px;
+                color: #4D4D4D;
+            }
+            a{
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+                margin: 0 5px;
+            }
+            .layui-disabled{
+                background: #fff;
+            }
+            .layui-laypage-prev{
+                margin-left: 0!important;
+            }
+            .layui-laypage-next{
+                margin-right: 20px;
+            }
+            .layui-laypage-prev,.layui-laypage-next{
+                padding: 0 20px;
+                border: 1px solid #ddd;
+            }
+            .layui-laypage-limits{
+                display: none;
+            }
+            .layui-laypage-skip{
+                margin-bottom: 0;
+                color: #4d4d4d;
+                .layui-input{
+                    height: 38px;
+                    &:focus{
+                        border-color:#5161FF!important;
+                    }
+                }
+            }
+            .layui-laypage-curr{
+                margin-bottom: 0;
+                .layui-laypage-em{
+                    background-color: transparent;
+                }
+                em{
+                    color: #5161FF;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    /*搜索表单*/
+    .operate_form_group{
+        height: 32px;
+        margin: 3.7vh 0 1.85vh 0;
+        .custom_input{
+            border-color: #ccc !important;
+            width: 280px;
+            height: 32px;
+            line-height: 1;
+            display: inline-block;
+            vertical-align: middle;
+            float: left;
+            &::-webkit-input-placeholder{
+                color: #ccc;
+            }
+            &::-moz-placeholder{
+                    color: #ccc;        
+            }
+            &:-ms-input-placeholder{
+                    color: #ccc;        
+            }
+        }
+        .custom_btn{
+            padding: 0 22px;
+            height: 32px;
+            background-color: #5161FF;
+            font-size: 14px;
+            color: #fff;
+            line-height: 1;
+            border-radius: 4px;
+        }
+        .search_btn{
+            float: left;
+            margin-left:10px;
+        }
+        .publish_acti_btn{
+            float: right;
+        }
+    }
+    .layui-form-select{
+        dl{
+            padding: 0;
+            dd.layui-this{
+                background-color: #F6F8FC;
+                color: #333;
+            }
+        }
+    }
+    .custom_form{
+        .layui-form-label{
+            padding: 0;
+            line-height: 32px;
+        }
+        .layui-input{
+            height: 32px;
+        }
+        .layui-input, .layui-textarea{
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .layui-textarea{
+            height: 140px;
+            resize: none;
+        }
+        .layui-btn{
+            padding: 0 22px;
+            height: 32px;
+            font-size: 14px;
+            line-height: 1;
+            border-radius: 4px;
+            &:hover{
+                background-color: #5160FF;
+                color: #fff;
+            }
+        }
+    }
+}
+.datepicker_item{
+    position: relative;
+    .layui-input-inline{
+        position: relative;
+        &:before{
+            width: 24px;
+            height: 24px;
+            content: url('../images/date-icon.png');
+            position: absolute;
+            top: 3px;
+            right: 10px;
+            cursor: pointer;
+        }
+    }
+}
+/*设置滚动条样式*/
+div, textarea{
+    &::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
+        background-color:#f8f8f8;
+    }
+    &::-webkit-scrollbar {//滚动条的宽度
+        width:9px;
+        height:9px;
+    }
+    &::-webkit-scrollbar-thumb {//滚动条的设置
+        background-color:#dddddd;
+        background-clip:padding-box;
+        min-height:28px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color:#bbb;
+    }
+}
+
+@media screen and (max-width: 1536px){
+    .table_form_content{
+        /*公共列表样式*/
+        .custom_table + .layui-table-view{
+            th,td{
+                font-size: 14px;
+            }
+            .layui-table-page{
+                a,span{
+                    height: 26px;
+                    line-height: 26px;
+                }
+                button{
+                    padding: 0 14px;
+                    height: 28px;
+                }
+                .layui-laypage-prev,.layui-laypage-next{
+                    padding: 0 10px;
+                }
+                .layui-laypage-skip{
+                    .layui-input{
+                        height: 26px;
+                    }
+                }
+            }
+        }
     }
 }

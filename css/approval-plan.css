@@ -1,0 +1,30 @@
+.approval_plan_page {
+  width: 100%;
+  height: 100%;
+}
+
+.approval_plan_page .operate_form_group .btn_group {
+  display: inline-block;
+}
+
+.approval_plan_page .operate_form_group .btn_group button {
+  background: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+}
+
+.approval_plan_page .operate_form_group .btn_group button:hover {
+  background-color: #5161FF;
+  border-color: #5161FF;
+  color: #fff;
+}
+
+.approval_plan_page .operate_form_group .btn_group button.active {
+  background-color: #5161FF;
+  border-color: #5161FF;
+  color: #fff;
+}
+
+.approval_plan_page .operate_form_group .search_container {
+  float: right;
+}

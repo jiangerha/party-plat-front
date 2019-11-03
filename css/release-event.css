@@ -1,15 +1,23 @@
 @charset "UTF-8";
 .release_event_container {
   overflow-y: auto;
+  padding-bottom: 0 !important;
 }
 
 .release_event_container .release_event_page {
   width: 100%;
-  height: 100%;
+  margin-bottom: 3.7vh;
+}
+
+.release_event_container .release_event_page .form_container {
+  background: #F6F8FC;
+  width: 100%;
 }
 
 .release_event_container .release_event_page .custom_form {
-  padding-top: 3.7vh;
+  padding: 3.7vh 0 0 20px;
+  margin-top: 1.85vh;
+  max-width: 960px;
 }
 
 .release_event_container .release_event_page .custom_form .layui-inline {
@@ -17,7 +25,10 @@
   margin-bottom: 48px;
   width: 50%;
   clear: unset;
-  float: left;
+}
+
+.release_event_container .release_event_page .custom_form .layui-inline:nth-child(2n) {
+  float: right;
 }
 
 .release_event_container .release_event_page .custom_form .layui-inline .layui-form-label {
@@ -54,16 +65,6 @@
   top: 3px;
   right: 10px;
   cursor: pointer;
-}
-
-.release_event_container .release_event_page .custom_form .datepicker_item .layui-input:focus + .custom_datepicker {
-  display: block;
-}
-
-.release_event_container .release_event_page .custom_form .datepicker_item .custom_datepicker {
-  position: absolute;
-  z-index: 10;
-  display: none;
 }
 
 .release_event_container .release_event_page .custom_form .tree_select_item {
@@ -173,6 +174,11 @@
 .release_event_container .release_event_page .custom_form .ueditor_container .layui-input-inline .ueditor_box {
   height: 100%;
   background: #ccc;
+}
+
+.release_event_container .release_event_page .custom_form .btn_group {
+  margin-bottom: 64px !important;
+  float: unset !important;
 }
 
 .release_event_container .release_event_page .custom_form .btn_group .layui-btn {
