@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/party-info-manage.min.css" />
+<script src="../js/jquery.js"></script>
+</head>
+<div class="layout_page full_screen">
+    <div class="top_nav">
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <span>[组织部管理员]</span>
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
+        </ul>
+        <div class="main_content table_form_content party_manage_container">
+            <!-- 右侧盒子内容 -->
+            <div class="party_manage_page">
+                <div class="breadcrumb_group">
+                    当前位置：
+                    <span class="layui-breadcrumb" lay-separator=">">
+                        <a href="javascript:;">基础数据管理</a>
+                        <a href="javascript:;">党组信息管理</a>
+                    </span>
+                </div>
+                <div class="party_manage_content">
+                    <div id="partyManageTree" class="party_tree_container"></div>
+                    <div class="party_table_container">
+                            <div class="breadcrumb_group">
+                                当前组织：
+                                <span class="layui-breadcrumb" lay-separator=">">
+                                    <a href="javascript:;">重庆大学党委</a>
+                                    <a href="javascript:;">机关党委</a>
+                                </span>
+                            </div>
+                            <div class="table_content">
+                                <div  id="partyMemberBtns" class="layui-btn-group table_btns hidden_container">
+                                    <button type="button" class="layui-btn custom_btn">新建人员</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn">编辑人员</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn" data-type="getCheckData">人员名册导出</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn">人员名册导入</button>
+                                </div>
+                                <div id="partyOrganBtns" class="layui-btn-group table_btns">
+                                    <button type="button" class="layui-btn custom_btn">新建组织</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn">编辑组织</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn">党组织导出</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn">党组织导入</button>
+                                </div>
+                                <table id="partyInfoTable" lay-filter="partyInfoTable" class="custom_table hidden_container" lay-filter="partyInfoTable"></table>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧盒子内容 -->
+        </div>
+    </div>
+</div>
+<script src="../js/layui.js"></script>
+<script type="text/html" id="operateBtns">
+    <div class="operate_btns">
+        <span class="blue_text">编辑</span>    
+    </div>
+</script>
+<script>
+
+    //获取复选框选中的数据
+    var selectedData = [];
+
+    //左侧菜单
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    //tree
+    layui.use('tree', function(){
+        var tree = layui.tree;
+        tree.render({
+            elem: '#partyManageTree', //指定元素
+            data:[
+                {
+                title: '重庆大学党委',
+                id: 1,
+                children: [
+                    {
+                        title: '马克思主义学院党委',
+                        id: 1000,
+                        children:[
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10001,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10002,
+                            },
+                        ]
+                    },
+                    {
+                        title: '政治与公共管理学院党委',
+                        id: 1001,
+                        children:[
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10011,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10012,
+                            },
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10013,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10014,
+                            },
+                        ]
+                    },
+                    {
+                        title: '经济管理学院党委',
+                        id: 1002,
+                        children:[
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10021,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10022,
+                            },
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10023,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10024,
+                            },
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10025,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10026,
+                            },
+                            {
+                                title: '政治与公共管理学院党委',
+                                id: 10027,
+                            },
+                            {
+                                title: '经济管理学院党委',
+                                id: 10028,
+                            },
+                        ]
+                    },
+                    {
+                        title: '马克思主义学院党委11',
+                        id: 1004,
+                    },
+                    {
+                        title: '马克思主义学院党委22',
+                        id: 1005,
+                    },
+                    {
+                        title: '政治与公共管理学院党委33',
+                        id: 1006,
+                    },
+                    {
+                        title: '经济管理学院党委555',
+                        id: 1007,
+                    },
+                ]
+            }],
+            showLine:false,
+            click:(obj) => {
+                console.log(obj,'s');
+                //左侧tree控制右侧显示
+                if(obj.data.children){
+                    $("#partyInfoTable").addClass("hidden_container");
+                    $("#partyMemberBtns").addClass("hidden_container");
+                    $("#partyOrganBtns").removeClass("hidden_container");
+                }else{
+                    $("#partyInfoTable").removeClass("hidden_container");
+                    $("#partyMemberBtns").removeClass("hidden_container");
+                    $("#partyOrganBtns").addClass("hidden_container");
+                }
+                //点击节点选中
+                [...($("#partyManageTree .layui-tree-set"))].map(i => {
+                    $(i).removeClass("active_node");
+                    if($(i).attr("data-id") == obj.data.id){
+                        $(i).addClass("active_node");
+                    }
+                })
+            }
+        });
+        //限制可展开树节点 宽度
+        [...($("#partyManageTree .layui-tree-set"))].map(i => {
+           if($(i).children(".layui-tree-pack").length){
+               $(i).addClass("limit_width");
+           }
+        });
+        //添加title 属性
+        [...$("#partyManageTree .layui-tree-txt")].map(i => {
+            $(i).attr("title", $(i).text());
+        })
+    });
+    //列表
+    layui.use('table', function(){
+        var table = layui.table;
+        var mockItem = {
+            name:'111111',
+            createdDate:'2019-08-20  09：00',
+            content:'.....党的十九大把习近平新时代中国特色社会党的十九大把习近平新时代中国特色社会',
+            operate:'',
+        };
+        var data = [];
+        var getData = (num) => {
+            if(num < 200){
+                data.push({...mockItem,name:num});
+                return getData(num+1)
+            }
+        }
+        getData(0);
+        //第一个实例
+        table.render({
+            elem: '#partyInfoTable',
+            // url: '/demo/table/user/', //数据接口
+            data:data,
+            page: {
+                limit:10,   //每页条数
+                limits:[],
+                prev:'&lt;上一页',
+                next:'下一页&gt;',
+                groups:4,
+            }, 
+            cols: [[ //表头
+            {type:'checkbox'},
+            {field: 'name', title: '活动名称', width:'20%'},
+            {field: 'createdDate', title: '发布时间', width:'20%'},
+            {field: 'content', title: '发布内容', width:'40%'},
+            {field: 'operate', title: '操作', width: '20%', toolbar: '#operateBtns'}
+            ]]
+        });
+        //监听表格复选框选择
+        // table.on('checkbox(partyInfoTable)', function(obj){
+        //     var data = obj.data;
+        //     var dataLen = selectedData.length;
+        //     if(!dataLen){
+        //         selectedData.push(data)
+        //     }else{
+        //         var isExit = false;
+        //         selectedData.map((i, idx) => {
+        //             if(i.name === data.name){
+        //                 isExit = true;
+        //                 selectedData.splice(idx, 1)
+        //                 return;
+        //             }
+        //         })
+        //         !isExit && selectedData.push(data)
+        //     };
+        // });
+        var $ = layui.$, active = {
+            //人员名册导出
+            getCheckData: function(){ //获取选中数据
+                var checkStatus = table.checkStatus('partyInfoTable');
+                var data = checkStatus.data;
+                console.log(data, '选中的人员');
+                layer.alert(JSON.stringify(data));
+            },
+        };
+        $('.table_content .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+    //菜单list
+    var menuData = [
+        {
+            title:'数据统计',
+            link:'',
+            icon:'../images/tree-icon1.png',
+            children:[
+                {
+                    title:'数据汇总',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            icon:'../images/tree-icon2.png',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            icon:'../images/tree-icon4.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'系统管理',
+            icon:'../images/tree-icon6.png',
+            link:'',
+            children:[]
+        },
+    ]
+    $(document).ready(() => {
+        this.renderMenuTree();
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
+        var treeNodes = '';
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    }
+</script>
+</html>

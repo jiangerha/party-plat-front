@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .activity_manage_container {
   padding: 3.7vh 2.08vw 10.18vh 2.08vw;
   background: #fff;
@@ -10,7 +9,6 @@
 .activity_manage_container .activity_manage_page {
   height: 100%;
   width: 100%;
-  /**移至layout.scss**/
 }
 
 .activity_manage_container .activity_manage_page .operate_form_group {

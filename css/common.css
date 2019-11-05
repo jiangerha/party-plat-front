@@ -43,11 +43,19 @@ body .layui-laydate .layui-this {
 }
 
 .table_form_content .custom_table + .layui-table-view {
-  height: calc(100% - 46px - 5.55vh) !important;
   margin: 0;
   border: 0;
   position: relative;
   clear: both;
+}
+
+.table_form_content .custom_table + .layui-table-view .layui-form-checkbox[lay-skin=primary]:hover i {
+  border-color: #5160FF;
+}
+
+.table_form_content .custom_table + .layui-table-view .layui-form-checked[lay-skin=primary] i {
+  background-color: #5160FF;
+  border-color: #5160FF;
 }
 
 .table_form_content .custom_table + .layui-table-view th, .table_form_content .custom_table + .layui-table-view td {
@@ -227,16 +235,6 @@ body .layui-laydate .layui-this {
   color: #ccc;
 }
 
-.table_form_content .operate_form_group .custom_btn {
-  padding: 0 22px;
-  height: 32px;
-  background-color: #5161FF;
-  font-size: 14px;
-  color: #fff;
-  line-height: 1;
-  border-radius: 4px;
-}
-
 .table_form_content .operate_form_group .search_btn {
   float: left;
   margin-left: 10px;
@@ -284,6 +282,49 @@ body .layui-laydate .layui-this {
 
 .table_form_content .custom_form .layui-btn:hover {
   background-color: #5160FF;
+  color: #fff;
+}
+
+.party_tree_container .layui-tree-iconArrow {
+  width: 20px;
+  height: 20px;
+  content: url("../images/tree-arrow.png");
+  transform: rotate(-90deg);
+  padding: 0;
+}
+
+.party_tree_container .layui-tree-spread > .layui-tree-entry .layui-tree-iconArrow {
+  transform: none;
+}
+
+.party_tree_container .layui-tree-entry {
+  height: 40px;
+  padding: 0;
+}
+
+.party_tree_container .layui-tree-entry:hover {
+  background-color: transparent;
+}
+
+.custom_btn {
+  padding: 0 22px;
+  height: 32px;
+  background-color: #5161FF;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1;
+  border-radius: 4px !important;
+}
+
+.custom_btn.default_btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #666;
+}
+
+.custom_btn.default_btn:hover {
+  background-color: #5161FF;
+  border-color: #5160FF;
   color: #fff;
 }
 

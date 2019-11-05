@@ -99,27 +99,6 @@
   background-color: #5160FF;
 }
 
-.release_event_container .release_event_page .custom_form .tree_select_item .party_tree_container .layui-tree-iconArrow {
-  width: 20px;
-  height: 20px;
-  content: url("../images/tree-arrow.png");
-  transform: rotate(-90deg);
-  padding: 0;
-}
-
-.release_event_container .release_event_page .custom_form .tree_select_item .party_tree_container .layui-tree-spread .layui-tree-iconArrow {
-  transform: none;
-}
-
-.release_event_container .release_event_page .custom_form .tree_select_item .party_tree_container .layui-tree-entry {
-  height: 40px;
-  padding: 0;
-}
-
-.release_event_container .release_event_page .custom_form .tree_select_item .party_tree_container .layui-tree-entry:hover {
-  background-color: transparent;
-}
-
 .release_event_container .release_event_page .custom_form .tree_select_item .party_tree_container .layui-tree-txt {
   font-size: 14px;
   color: #333;

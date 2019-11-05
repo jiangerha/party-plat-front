@@ -78,25 +78,25 @@
                     }
                 }
                 .party_tree_container{
-                    .layui-tree-iconArrow {
-                        width: 20px;
-                        height: 20px;
-                        content: url('../images/tree-arrow.png');
-                        transform: rotate(-90deg);
-                        padding: 0;
-                    }
-                    .layui-tree-spread{
-                        .layui-tree-iconArrow{
-                            transform: none;
-                        }
-                    }
-                    .layui-tree-entry{
-                        height: 40px;
-                        padding: 0;
-                        &:hover{
-                            background-color: transparent;
-                        }
-                    }
+                    // .layui-tree-iconArrow {
+                    //     width: 20px;
+                    //     height: 20px;
+                    //     content: url('../images/tree-arrow.png');
+                    //     transform: rotate(-90deg);
+                    //     padding: 0;
+                    // }
+                    // .layui-tree-spread{
+                    //     .layui-tree-iconArrow{
+                    //         transform: none;
+                    //     }
+                    // }
+                    // .layui-tree-entry{
+                    //     height: 40px;
+                    //     padding: 0;
+                    //     &:hover{
+                    //         background-color: transparent;
+                    //     }
+                    // }
                     .layui-tree-txt{
                         font-size: 14px;
                         color: #333;
