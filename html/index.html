@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/index.min.css" />
+<!-- <script src="../js/jquery.js"></script> -->
+</head>
+<div class="big_screen_container">
+    <div class="content_container">
+        <div class="page_title_container">
+            <p>重庆大学智慧党建云平台</p>
+            <img src="../images/index-title-bg.png"/>
+        </div>
+        <div class="first_container">
+            <div class="party_organ_container">
+                <div class="organ_item">
+                    <p class="organ_title">二级党组织</p>
+                    <p class="organ_num">29999</p>
+                </div>
+                <div class="organ_item">
+                    <p class="organ_title">党支部</p>
+                    <p class="organ_num">29554</p>
+                </div>
+                <div class="organ_item">
+                    <p class="organ_title">党员</p>
+                    <p class="organ_num">499</p>
+                </div>
+                <div class="organ_item">
+                    <p class="organ_title">党组织生活</p>
+                    <p class="organ_num">99</p>
+                </div>
+                <div class="logo_container">
+                    <img src="../images/index-logo.png"/>
+                </div>
+            </div>
+            <div class="inspector_container">
+                <p class="index_title">活动督查情况</p>
+                <div id="inspectorChart" class="inspector_chart"></div>
+                <div class="echarts_legend"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    $(document).ready(() => {
+        this.renderInspectorChart();
+    });
+    //渲染活动督察情况
+    function renderInspectorChart(){
+        var inspectorEchart = echarts.init(document.getElementById('inspectorChart'));
+        var heightNum = $("#inspectorChart").height();
+        console.log($("#inspectorChart").height(), (heightNum * 0.05));
+        var legendDom = $(".echarts_legend");
+        var domStr = '';
+        var legendData = [
+            {
+                title:'重庆大学A区',
+                num:400,
+                color:'#E60012'
+            },
+            {
+                title:'重庆大学B区',
+                num:300,
+                color:'#0DE5D9'
+            },
+            {
+                title:'重庆大学C区',
+                num:200,
+                color:'#FFB100'
+            },
+            {
+                title:'重庆大学虎溪校区',
+                num:100,
+                color:'#FF6926'
+            },
+        ];
+        legendData.map(i => (
+            domStr += `<div class="legend_item">
+                <span class="icon" style={background:${i.color}}></span>
+                <span class="title">${i.title}</span>
+                <span class="num">${i.num}</span>
+            </div>`
+        ));
+        $(".echarts_legend").html(domStr);
+        inspectorOption = {
+            animation:false,
+            legend: {
+                show:false,
+                data:['重庆大学A区','重庆大学B区','重庆大学C区','重庆大学虎溪校区'],
+                icon:'circle',
+                top: 0,
+                left: '55%',
+                // itemGap: 5,
+                itemWidth: 4,
+                itemHeight: 4,
+                padding:0,
+                orient: 'vertical',
+                textStyle:{
+                    color:'#480707',
+                    fontSize:10,
+                    lineHeight:(heightNum * 0.04),
+                }
+            },
+            borderRadius:4,
+            series: [{
+                    name:'活动督查情况',
+                    type:'pie',
+                    radius: ['35%', '40%'],
+                    clockwise:false,
+                    label: {
+                        show: false
+                    },
+                    color: ['#FF6926', '#F9EAEC'],
+                    data:[
+                        {value:100, name:'重庆大学虎溪校区'},
+                        {value:679, name:'重庆大学虎溪校区1'},
+                    ]
+                },
+                {
+                    name:'活动督查情况',
+                    type:'pie',
+                    radius: ['55%', '60%'],
+                    clockwise:false,
+                    color: ['#FFB100', '#F9EAEC'],
+                    label: {
+                        show: false
+                    },
+                    data:[
+                        {value:200, name:'重庆大学C区'},
+                        {value:679, name:'重庆大学C区1'},
+                    ]
+                },
+                {
+                    name:'活动督查情况',
+                    type:'pie',
+                    radius: ['75%', '80%'],
+                    clockwise:false,
+                    color: ['#0DE5D9', '#F9EAEC'],
+                    label: {
+                        show: false
+                    },
+                    data:[
+                        {value:300, name:'重庆大学B区'},
+                        {value:679, name:'重庆大学B区1'},
+                    ]
+                },
+                {
+                    name:'活动督查情况',
+                    type:'pie',
+                    radius: ['95%', '100%'],
+                    clockwise:false,
+                    color: ['#E60012', '#F9EAEC'],
+                    label: {
+                        show: false
+                    },
+                    data:[
+                        {value:400, name:'重庆大学A区'},
+                        {value:679, name:'重庆大学A区1'},
+                    ]
+                },
+            ]
+        };
+        inspectorEchart.setOption(inspectorOption);
+    }
+    
+</script>
+</html>
