@@ -36,12 +36,20 @@
         padding: 0 1.66vw;
         height: 53.6vh;
         position: absolute;
-        background: #ccc;
         left: 0;
         top: 11.11vh;
+        >div{
+            float: left;
+        }
+        .organ_inspector_container{
+            width: 20.36%;
+            height: 100%;
+            position: relative;
+        }
         .party_organ_container{
             height: 42.44%;
-            width: 20.36%;
+            // width: 20.36%;
+            width: 100%;
             position: relative;
             .organ_item{
                 width: 48.67%;
@@ -86,15 +94,215 @@
             }
         }
         .inspector_container{
-            margin-top: 5.55vh;
+            padding-top: 5.55vh;
+            height: 57.67%;
+            position: relative;
             .inspector_chart{
                 height: 10.41vw;
                 width: 10.41vw;
                 position: absolute!important;
                 bottom: 0;
             }
+            .echarts_legend{
+                position: absolute;
+                left: 5.5vw;
+                height: 10.41vw;
+                bottom: 0.25vw;
+                width: calc(95.2% - 6vw);
+                .legend_item{
+                    font-size: 0.926vh;
+                    color: #480707;
+                    line-height: 1;
+                    margin-bottom: 0.45vw;
+                    .icon{
+                        width: 4px;
+                        height: 4px;
+                        display: inline-block;
+                        border-radius: 50%;
+                        vertical-align: middle;
+                    }
+                    .title{
+                        width: 50%;
+                        display: inline-block;
+                    }
+                    .num{
+                        font-size: 1.29vh;
+                    }
+                }
+            }
+            .echarts_num{
+                position: absolute;
+                right: 18px;
+                bottom: 0;
+                color: #480707;
+                line-height: 2.22vh;
+                font-size: 1.29vh;
+                .icon{
+                    width: 6px;
+                    height: 6px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    border-radius: 50%;
+                }
+            }
         }
-        
+        .map_outer_container{
+            width: 55.8%;
+            height: 44.9vh;
+            position: absolute;
+            bottom: 0;
+            left: 21.98%;
+            img{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .map_container{
+            width: 100%;
+            height: 100%;
+        }
+        .data_report_container{
+            width: 20.36%;
+            height: 100%;
+            position: absolute;
+            right: 1.66vw;
+            top: 0;
+            font-size: 1.29vh;
+            .index_title{
+                margin-bottom: 2.77vh;
+                .title_icon{
+                    width: 1.14vw;
+                    vertical-align: middle;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+            .report_title{
+                font-size: 1.29vh;
+                height: 3.7vh;
+                line-height: 3.7vh;
+                color: #E60012 ;
+                background: #F9EAEC;
+                padding: 0 1.25vw;
+                span{
+                    width: 33.33%;
+                    display: inline-block;
+                    float: left;
+                    &:nth-child(3){
+                        text-align: right;
+                    }
+                    &:nth-child(2){
+                        text-align: center;
+                    }
+                }
+            }
+            .report_list{
+                .report_item{
+                    height: 3.7vh;
+                    line-height: 3.7vh;
+                    color: #480707;
+                    padding: 0 1.25vw;
+                    &:nth-child(even){
+                        background: #F9EAEC;
+                    }
+                    &:nth-child(odd){
+                        // background: #fff;
+                    }
+                    span{
+                        width: 33.33%;
+                        display: inline-block;
+                        float: left;
+                        &:nth-child(2){
+                            text-align: center;
+                        }
+                        &:nth-child(3){
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
     }
-    
+    .bottom_container{
+        width: 100%;
+        height: 31.2vh;
+        padding: 4.6vh 1.66vw 0 1.66vw;
+        position: absolute;
+        left: 0;
+        bottom: 3.7vh;
+        >div{
+            float: left;
+        }
+        .index_title{
+            margin-bottom: 2.77vh;
+        }
+        .attend_outer_container{
+            width: 41.9%;
+            height: 100%;
+            .attend_container{
+                width: 100%;
+                height: calc(100% - 2.77vh);
+                background: #ccc;
+            }
+        }
+        .activity_outer_container{
+            width: 28.44%;
+            height: 100%;
+            margin: 0 4.04% 0 4.63%;
+            .activity_container{
+                width: 100%;
+                height: calc(100% - 2.77vh);
+            }
+        }
+        .view_outer_container{
+            width: 20.99%;
+            height: 100%;
+        }
+        .index_title{
+            .view_desrc{
+                color: #480707;
+                font-size: 1.29vh;
+                float: right;
+                .red_text{
+                    color: #E60012;
+                }
+            }
+            .view_num{
+                margin-left: 0.72vw;
+                height: 1.66vh;
+                vertical-align: middle;
+                display: inline-block;
+                .num_item{
+                    width: 0.625vw;
+                    height: 1.66vh;
+                    text-align: center;
+                    display: inline-block;
+                    background: #E60012 ;
+                    color: #fff;
+                    line-height: 1.66vh;
+                    font-size: 1.29vh;
+                    margin-right: 0.15vw;
+                    float: left;
+                }
+            }
+        }
+        .view_container{
+            width: 100%;
+            height: calc(100% - 2.77vh);
+            > div{
+                &:nth-child(2){
+                    padding: 0 6px!important;
+                    border: 1px solid rgba(255,56,132,0.57) !important;
+                    background: #F9EAEC!important;
+                    color: #E91F2F!important;
+                    .view_tooltip{
+                    }
+                }
+            }
+        }
+    }
 }
