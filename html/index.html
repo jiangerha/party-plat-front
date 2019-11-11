@@ -62,7 +62,7 @@
         </div>
         <div class="bottom_container">
             <div class="attend_outer_container">
-                <p class="index_title">活动督查情况</p>
+                <p class="index_title">活动出勤率</p>
                 <div id="attendContainer" class="attend_container"></div>
             </div>
             <div class="activity_outer_container">
@@ -87,6 +87,7 @@
         this.renderInspectorChart();
         this.renderMap();
         this.renderReportList();
+        this.renderAttendChart();
         this.renderActivityChart();
         this.renderViewChart();
     });
@@ -286,7 +287,76 @@
     };
     //渲染活动出勤率
     function renderAttendChart(){
-        
+        var attendChart = echarts.init(document.getElementById('attendContainer'));
+        var mockData1 = [];
+        var mockData2 = [];
+        var pushItem = function(num){
+            if(num > 0){
+                mockData1.push({
+                    value: 10 * num,
+                    symbol: 'roundRect',
+                    symbolRepeat: true,
+                    symbolSize: ['150%', '25%'],
+                });
+                mockData2.push({
+                    value: 150,
+                    symbol: 'roundRect',
+                    symbolRepeat: true,
+                    symbolSize: ['150%', '25%'],
+                });
+                return pushItem(num -= 1)
+            }
+        };
+        pushItem(12);
+        option = {
+            grid:{
+                top:0,
+                left:0,
+                bottom:0,
+                right:0,
+                containLabel:true
+            },
+            xAxis: [{
+                data: ['音乐学院',  '音乐学院1', '音乐学院2', '音乐学院',  '音乐学院1', '音乐学院2', '音乐学院',  '音乐学院1', '音乐学院2', '音乐学院',  '音乐学院1', '音乐学院2'],
+                axisTick: {show: false},
+                axisLine: {
+                    lineStyle:{
+                        color:'#F9EAEC'
+                    }
+                },
+                axisLabel: {
+                    interval:0,
+                    color:'#480707',
+                    fontSize:(14 / 1920) * window.innerWidth
+                }
+            }],
+            yAxis: {
+                splitLine: {show: false},
+                axisTick: {show: false},
+                axisLine: {show: false},
+                axisLabel: {show: false}
+            },
+            series: [{
+                type: 'pictorialBar',
+                hoverAnimation: false,
+                zlevel:10,
+                color:'#E60012',
+                barWidth:(30 / 1920) * window.innerWidth,
+                tooltip:{
+                    show:true
+                },
+                data: mockData1,
+            },{
+                type: 'pictorialBar',
+                hoverAnimation: false,
+                zlevel:1,
+                color:'#F9EAEC',
+                label:{show:false},
+                barWidth:(30 / 1920) * window.innerWidth,
+                data: mockData2,
+            }]
+        };
+        attendChart.setOption(option);
     };
     function renderActivityChart(){
         var activityEchart = echarts.init(document.getElementById('activityContainer'));
