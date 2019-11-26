@@ -1,0 +1,48 @@
+.party_member_container.form_content .title_label {
+  margin-top: 8px;
+  background: #EAEEF5;
+  font-size: 16px;
+  line-height: 16px;
+  height: 343px;
+  padding: 139.5px 16px;
+  width: 48px;
+  float: left;
+}
+
+.party_member_container.form_content .custom_form {
+  display: inline-block;
+  width: calc(100% - 48px);
+  padding-top: 8px;
+}
+
+.party_member_container.form_content .custom_form .layui-inline {
+  width: 50%;
+  float: left;
+  border-bottom: 1px solid #CCC;
+}
+
+.party_member_container.form_content .custom_form .layui-inline.datepicker_item .layui-input-inline {
+  position: relative;
+}
+
+.party_member_container.form_content .custom_form .layui-inline.datepicker_item .layui-input-inline:before {
+  top: 11px;
+  right: 20px;
+}
+
+.party_member_container.form_content .custom_form .layui-inline:last-child {
+  border: none;
+}
+
+.party_member_container.form_content .custom_form .layui-inline > div, .party_member_container.form_content .custom_form .layui-inline label {
+  width: 50%;
+}
+
+.party_member_container.form_content .custom_form .layui-inline .layui-form-label {
+  line-height: 48px;
+  background-color: #F6F8FC;
+}
+
+.party_member_container.form_content .custom_form .layui-inline .layui-input-inline {
+  padding: 8px 9.5px;
+}

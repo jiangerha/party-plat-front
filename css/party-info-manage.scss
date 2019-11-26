@@ -130,6 +130,22 @@
                     height: calc(100% - 5.55vh - 80px);
                 }
             }
+
+            .admin_setting_container{
+                width: 50%;
+                margin-top: 4.44vh;
+            }
+        }
+    }
+    .admin_setting_container{
+        margin-left: 32px;
+        .layui-form-item{
+            &:first-child{
+                margin-bottom: 40px;
+            }
+        }
+        .edit_label{
+            width: auto;
         }
     }
 }

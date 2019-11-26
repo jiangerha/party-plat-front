@@ -4,6 +4,7 @@
   background-image: url("../images/index-bg.png");
   background-size: cover;
   position: relative;
+  font-family: PingFangSC-Regular, Microsoft YaHei;
 }
 
 .big_screen_container .page_title_container {
@@ -17,15 +18,18 @@
 .big_screen_container .page_title_container p {
   font-size: 2.40vw;
   color: #E60012;
-  line-height: 6.01vh;
+  line-height: 7.01vh;
   width: 100%;
   position: absolute;
   left: 0;
   bottom: 12%;
+  font-family: PingFangSC-Semibold;
+  -webkit-text-stroke: .5px #FFF9C1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.26);
 }
 
 .big_screen_container .page_title_container img {
-  height: 2.41vh;
+  height: 1.36vw;
   margin-top: 6.01vh;
 }
 
@@ -35,6 +39,13 @@
   line-height: 2.59vh;
   padding-left: 8px;
   border-left: 3px solid #E60012;
+  font-family: PingFangSC-Medium;
+}
+
+.big_screen_container .index_title > .text {
+  background-image: -webkit-linear-gradient(left, #E60012, #FF8A10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .big_screen_container .first_container {
@@ -91,6 +102,11 @@
   color: #E60012;
   font-size: 1.66vw;
   line-height: 3.7vh;
+  font-family: Futura-Medium;
+  letter-spacing: 2px;
+  background-image: -webkit-linear-gradient(left, #E60012, #FF8A10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .big_screen_container .first_container .party_organ_container .logo_container {
@@ -102,6 +118,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 1px solid #F00;
 }
 
 .big_screen_container .first_container .party_organ_container .logo_container img {
@@ -135,7 +152,7 @@
   font-size: 0.926vh;
   color: #480707;
   line-height: 1;
-  margin-bottom: 0.45vw;
+  margin-bottom: 0.38vw;
 }
 
 .big_screen_container .first_container .inspector_container .echarts_legend .legend_item .icon {
@@ -287,7 +304,6 @@
 .big_screen_container .bottom_container .attend_outer_container .attend_container {
   width: 100%;
   height: calc(100% - 2.77vh);
-  background: #ccc;
 }
 
 .big_screen_container .bottom_container .activity_outer_container {
@@ -342,8 +358,15 @@
 }
 
 .big_screen_container .bottom_container .view_container > div:nth-child(2) {
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+
+.big_screen_container .bottom_container .view_container > div:nth-child(2) .view_tooltip {
   padding: 0 6px !important;
-  border: 1px solid rgba(255, 56, 132, 0.57) !important;
-  background: #F9EAEC !important;
-  color: #E91F2F !important;
+  border: 1px solid rgba(255, 56, 132, 0.57);
+  background: #F9EAEC;
+  color: #E91F2F;
+  border-radius: 4px;
 }

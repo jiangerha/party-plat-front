@@ -4,6 +4,7 @@
     background-image: url('../images/index-bg.png');
     background-size: cover;
     position: relative;
+    font-family: PingFangSC-Regular, Microsoft YaHei;
     .page_title_container{
         width: 100%;
         text-align: center;
@@ -13,14 +14,19 @@
         p{
             font-size: 2.40vw;
             color: #E60012;
-            line-height: 6.01vh;
+            // line-height: 6.01vh;
+            line-height: 7.01vh;
             width: 100%;
             position: absolute;
             left: 0;
             bottom: 12%;
+            font-family: PingFangSC-Semibold;
+            -webkit-text-stroke: .5px #FFF9C1;
+            text-shadow: 0 1px 0 rgba(0,0,0,0.26);
         }
         img{
-            height: 2.41vh;
+            height: 1.36vw;
+            // height: 2.41vh;
             margin-top: 6.01vh;
         }
     }
@@ -30,6 +36,12 @@
       line-height: 2.59vh;
       padding-left: 8px;
       border-left: 3px solid #E60012;
+      font-family: PingFangSC-Medium;
+      & > .text{
+        background-image:-webkit-linear-gradient(left,#E60012,#FF8A10); 
+        -webkit-background-clip:text; 
+        -webkit-text-fill-color:transparent; 
+      }
     }
     .first_container{
         width: 100%;
@@ -75,6 +87,11 @@
                     color: #E60012;
                     font-size: 1.66vw;
                     line-height: 3.7vh;
+                    font-family: Futura-Medium;
+                    letter-spacing: 2px;
+                    background-image:-webkit-linear-gradient(left,#E60012,#FF8A10); 
+                    -webkit-background-clip:text; 
+                    -webkit-text-fill-color:transparent; 
                 }
             }
             .logo_container{
@@ -86,6 +103,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                border: 1px solid #F00;
                 img{
                     width: 45%;
                     height: 45%;
@@ -113,7 +131,7 @@
                     font-size: 0.926vh;
                     color: #480707;
                     line-height: 1;
-                    margin-bottom: 0.45vw;
+                    margin-bottom: 0.38vw;
                     .icon{
                         width: 4px;
                         height: 4px;
@@ -246,7 +264,6 @@
             .attend_container{
                 width: 100%;
                 height: calc(100% - 2.77vh);
-                background: #ccc;
             }
         }
         .activity_outer_container{
@@ -295,11 +312,15 @@
             height: calc(100% - 2.77vh);
             > div{
                 &:nth-child(2){
-                    padding: 0 6px!important;
-                    border: 1px solid rgba(255,56,132,0.57) !important;
-                    background: #F9EAEC!important;
-                    color: #E91F2F!important;
+                    padding: 0!important;
+                    border-radius: 0!important;
+                    background-color: transparent!important;
                     .view_tooltip{
+                        padding: 0 6px!important;
+                        border: 1px solid rgba(255,56,132,0.57);
+                        background: #F9EAEC;
+                        color: #E91F2F;
+                        border-radius: 4px;
                     }
                 }
             }

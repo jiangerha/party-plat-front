@@ -136,6 +136,23 @@
   height: calc(100% - 5.55vh - 80px);
 }
 
+.party_manage_page .party_manage_content .party_table_container .admin_setting_container {
+  width: 50%;
+  margin-top: 4.44vh;
+}
+
+.party_manage_page .admin_setting_container {
+  margin-left: 32px;
+}
+
+.party_manage_page .admin_setting_container .layui-form-item:first-child {
+  margin-bottom: 40px;
+}
+
+.party_manage_page .admin_setting_container .edit_label {
+  width: auto;
+}
+
 @media screen and (max-width: 1536px) {
   .party_manage_page .party_manage_content .party_tree_container .layui-tree > .layui-tree-set > .layui-tree-entry .layui-tree-txt {
     font-size: 14px;

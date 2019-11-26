@@ -1,0 +1,46 @@
+.party_member_container{
+    &.form_content{
+        .title_label{
+            margin-top: 8px;
+            background: #EAEEF5;
+            font-size: 16px;
+            line-height: 16px;
+            height: 343px;
+            padding: 139.5px 16px;
+            width: 48px;
+            float: left;
+        }
+        .custom_form{
+            display: inline-block;
+            width: calc(100% - 48px);
+            padding-top: 8px;
+            .layui-inline{
+                width: 50%;
+                float: left;
+                border-bottom: 1px solid #CCC;
+                &.datepicker_item{
+                    .layui-input-inline{
+                        position: relative;
+                        &:before{
+                            top: 11px;
+                            right: 20px;
+                        }
+                    }
+                }
+                &:last-child{
+                    border: none;
+                }
+                >div, label{
+                    width: 50%;
+                }
+                .layui-form-label{
+                    line-height: 48px;
+                    background-color: #F6F8FC;
+                }
+                .layui-input-inline{
+                    padding: 8px 9.5px;
+                }
+            }
+        }
+    }
+}

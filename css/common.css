@@ -1,4 +1,24 @@
 @charset "UTF-8";
+@font-face {
+  font-family: PingFangSC-Medium;
+  src: url("../font/PingFang Medium_downcc.otf");
+}
+
+@font-face {
+  font-family: PingFangSC-Semibold;
+  src: url("../font/PingFang-SC-Semibold.otf");
+}
+
+@font-face {
+  font-family: PingFangSC-Regular;
+  src: url("../font/PingFang Regular.otf");
+}
+
+@font-face {
+  font-family: Futura-Medium;
+  src: url("../font/futura_medium.ttf");
+}
+
 html, body, p, ul, li {
   margin: 0;
   padding: 0;
@@ -8,6 +28,7 @@ html, body {
   height: 100%;
   height: 100%;
   font-family: Microsoft YaHei;
+  overflow: hidden;
 }
 
 li {
@@ -344,6 +365,10 @@ body .layui-laydate .layui-this {
   top: 3px;
   right: 10px;
   cursor: pointer;
+}
+
+.layui-input, .layui-textarea {
+  padding: 0 !important;
 }
 
 /*设置滚动条样式*/

@@ -169,6 +169,15 @@
             }
         }
     }
+    .charts_container{
+        width: 100%;
+        height: calc(100% - 60px);
+        margin-top: 40px;
+        .view_charts{
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 @media screen and (max-width: 1536px){

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/activity-manage.min.css" />
+<script src="../js/jquery.js"></script>
+</head>
+<div class="layout_page full_screen">
+    <div class="top_nav">
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <span>[组织部管理员]</span>
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
+        </ul>
+        <div class="main_content table_form_content activity_manage_container">
+            <!-- 右侧盒子内容 -->
+            <div class="activity_manage_page">
+                <div class="breadcrumb_group">
+                    当前位置：
+                    <span class="layui-breadcrumb" lay-separator=">">
+                        <a href="javascript:;">系统管理</a>
+                        <a href="javascript:;">数据字典</a>
+                    </span>
+                </div>
+                <div class="operate_form_group">
+                    <input type="text" name="title" placeholder="搜索条件" autocomplete="off" class="layui-input custom_input">    
+                    <button type="button" class="layui-btn custom_btn search_btn">查询</button>
+                    <button type="button" class="layui-btn custom_btn">新增</button>
+                </div>
+                <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
+            </div>
+            <!-- 右侧盒子内容 -->
+        </div>
+    </div>
+</div>
+<script src="../js/layui.js"></script>
+<script type="text/html" id="operateBtns">
+    <div class="operate_btns">
+        <span class="blue_text" onclick="test();">编辑</span>    
+        <span class="red_text">删除</span>
+    </div>
+</script>
+<script>
+    //编辑按钮 测试
+    test = function(){
+        console.log(1111)
+    }
+    //左侧惨淡
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    //列表
+    layui.use('table', function(){
+        var table = layui.table;
+        var mockItem = {
+            name:'111111',
+            createdDate:'2019-08-20  09：00',
+            content:'.....党的十九大把习近平新时代中国特色社会党的十九大把习近平新时代中国特色社会',
+            operate:'',
+        };
+        var data = [];
+        var getData = (num) => {
+            if(num < 200){
+                data.push({...mockItem,name:num});
+                return getData(num+1)
+            }
+        }
+        getData(0);
+        //第一个实例
+        table.render({
+            elem: '#activityTable',
+            // url: '/demo/table/user/', //数据接口
+            data:data,
+            page: {
+                limit:10,   //每页条数
+                limits:[],
+                prev:'&lt;上一页',
+                next:'下一页&gt;',
+                groups:4,
+            }, 
+            cols: [[ //表头
+            {field: 'name', title: '活动名称', width:'20%'},
+            {field: 'createdDate', title: '发布时间', width:'20%'},
+            {field: 'content', title: '发布内容', width:'40%'},
+            {field: 'operate', title: '操作', width: '20%', toolbar: '#operateBtns'}
+            ]]
+        });
+    });
+    
+    //菜单list
+    var menuData = [
+        {
+            title:'数据统计',
+            link:'',
+            icon:'../images/tree-icon1.png',
+            children:[
+                {
+                    title:'数据汇总',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            icon:'../images/tree-icon2.png',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            icon:'../images/tree-icon4.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'系统管理',
+            icon:'../images/tree-icon6.png',
+            link:'',
+            children:[]
+        },
+    ]
+    $(document).ready(() => {
+        this.renderMenuTree();
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
+        var treeNodes = '';
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    }
+</script>
+</html>
