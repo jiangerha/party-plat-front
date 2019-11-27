@@ -15,7 +15,7 @@
 
 .layout_page .top_nav .user_info_group {
   float: right;
-  font-size: 16px;
+  font-size: 18px;
   color: #333;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .layout_page .top_nav .user_info_group > p span {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .layout_page .top_nav .user_info_group .avatar_info img {
@@ -54,8 +54,9 @@
 }
 
 .layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-item a {
-  color: #1F93FF;
+  color: #FFAB33;
   padding: 0;
+  font-size: 16px;
 }
 
 .layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child {
@@ -63,15 +64,29 @@
   top: calc(3.7vh + 6px);
 }
 
-.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child li {
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child dd {
   color: #333;
   font-size: 16px;
   cursor: pointer;
   padding: 0 10px;
 }
 
-.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child li:hover {
-  background: #F6F8FD;
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child dd a {
+  color: #333;
+  background: transparent;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child dd.layui-this {
+  background-color: transparent;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child dd.layui-this a {
+  background-color: transparent;
+  color: #FFAB33;
+}
+
+.layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child dd:hover a {
+  color: #FFAB33;
 }
 
 .layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-bar, .layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-more {
@@ -123,8 +138,7 @@
 }
 
 .layout_page .content_container .menu_tree .layui-this a {
-  background-color: #744DFE;
-  color: #fff !important;
+  color: #FF523A !important;
   border-radius: 0 10px 10px 0;
 }
 
@@ -133,7 +147,7 @@
 }
 
 .layout_page .content_container .menu_tree li a {
-  font-size: 16px;
+  font-size: 18px;
   color: #333;
   padding: 0 40px;
   height: 56px !important;
@@ -153,9 +167,12 @@
   padding-left: 100px;
 }
 
+.layout_page .content_container .menu_tree .layui-nav-child li a img {
+  margin-right: 6px;
+}
+
 .layout_page .content_container .menu_tree .layui-nav-child li a:hover {
-  background-color: #744DFE;
-  color: #fff !important;
+  color: #FF523A !important;
   border-radius: 0 10px 10px 0;
 }
 
@@ -193,7 +210,7 @@
     margin-top: -18px;
   }
   .layout_page .top_nav .user_info_group .user_nav_container .layui-nav-child li {
-    font-size: 14px;
+    font-size: 16px;
   }
   .layout_page .top_nav .user_info_group > p img {
     width: 16px;
@@ -201,7 +218,7 @@
     vertical-align: middle;
   }
   .layout_page .top_nav .user_info_group > p span {
-    font-size: 14px;
+    font-size: 16px;
   }
   .layout_page .content_container .menu_tree {
     padding-top: 20px;
@@ -211,7 +228,7 @@
   }
   .layout_page .content_container .menu_tree li a {
     padding: 0 20px;
-    font-size: 14px;
+    font-size: 16px;
     height: 40px !important;
     line-height: 40px !important;
   }

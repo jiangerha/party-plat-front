@@ -35,7 +35,7 @@
                     display: inline-block;
                     background-size: cover;
                     vertical-align: middle;
-                    margin-right: 16px;
+                    margin-right: 18px;
                 }
             }
             .total_num{
@@ -58,34 +58,91 @@
             text-align: right;
             position: relative;
             p{
-                font-size: 24px;
+                // font-size: 24px;
+                height: 24px;
                 display: inline-block;
                 left: 0;
                 position: absolute;
             }
-            .custom_select{
-                padding: 10px 16px;
-                font-size: 16px;
-                height: 42px;
-                z-index: 20;
-                color: #fff;
-                &.month_select{
-                    background:rgba(116,77,254,1);
-                    border-color: rgba(116,77,254,1);
-                    box-shadow:0px 4px 9px 0px rgba(116,77,254,0.5);
-                    border-radius:6px;
-                    margin-right: 15px;
+            .layui-form-select{
+                height: 40px;
+                display: inline-block;
+                .layui-select-title{
+                    input{
+                        border: none;
+                    }
                 }
-                &.terms_select{
-                    background:rgba(237,232,254,1);
-                    border-color: rgba(237,232,254,1);
-                    box-shadow:0px 4px 9px 0px rgba(237,232,254,0.5);
-                    border-radius:6px;
+                dl{
+                    border: none;
+                    dd{
+                        &:hover{
+                            background: transparent;
+                        }
+                        &.layui-this{
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+            .month_select + .layui-form-select{
+                margin-right: 15px;
+                width: 90px;
+                .layui-select-title{
+                    input{
+                        color: #fff;
+                        background:#FFAB33;
+                        border-color: #FFAB33;
+                        box-shadow:0px 4px 9px 0px rgba(254,173,77,0.5);
+                        border-radius:6px;
+                        &:hover{
+                            border-color: #FFAB33;
+                        }
+                    }
+                }
+                .layui-edge{
+                    border-top-color: #fff;
+                }
+                dl{
+                    background: #FFAB33;
+                    dd{
+                        color: #fff;
+                    }
+                }
+            }
+            .terms_select + .layui-form-select{
+                .layui-select-title{
+                    input{
+                        color: #E74933;
+                        background:#FFF4C9;
+                        border-color: #FFF4C9;
+                        box-shadow:0px 4px 9px 0px rgba(255, 244, 201, .5);
+                        border-radius:6px; 
+                        &:hover{
+                            border-color: #FFF4C9!important;
+                        }
+                    }
+                }
+                .layui-edge{
+                    border-top-color: #E74933;
+                }
+                dl{
+                    background:#FFF4C9;
+                    dd{
+                        color: #E74933;
+                    }
+                    // dd{
+                    //     &:hover{
+                    //         background: transparent;
+                    //     }
+                    //     &.layui-this{
+                    //         background-color: transparent;
+                    //     }
+                    // }
                 }
             }
         }
         .desc_text{
-            color: #0ACD5E;
+            color: #FFAB33;
             font-size: 20px;
             position: absolute;
             bottom: 10%;
@@ -150,7 +207,8 @@
                             color: #364064;
                             font-size: 16px;
                             line-height: 1;
-                            margin-bottom: 15%;
+                            // margin-bottom: 15%;
+                            margin-bottom: 12px;
                         }
                         .sub_num{
                             font-size: 32px;
@@ -177,7 +235,7 @@
             }
             .desc_text{
                 a{
-                    color: #0ACD5E;
+                    color: #FFAB33;
                 }
                 bottom: 5%;
             }
@@ -201,7 +259,7 @@
             >li{
                 .title_group{
                     height: 38.4%;
-                    font-size: 14px;
+                    font-size: 16px;
                     margin: 4.5% 0 4.5% 6.5%;
                 }
                 .total_num{
@@ -219,12 +277,12 @@
                 .views_group{
                     .text_container{
                         .title{
-                            font-size: 18px;
+                            // font-size: 18px;
+                            img{
+                                height: 18px;
+                            }
                         }
                         .sub_text{
-                            .sub_title{
-                                font-size: 14px;
-                            }
                             .sub_num{
                                 font-size: 24px;
                             }
@@ -241,12 +299,15 @@
         .attend_views_activity{
             .operate_container{
                 p{
-                    font-size: 18px;
+                    // font-size: 18px;
+                    img{
+                        height: 18px;
+                    }
                 }
                 .custom_select{
-                    padding: 6px 12px;
-                    font-size: 14px;
-                    height: 34px;
+                    // padding: 6px 12px;
+                    // font-size: 14px;
+                    // height: 34px;
                 }
             }
         }

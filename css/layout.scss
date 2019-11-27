@@ -13,7 +13,7 @@
         }
         .user_info_group{
             float: right;
-            font-size: 16px;
+            font-size: 18px;
             color: #333;
             >p{
                 display: inline-block;
@@ -27,7 +27,7 @@
                     margin-right: 4px;
                 }
                 span{
-                    font-size: 16px;
+                    font-size: 18px;
                 }
             }
             .avatar_info{
@@ -45,20 +45,35 @@
                         line-height: 1;
                         vertical-align: sub;
                         a{
-                            color: #1F93FF;
+                            color: #FFAB33;
                             padding: 0;
+                            font-size: 16px;
                         }
                     }
                     .layui-nav-child{
                         padding: 0;
                         top: calc(3.7vh + 6px);
-                        li{
+                        dd{
                             color: #333;
                             font-size: 16px;
                             cursor: pointer;
                             padding: 0 10px;
+                            a{
+                                color: #333;
+                                background: transparent;
+                            }
+                            &.layui-this{
+                                background-color: transparent;
+                                a{
+                                    background-color: transparent;
+                                    color: #FFAB33;
+                                }
+                            }
                             &:hover{
-                                background: #F6F8FD;
+                                // background: #F6F8FD;
+                                a{
+                                    color: #FFAB33;
+                                }
                             }
                         }
                     }
@@ -106,8 +121,8 @@
             .layui-this{
                 border-radius: 0 10px 10px 0;
                 a{
-                    background-color: #744DFE;
-                    color: #fff!important;
+                    // background-color: #744DFE;
+                    color: #FF523A !important;
                     border-radius: 0 10px 10px 0;
                 }
             }
@@ -118,7 +133,7 @@
                     }
                 }
                 a{
-                    font-size: 16px;
+                    font-size: 18px;
                     color: #333;
                     padding: 0 40px;
                     height: 56px!important;
@@ -134,9 +149,12 @@
                     a{
                         color: #666;
                         padding-left: 100px;
+                        img{
+                            margin-right: 6px;
+                        }
                         &:hover{
-                            background-color: #744DFE;
-                            color: #fff!important;
+                            // background-color: #744DFE;
+                            color: #FF523A !important;
                             border-radius: 0 10px 10px 0;
                         }
                     }
@@ -183,7 +201,7 @@
                 .user_nav_container{
                     .layui-nav-child{
                         li{
-                            font-size: 14px;
+                            font-size: 16px;
                         }
                     }
                 }
@@ -194,7 +212,7 @@
                         vertical-align: middle;
                     }
                     span{
-                        font-size: 14px;
+                        font-size: 16px;
                     }
                 }
             }
@@ -208,7 +226,7 @@
                 li{
                     a{
                         padding: 0 20px;
-                        font-size: 14px;
+                        font-size: 16px;
                         height: 40px!important;
                         line-height: 40px!important;
                     }
