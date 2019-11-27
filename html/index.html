@@ -57,7 +57,10 @@
                     <span>发布时间</span>
                     <span>上报时间</span>
                 </p>
-                <ul class="report_list"></ul>
+                <div class="report_list_container">
+                    <ul class="report_list" id="reportList"></ul>
+                    <ul class="report_list"></ul>
+                </div>
             </div>
         </div>
         <div class="bottom_container">
@@ -82,6 +85,7 @@
 </div>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
+<script src="../js/layui.js"></script>
 <script>
     $(document).ready(() => {
         this.renderInspectorChart();
@@ -90,6 +94,7 @@
         this.renderAttendChart();
         this.renderActivityChart();
         this.renderViewChart();
+        this.autoScroll();
     });
     //渲染活动督察情况
     function renderInspectorChart(){
@@ -273,18 +278,30 @@
             };
         var reportDom = '';
         var renderItem = (num) => {
-            if(num >= 1){
+            if(num <= 18){
                 reportDom += `<div class="report_item">
-                    <span>${data.name}</span>
+                    <span>${data.name}${num}</span>
                     <span>${data.releaseTime}</span>
                     <span>${data.repoprtTime}</span>
                 </div>`;
-                return renderItem(num-=1);
+                return renderItem(num+=1);
             }
         };
-        renderItem(12);
+        renderItem(1);
         $(".report_list").html(reportDom);
     };
+    function autoScroll(){
+        var scrollAnimation = function(){
+            var container = document.querySelector(".report_list_container");
+            var list = document.querySelector("#reportList");
+            if( container.scrollTop >= list.scrollHeight){
+                container.scrollTop = 0;
+            }else{
+                container.scrollTop++;
+            }
+        };
+        setInterval(scrollAnimation, 30)
+    }
     //渲染活动出勤率
     function renderAttendChart(){
         var attendChart = echarts.init(document.getElementById('attendContainer'));
