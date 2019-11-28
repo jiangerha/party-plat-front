@@ -159,12 +159,6 @@
 }
 
 @media screen and (max-width: 1536px) {
-  .party_manage_page .party_manage_content .party_tree_container .layui-tree > .layui-tree-set > .layui-tree-entry .layui-tree-txt {
-    font-size: 14px;
-  }
-  .party_manage_page .party_manage_content .party_tree_container .layui-tree-set > .layui-tree-entry .layui-tree-txt {
-    font-size: 12px;
-  }
   .party_manage_page .party_manage_content .party_tree_container .active_node > .layui-tree-entry::before {
     height: 34px;
   }

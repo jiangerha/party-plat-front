@@ -19,6 +19,10 @@
   float: left;
 }
 
+.organ_relation_container .organ_relation_page .form_content .custom_form .layui-form-label {
+  width: 96px;
+}
+
 .organ_relation_container .organ_relation_page .form_content .custom_form .btn_group {
   margin-top: 40px;
 }
@@ -30,7 +34,7 @@
 .organ_relation_container .organ_relation_page .form_content .tips_container {
   width: 66.7%;
   height: 398px;
-  background: #D7E2F7;
+  background: rgba(215, 226, 247, 0.2);
   display: inline-block;
   margin-left: 3.06%;
   padding: 40px;

@@ -168,6 +168,8 @@
                     background-color: #FFAB33;
                     &:hover{
                         border-color: #FFAB33;
+                        background: #FFAB33!important;
+                        color: #fff!important;
                     }
                     &.layui-btn-primary{
                         background-color: transparent;

@@ -154,6 +154,8 @@
 
 .release_event_container .release_event_page .custom_form .btn_group .layui-btn:hover {
   border-color: #FFAB33;
+  background: #FFAB33 !important;
+  color: #fff !important;
 }
 
 .release_event_container .release_event_page .custom_form .btn_group .layui-btn.layui-btn-primary {

@@ -11,6 +11,9 @@
             .custom_form{
                 width: 30.24%;
                 float: left;
+                .layui-form-label{
+                    width: 96px;
+                }
                 .btn_group{
                     margin-top: 40px;
                     .layui-input-block{
@@ -25,7 +28,7 @@
             .tips_container{
                 width: 66.7%;
                 height: 398px;
-                background: #D7E2F7;
+                background: rgba(215, 226, 247, .2);
                 display: inline-block;
                 margin-left: 3.06%;
                 padding: 40px;
