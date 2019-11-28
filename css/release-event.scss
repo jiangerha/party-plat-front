@@ -38,21 +38,21 @@
                     border-radius: 4px;
                 }
             }
-            .datepicker_item{
-                position: relative;
-                .layui-input-inline{
-                    position: relative;
-                    &:before{
-                        width: 24px;
-                        height: 24px;
-                        content: url('../images/date-icon.png');
-                        position: absolute;
-                        top: 3px;
-                        right: 10px;
-                        cursor: pointer;
-                    }
-                }
-            }
+            // .datepicker_item{
+            //     position: relative;
+            //     .layui-input-inline{
+            //         position: relative;
+            //         &:before{
+            //             width: 24px;
+            //             height: 24px;
+            //             content: url('../images/date-icon.png');
+            //             position: absolute;
+            //             top: 3px;
+            //             right: 10px;
+            //             cursor: pointer;
+            //         }
+            //     }
+            // }
             .tree_select_item{
                 height: 300px;
                 .layui-input-inline{
@@ -186,19 +186,6 @@
                     margin-bottom: 30px;
                 }
                 .datepicker_item{
-                    position: relative;
-                    .layui-input-inline{
-                        position: relative;
-                        &:before{
-                            width: 24px;
-                            height: 24px;
-                            content: url('../images/date-icon.png');
-                            position: absolute;
-                            top: 3px;
-                            right: 10px;
-                            cursor: pointer;
-                        }
-                    }
                     .layui-input{
                         &:focus{
                             + .custom_datepicker{

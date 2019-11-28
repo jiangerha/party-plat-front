@@ -46,24 +46,6 @@
   border-radius: 4px;
 }
 
-.release_event_container .release_event_page .custom_form .datepicker_item {
-  position: relative;
-}
-
-.release_event_container .release_event_page .custom_form .datepicker_item .layui-input-inline {
-  position: relative;
-}
-
-.release_event_container .release_event_page .custom_form .datepicker_item .layui-input-inline:before {
-  width: 24px;
-  height: 24px;
-  content: url("../images/date-icon.png");
-  position: absolute;
-  top: 3px;
-  right: 10px;
-  cursor: pointer;
-}
-
 .release_event_container .release_event_page .custom_form .tree_select_item {
   height: 300px;
 }
@@ -182,21 +164,6 @@
 @media screen and (max-width: 1536px) {
   .release_event_container .release_event_page .custom_form .layui-inline {
     margin-bottom: 30px;
-  }
-  .release_event_container .release_event_page .custom_form .datepicker_item {
-    position: relative;
-  }
-  .release_event_container .release_event_page .custom_form .datepicker_item .layui-input-inline {
-    position: relative;
-  }
-  .release_event_container .release_event_page .custom_form .datepicker_item .layui-input-inline:before {
-    width: 24px;
-    height: 24px;
-    content: url("../images/date-icon.png");
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    cursor: pointer;
   }
   .release_event_container .release_event_page .custom_form .datepicker_item .layui-input:focus + .custom_datepicker {
     display: block;

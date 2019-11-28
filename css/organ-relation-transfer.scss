@@ -7,12 +7,19 @@
             margin-top: 1.85vh;
             padding: 3.7vh 3.7vh 0 20px;
             height: calc(100% - 20px - 1.85vh);
-            background: #F6F8FC;
+            background: #fff;
             .custom_form{
                 width: 30.24%;
                 float: left;
                 .btn_group{
                     margin-top: 40px;
+                    .layui-input-block{
+                        .layui-btn{
+                            &:nth-child(1){
+                                background: #ffab33;
+                            }
+                        }
+                    }
                 }
             }
             .tips_container{

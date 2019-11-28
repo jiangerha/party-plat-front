@@ -14,17 +14,21 @@
 }
 
 .approval_plan_page .operate_form_group .btn_group button:hover {
-  background-color: #5161FF;
-  border-color: #5161FF;
+  background-color: #FFAB33;
+  border-color: #FFAB33;
   color: #fff;
 }
 
 .approval_plan_page .operate_form_group .btn_group button.active {
-  background-color: #5161FF;
-  border-color: #5161FF;
+  background-color: #FFAB33;
+  border-color: #FFAB33;
   color: #fff;
 }
 
 .approval_plan_page .operate_form_group .search_container {
   float: right;
+}
+
+.approval_plan_page .custom_table + .layui-table-view {
+  height: calc(100% - 32px - 1.85vh) !important;
 }

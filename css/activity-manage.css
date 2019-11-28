@@ -132,9 +132,6 @@
 }
 
 @media screen and (max-width: 1536px) {
-  .activity_manage_container .activity_manage_page .custom_table + .layui-table-view th, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view td {
-    font-size: 14px;
-  }
   .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page a, .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page span {
     height: 26px;
     line-height: 26px;

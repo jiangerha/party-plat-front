@@ -112,7 +112,8 @@
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content {
-  height: 100%;
+  height: calc(100% - 34px - 5vh);
+  padding-top: 0;
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content .hidden_container {
@@ -124,7 +125,7 @@
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content .table_btns {
-  padding: 3.7vh 0 1.85vh 3.7vh;
+  padding: 1.85vh 0;
   margin: 0;
 }
 
@@ -133,7 +134,7 @@
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content .custom_table + .layui-table-view {
-  height: calc(100% - 5.55vh - 80px);
+  height: calc(100% - 3.7vh - 32px);
 }
 
 .party_manage_page .party_manage_content .party_table_container .admin_setting_container {
@@ -151,6 +152,10 @@
 
 .party_manage_page .admin_setting_container .edit_label {
   width: auto;
+}
+
+.party_manage_page .admin_setting_container .layui-btn:nth-child(1) {
+  background: #FFAB33;
 }
 
 @media screen and (max-width: 1536px) {
@@ -171,8 +176,5 @@
     font-size: 14px;
     height: 34px;
     line-height: 34px;
-  }
-  .party_manage_page .party_manage_content .party_table_container .table_content .custom_table + .layui-table-view {
-    height: calc(100% - 5.55vh - 66px);
   }
 }

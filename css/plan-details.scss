@@ -8,7 +8,7 @@
             width: 100%;
             margin-top: 20px;
             height: calc(100% - 40px);
-            background: #F6F8FC;
+            background: #fff;
             text-align: center;
             position: relative;
             .title{
@@ -17,7 +17,7 @@
                 line-height: 98px;
             }
             .title_descr{
-                font-size: 14px;
+                font-size: 16px;
                 color: #999;
                 text-align: center;
                 line-height: 14px;
@@ -32,7 +32,7 @@
                 padding: 0 2.08vw 0 2.08vw;
                 overflow-y: auto;
                 max-height: calc(100% - 222px - 6.01vh);
-                font-size: 14px;
+                font-size: 16px;
                 color: #666;
                 line-height: 20px;
                 text-indent: 2em;

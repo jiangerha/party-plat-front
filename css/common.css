@@ -184,8 +184,8 @@ body .layui-laydate .layui-this {
   height: 38px;
   line-height: 38px;
   margin-bottom: 0;
-  font-size: 14px;
   color: #4D4D4D;
+  font-size: 16px;
 }
 
 .table_form_content .custom_table + .layui-table-view .layui-table-page a {
@@ -238,7 +238,7 @@ body .layui-laydate .layui-this {
 
 .table_form_content .custom_table + .layui-table-view .layui-table-page .layui-laypage-curr em {
   color: #5161FF;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .table_form_content .operate_form_group {
@@ -327,6 +327,7 @@ body .layui-laydate .layui-this {
 .table_form_content .custom_form .layui-btn:hover {
   background-color: #FFAB33;
   color: #fff;
+  border-color: #ffab33;
 }
 
 .party_tree_container .layui-tree-iconArrow {
@@ -353,8 +354,8 @@ body .layui-laydate .layui-this {
 .custom_btn {
   padding: 0 22px;
   height: 32px;
-  background-color: #5161FF;
-  font-size: 14px;
+  background-color: #ffab33;
+  font-size: 16px;
   color: #fff;
   line-height: 1;
   border-radius: 4px !important;
@@ -367,7 +368,7 @@ body .layui-laydate .layui-this {
 }
 
 .custom_btn.default_btn:hover {
-  background-color: #5161FF;
+  background-color: #ffab33;
   border-color: #FFAB33;
   color: #fff;
 }
@@ -385,7 +386,7 @@ body .layui-laydate .layui-this {
   height: 24px;
   content: url("../images/date-icon.png");
   position: absolute;
-  top: 3px;
+  top: 7px;
   right: 10px;
   cursor: pointer;
 }
@@ -419,7 +420,7 @@ div::-webkit-scrollbar-thumb:hover, textarea::-webkit-scrollbar-thumb:hover {
     /*公共列表样式*/
   }
   .table_form_content .custom_table + .layui-table-view th, .table_form_content .custom_table + .layui-table-view td {
-    font-size: 14px;
+    font-size: 16px;
   }
   .table_form_content .custom_table + .layui-table-view .layui-table-page a, .table_form_content .custom_table + .layui-table-view .layui-table-page span {
     height: 26px;

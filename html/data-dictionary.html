@@ -44,12 +44,14 @@
                         <a href="javascript:;">数据字典</a>
                     </span>
                 </div>
-                <div class="operate_form_group">
-                    <input type="text" name="title" placeholder="搜索条件" autocomplete="off" class="layui-input custom_input">    
-                    <button type="button" class="layui-btn custom_btn search_btn">查询</button>
-                    <button type="button" class="layui-btn custom_btn">新增</button>
+                <div class="bg_white_container">
+                    <div class="operate_form_group">
+                        <input type="text" name="title" placeholder="搜索条件" autocomplete="off" class="layui-input custom_input">    
+                        <button type="button" class="layui-btn custom_btn search_btn">查询</button>
+                        <button type="button" class="layui-btn custom_btn">新增</button>
+                    </div>
+                    <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
                 </div>
-                <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
             </div>
             <!-- 右侧盒子内容 -->
         </div>

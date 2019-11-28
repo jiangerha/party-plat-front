@@ -27,12 +27,12 @@
                        font-size: 16px;
                        line-height: 16px;
                        &:first-child{
-                           height: 196px;
-                            padding: 66px 16px;
+                        height: 228px;
+                        padding: 82px 16px;
                        }
                        &:last-child{
-                           height: 441px;
-                           padding: 188.5px 16px;
+                           height: 513px;
+                           padding: 224.5px 16px;
                        }
                     }
                 }
@@ -48,7 +48,7 @@
                             width: 50%;
                         }
                         .layui-form-label{
-                            line-height: 48px;
+                            line-height: 56px;
                             background-color: #F6F8FC;
                         }
                         .layui-input-inline{
@@ -79,6 +79,11 @@
                         margin-left: -48px;
                         .layui-input-inline{
                             padding: 3.7vh 0 12.68vh 0;
+                            button{
+                                &:first-child{
+                                    background: #FFAB33;
+                                }
+                            }
                         }
                     }
                 }

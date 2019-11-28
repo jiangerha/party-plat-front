@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="../css/layui.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="../css/activity-manage.min.css" /> -->
 <link rel="stylesheet" type="text/css" href="../css/activity-check.min.css" />
 <script src="../js/jquery.js"></script>
 </head>
@@ -44,23 +45,25 @@
                         <a href="javascript:;">活动抽查</a>
                     </span>
                 </div>
-                <div class="operate_form_group">
-                    <div class="datepicker_item">
-                        <label class="layui-form-label">发布时间：</label>
-                        <div class="layui-input-inline">
-                            <input type="text" placeholder="请选择起始时间" id="date1" lay-verify="date" autocomplete="off" class="layui-input custom_input">
+                <div class="bg_white_container">
+                    <div class="operate_form_group">
+                        <div class="datepicker_item">
+                            <label class="layui-form-label">发布时间：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" placeholder="请选择起始时间" id="date1" lay-verify="date" autocomplete="off" class="layui-input custom_input">
+                            </div>
                         </div>
-                    </div>
-                    <span class="connect_line">——</span>
-                    <div class="datepicker_item">
-                        <div class="layui-input-inline">
-                            <input type="text" placeholder="请选择截止时间" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                        <span class="connect_line">——</span>
+                        <div class="datepicker_item">
+                            <div class="layui-input-inline">
+                                <input type="text" placeholder="请选择截止时间" id="date2" lay-verify="date" autocomplete="off" class="layui-input custom_input">    
+                            </div>
                         </div>
+                        <button type="button" class="layui-btn custom_btn search_btn">查询</button>
+                        <button type="button" class="layui-btn custom_btn publish_acti_btn">导出Excel</button>
                     </div>
-                    <button type="button" class="layui-btn custom_btn search_btn">查询</button>
-                    <button type="button" class="layui-btn custom_btn publish_acti_btn">导出Excel</button>
+                    <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
                 </div>
-                <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
             </div>
             <!-- 右侧盒子内容 -->
         </div>

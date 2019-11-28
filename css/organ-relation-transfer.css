@@ -11,7 +11,7 @@
   margin-top: 1.85vh;
   padding: 3.7vh 3.7vh 0 20px;
   height: calc(100% - 20px - 1.85vh);
-  background: #F6F8FC;
+  background: #fff;
 }
 
 .organ_relation_container .organ_relation_page .form_content .custom_form {
@@ -21,6 +21,10 @@
 
 .organ_relation_container .organ_relation_page .form_content .custom_form .btn_group {
   margin-top: 40px;
+}
+
+.organ_relation_container .organ_relation_page .form_content .custom_form .btn_group .layui-input-block .layui-btn:nth-child(1) {
+  background: #ffab33;
 }
 
 .organ_relation_container .organ_relation_page .form_content .tips_container {

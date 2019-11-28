@@ -110,7 +110,8 @@
                 }
             }
             .table_content{
-                height: 100%;
+                height: calc(100% - 34px - 5vh);
+                padding-top:0;
                 .hidden_container{
                     display: none;
                     + .layui-table-view{
@@ -118,7 +119,7 @@
                     }
                 }
                 .table_btns{
-                    padding: 3.7vh 0 1.85vh 3.7vh;
+                    padding: 1.85vh 0;
                     margin: 0;
                     button{
                         &:nth-child(n + 2){
@@ -127,7 +128,7 @@
                     }
                 }
                 .custom_table + .layui-table-view{
-                    height: calc(100% - 5.55vh - 80px);
+                    height: calc(100% - 3.7vh - 32px);
                 }
             }
 
@@ -146,6 +147,11 @@
         }
         .edit_label{
             width: auto;
+        }
+        .layui-btn{
+            &:nth-child(1){
+                background: #FFAB33;
+            }
         }
     }
 }
@@ -186,11 +192,6 @@
                     font-size: 14px;
                     height: 34px;
                     line-height: 34px;
-                }
-                .table_content{
-                    .custom_table + .layui-table-view{
-                        height: calc(100% - 5.55vh - 66px);
-                    }
                 }
             }
         }

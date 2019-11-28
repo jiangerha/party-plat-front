@@ -3,8 +3,8 @@
   background: #EAEEF5;
   font-size: 16px;
   line-height: 16px;
-  height: 343px;
-  padding: 139.5px 16px;
+  height: 399px;
+  padding: 167.5px 16px;
   width: 48px;
   float: left;
 }
@@ -39,10 +39,15 @@
 }
 
 .party_member_container.form_content .custom_form .layui-inline .layui-form-label {
-  line-height: 48px;
+  line-height: 56px;
   background-color: #F6F8FC;
+  font-size: 16px;
 }
 
 .party_member_container.form_content .custom_form .layui-inline .layui-input-inline {
   padding: 8px 9.5px;
+}
+
+.party_member_container.form_content .custom_form .layui-btn:nth-child(1) {
+  background: #FFAB33;
 }
