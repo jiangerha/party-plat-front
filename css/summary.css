@@ -82,6 +82,7 @@
 .summary_page .attend_views_activity .operate_container .layui-form-select {
   height: 40px;
   display: inline-block;
+  z-index: 10;
 }
 
 .summary_page .attend_views_activity .operate_container .layui-form-select .layui-select-title input {

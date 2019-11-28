@@ -46,10 +46,17 @@ a{
 /*充值layui  样式*/
 body{
     .layui-laydate .layui-this{
-        background-color: #5160FF!important;
+        background-color: #FFAB33!important;
     }
 }
 .table_form_content{
+    .bg_white_container{
+        background: #fff;
+        position: relative;
+        margin-top: 1.85vh;
+        padding: 1.85vh 1.04vw 7.4vh 1.04vw;
+        height: calc(100% - 20px - 1.85vh);
+    }
     /*公共列表样式*/
     .custom_table + .layui-table-view{
         // height: calc(100% - 46px - 5.55vh) !important;
@@ -58,12 +65,12 @@ body{
         position: relative;
         clear: both;
         .layui-form-checkbox[lay-skin=primary]:hover i{
-            border-color:#5160FF;
+            border-color:#FFAB33;
         }
         .layui-form-checked[lay-skin=primary]{
             i{
-                background-color:#5160FF;
-                border-color:#5160FF;
+                background-color:#FFAB33;
+                border-color:#FFAB33;
             }
         }
         th,td{
@@ -102,13 +109,14 @@ body{
                 font-weight: 600;
                 color: #333;
                 height: 48px;
-                background: #F6F8FC;
+                background-color: #e5e5e5;
             }
         }
         tbody{
             tr{
                 &:nth-child(2n){
-                    background: #FBFCFE;
+                    // background: #FBFCFE;
+                    background: #EDF3FF;
                 }
             }
             td{
@@ -121,6 +129,11 @@ body{
             .layui-table-body{
                 height: calc(100% - 40px)!important;
                 tr{
+                    &:nth-child(2n){
+                        &:hover{
+                            background: #EDF3FF;
+                        }
+                    }
                     &:hover{
                         background: transparent;
                     }
@@ -200,16 +213,17 @@ body{
     }
     /*搜索表单*/
     .operate_form_group{
-        height: 32px;
-        margin: 3.7vh 0 1.85vh 0;
+        height: 40px;
+        margin: 0 0 1.85vh 0;
         .custom_input{
             border-color: #ccc !important;
             width: 280px;
-            height: 32px;
+            height: 40px;
             line-height: 1;
             display: inline-block;
             vertical-align: middle;
             float: left;
+            font-size: 16px;
             &::-webkit-input-placeholder{
                 color: #ccc;
             }
@@ -223,6 +237,14 @@ body{
         .search_btn{
             float: left;
             margin-left:10px;
+        }
+        .custom_btn{
+            padding: 0 22px;
+            height: 40px;
+            background-color: #FFAB33;
+            font-size: 16px;
+            color: #fff;
+            line-height: 1;
         }
         .publish_acti_btn{
             float: right;
@@ -240,10 +262,11 @@ body{
     .custom_form{
         .layui-form-label{
             padding: 0;
-            line-height: 32px;
+            line-height: 40px;
+            font-size: 16px;
         }
         .layui-input{
-            height: 32px;
+            height: 40px;
         }
         .layui-input, .layui-textarea{
             border: 1px solid #ddd;
@@ -255,12 +278,12 @@ body{
         }
         .layui-btn{
             padding: 0 22px;
-            height: 32px;
-            font-size: 14px;
+            height: 40px;
+            font-size: 16px;
             line-height: 1;
             border-radius: 4px;
             &:hover{
-                background-color: #5160FF;
+                background-color: #FFAB33;
                 color: #fff;
             }
         }
@@ -305,7 +328,7 @@ body{
         color: #666;
         &:hover{
             background-color: #5161FF;
-            border-color: #5160FF;
+            border-color: #FFAB33;
             color: #fff;
         }
     }

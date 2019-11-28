@@ -10,7 +10,7 @@
 }
 
 .release_event_container .release_event_page .form_container {
-  background: #F6F8FC;
+  background: #fff;
   width: 100%;
 }
 
@@ -32,9 +32,6 @@
 }
 
 .release_event_container .release_event_page .custom_form .layui-inline .layui-form-label {
-  line-height: 32px;
-  height: 32px;
-  padding: 0;
   margin-right: 10px;
 }
 
@@ -44,7 +41,7 @@
 }
 
 .release_event_container .release_event_page .custom_form .layui-inline .layui-input, .release_event_container .release_event_page .custom_form .layui-inline .layui-select, .release_event_container .release_event_page .custom_form .layui-inline .layui-textarea {
-  height: 32px;
+  height: 40px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -95,12 +92,17 @@
   background: black;
 }
 
+.release_event_container .release_event_page .custom_form .tree_select_item .layui-input-inline .layui-form-checkbox:hover i {
+  border-color: #ffab33 !important;
+}
+
 .release_event_container .release_event_page .custom_form .tree_select_item .layui-input-inline .layui-form-checked[lay-skin=primary] i {
-  background-color: #5160FF;
+  background-color: #FFAB33;
+  border-color: #ffab33 !important;
 }
 
 .release_event_container .release_event_page .custom_form .tree_select_item .party_tree_container .layui-tree-txt {
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
 }
 
@@ -115,7 +117,7 @@
 }
 
 .release_event_container .release_event_page .custom_form .box_item_container .layui-input-inline .box_title {
-  background: #5160FF;
+  background: #FFAB33;
   font-size: 16px;
   color: #fff;
   height: 48px;
@@ -132,7 +134,7 @@
 
 .release_event_container .release_event_page .custom_form .box_item_container .layui-input-inline .box_item span {
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 26px;
   margin-left: 10px;
 }
@@ -162,14 +164,14 @@
 
 .release_event_container .release_event_page .custom_form .btn_group .layui-btn {
   padding: 0 20px;
-  font-size: 14px;
-  height: 32px;
-  line-height: 32px;
-  background-color: #5161FF;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #FFAB33;
 }
 
 .release_event_container .release_event_page .custom_form .btn_group .layui-btn:hover {
-  border-color: #5161FF;
+  border-color: #FFAB33;
 }
 
 .release_event_container .release_event_page .custom_form .btn_group .layui-btn.layui-btn-primary {

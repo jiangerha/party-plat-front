@@ -2,6 +2,7 @@
     background-image: url('../images/login-bg.png');
     height: 100vh;
     position: relative;
+    background-size: cover;
     .user_info_container{
         // width: 1140px;
         // height: 500px;
@@ -38,8 +39,8 @@
                     color: #CBCBCB;
                     border-bottom: 1px solid #E5E5E5;
                     &.active{
-                        color: #0579E6;
-                        border-color: #0579E6;
+                        color: #E74933;
+                        border-color: #E74933;
                     }
                 }
             }
@@ -85,11 +86,11 @@
                     border: 1px solid #CDCDCD;
                 }
                 .submit_btn{
-                    background: #0579E6;
+                    background: #E74933;
                     color: #fff;
                     cursor: pointer;
                     font-size: 1vw;
-                    border-color: #0579E6;
+                    border-color: #E74933;
                     text-indent: 0;
                     &:hover{
                         opacity: .9;

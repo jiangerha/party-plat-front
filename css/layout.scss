@@ -96,6 +96,87 @@
             overflow: auto;
             float: left;
             padding-top: 40px;
+            > .layui-nav-item{
+                .layui-nav-child{
+                    .menu_icon{
+                        margin-right: 6px;
+                        vertical-align: sub;
+                        background-size: cover;
+                    }
+                }
+                &:nth-child(1){
+                    .layui-nav-child{
+                        .menu_icon{
+                            background-image: url('../images/tree-icon1.png');
+                        }
+                        a:hover{
+                            .menu_icon{
+                                background-image: url('../images/tree-icon1-on.png');
+                            }
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    .layui-nav-child{
+                        .menu_icon{
+                            background-image: url('../images/tree-icon2.png');
+                        }
+                        a:hover{
+                            .menu_icon{
+                                background-image: url('../images/tree-icon2-on.png');
+                            }
+                        }
+                    }
+                }
+                &:nth-child(3){
+                    .layui-nav-child{
+                        .menu_icon{
+                            background-image: url('../images/tree-icon3.png');
+                        }
+                        a:hover{
+                            .menu_icon{
+                                background-image: url('../images/tree-icon3-on.png');
+                            }
+                        }
+                    }
+                }
+                &:nth-child(4){
+                    .layui-nav-child{
+                        .menu_icon{
+                            background-image: url('../images/tree-icon4.png');
+                        }
+                        a:hover{
+                            .menu_icon{
+                                background-image: url('../images/tree-icon4-on.png');
+                            }
+                        }
+                    }
+                }
+                &:nth-child(5){
+                    .layui-nav-child{
+                        .menu_icon{
+                            background-image: url('../images/tree-icon5.png');
+                        }
+                        a:hover{
+                            .menu_icon{
+                                background-image: url('../images/tree-icon5-on.png');
+                            }
+                        }
+                    }
+                }
+                &:nth-child(6){
+                    .layui-nav-child{
+                        .menu_icon{
+                            background-image: url('../images/tree-icon6.png');
+                        }
+                        a:hover{
+                            .menu_icon{
+                                background-image: url('../images/tree-icon6-on.png');
+                            }
+                        }
+                    }
+                }
+            }
             .layui-nav-bar{
                 display: none;
             }
@@ -109,6 +190,7 @@
                 background-size: cover;
             }
             .menu_icon{
+                display: inline-block;
                 width: 20px;
                 height: 20px;
                 margin-right: 20px;
@@ -168,17 +250,19 @@
             height: 100%;
             float: right;
             &.table_form_content{
-                padding: 3.7vh 2.08vw 10.18vh 2.08vw;
+                padding: 3.7vh 2.08vw 1.85vh 1.04vw;
                 position: absolute;
                 right: 0;
                 top: 0;
                 float: unset;
+                background: #F6F6F6;
             }
             .breadcrumb_group{
                 color: #999;
                 .layui-breadcrumb{
                     margin-left: 5px;
                     a{
+                        font-size: 16px;
                         &:hover{
                             color: #999!important;
                         }

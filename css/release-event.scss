@@ -5,7 +5,8 @@
         width: 100%;
         margin-bottom: 3.7vh;
         .form_container{
-            background: #F6F8FC;
+            // background: #F6F8FC;
+            background: #fff;
             width: 100%;
         }
         .custom_form{
@@ -22,9 +23,9 @@
                     float: right;
                 }
                 .layui-form-label{
-                    line-height: 32px;
-                    height: 32px;
-                    padding: 0;
+                    // line-height: 40px;
+                    // height: 40px;
+                    // padding: 0;
                     margin-right: 10px;
                 }
                 .layui-input-inline{
@@ -32,7 +33,7 @@
                     margin: 0;
                 }
                 .layui-input, .layui-select, .layui-textarea{
-                    height: 32px;
+                    height: 40px;
                     border: 1px solid #ddd;
                     border-radius: 4px;
                 }
@@ -73,8 +74,18 @@
                         border-radius:10px;
                         background:black;
                     }
-                    .layui-form-checked[lay-skin=primary] i{
-                        background-color: #5160FF;
+                    .layui-form-checkbox{
+                        &:hover{
+                            i{
+                                border-color: #ffab33!important;
+                            }
+                        }
+                    }
+                    .layui-form-checked[lay-skin=primary]{
+                        i{
+                            background-color: #FFAB33;
+                            border-color: #ffab33!important;
+                        }
                     }
                 }
                 .party_tree_container{
@@ -98,7 +109,7 @@
                     //     }
                     // }
                     .layui-tree-txt{
-                        font-size: 14px;
+                        font-size: 16px;
                         color: #333;
                     }
                 }
@@ -110,7 +121,7 @@
                     border: 1px solid #ccc;
                     border-radius: 8px;
                     .box_title{
-                        background: #5160FF;
+                        background: #FFAB33;
                         font-size: 16px;
                         color: #fff;
                         height: 48px;
@@ -124,7 +135,7 @@
                         overflow: auto;
                         span{
                             color: #333;
-                            font-size: 14px;
+                            font-size: 16px;
                             line-height: 26px;
                             margin-left: 10px;
                             &:first-child{
@@ -151,12 +162,12 @@
                 float: unset!important;
                 .layui-btn{
                     padding: 0 20px;
-                    font-size: 14px;
-                    height: 32px;
-                    line-height: 32px;
-                    background-color: #5161FF;
+                    font-size: 16px;
+                    height: 40px;
+                    line-height: 40px;
+                    background-color: #FFAB33;
                     &:hover{
-                        border-color: #5161FF;
+                        border-color: #FFAB33;
                     }
                     &.layui-btn-primary{
                         background-color: transparent;
@@ -173,12 +184,6 @@
             .custom_form{
                 .layui-inline{
                     margin-bottom: 30px;
-                    .layui-form-label{
-                    }
-                    .layui-input-inline{
-                    }
-                    .layui-input, .layui-select, .layui-textarea{
-                    }
                 }
                 .datepicker_item{
                     position: relative;

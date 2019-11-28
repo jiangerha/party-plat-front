@@ -195,6 +195,7 @@
         {
             title:'数据统计',
             link:'',
+            isParent:true,
             icon:'../images/tree-icon1.png',
             children:[
                 {
@@ -207,42 +208,64 @@
         {
             title:'组织生活管理',
             link:'',
+            isParent:true,
             icon:'../images/tree-icon2.png',
             children:[
                 {
                     title:'活动管理',
                     link:'./data-statistics/summary.html',
+                    icon:'../images/tree-icon2.png',
                 }
             ]
         },
         {
             title:'组织关系转接',
             icon:'../images/tree-icon3.png',
+            isParent:true,
             link:'',
             children:[
                 {
                     title:'组织关系转出',
                     link:'./data-statistics/summary.html',
+                    icon:'../images/tree-icon2.png',
                 }
             ]
         },
         {
             title:'数据报送',
             icon:'../images/tree-icon4.png',
+            isParent:true,
             link:'',
-            children:[]
+            children:[
+                {
+                    title:'数据报送11',
+                    icon:'../images/tree-icon4.png',
+                }
+            ]
         },
         {
             title:'基础数据管理',
             icon:'../images/tree-icon5.png',
+            isParent:true,
             link:'',
-            children:[]
+            children:[
+                {
+                    title:'基础数据管理11',
+                    icon:'../images/tree-icon5.png',
+                }
+            ]
         },
         {
             title:'系统管理',
             icon:'../images/tree-icon6.png',
+            isParent:true,
             link:'',
-            children:[]
+            children:[
+                {
+                    title:'系统管理11',
+                    icon:'../images/tree-icon6.png',
+                }
+            ]
         },
     ]
     //表单
@@ -271,7 +294,8 @@
     //渲染左侧菜单
     function renderMenuTree(){
         var treeNodes = '';
-        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        // var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? i.isParent ? `<img class="menu_icon" src=${i.icon} />` : `<span class="menu_icon"></span>` : ''}${i.title}</a>`;
         menuData.map(i => {
             var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
                 ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {

@@ -67,6 +67,7 @@
             .layui-form-select{
                 height: 40px;
                 display: inline-block;
+                z-index: 10;
                 .layui-select-title{
                     input{
                         border: none;
