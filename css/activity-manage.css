@@ -6,6 +6,52 @@
   float: right;
 }
 
+.activity_manage_container.outer_charts_container {
+  background: #fff !important;
+}
+
+.activity_manage_container.outer_charts_container .activity_manage_page {
+  position: relative;
+}
+
+.activity_manage_container.outer_charts_container .activity_manage_page .operate_btns {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  text-align: right;
+  top: 40px;
+  right: 0;
+  z-index: 10;
+}
+
+.activity_manage_container.outer_charts_container .activity_manage_page .operate_btns .layui-btn {
+  height: 40px;
+  background: #fbaa33;
+  font-size: 16px;
+  width: 90px;
+  border-radius: 6px;
+}
+
+.activity_manage_container.outer_charts_container .charts_container {
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-top: 40px;
+}
+
+.activity_manage_container.outer_charts_container .charts_container .view_charts {
+  width: 100%;
+  height: 100%;
+}
+
+.activity_manage_container.outer_charts_container .charts_container .tooltip_container {
+  padding: 8px 50px 8px 15px;
+}
+
+.activity_manage_container.outer_charts_container .charts_container .tooltip_container p {
+  font-size: 16px;
+  line-height: 26px;
+}
+
 .activity_manage_container .activity_manage_page {
   height: 100%;
   width: 100%;
@@ -118,17 +164,6 @@
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-curr em {
   color: #5161FF;
   font-size: 14px;
-}
-
-.activity_manage_container .charts_container {
-  width: 100%;
-  height: calc(100% - 60px);
-  margin-top: 40px;
-}
-
-.activity_manage_container .charts_container .view_charts {
-  width: 100%;
-  height: 100%;
 }
 
 @media screen and (max-width: 1536px) {

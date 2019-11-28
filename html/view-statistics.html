@@ -34,7 +34,7 @@
     <div class="content_container">
         <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
         </ul>
-        <div class="main_content table_form_content activity_manage_container">
+        <div class="main_content table_form_content activity_manage_container outer_charts_container">
             <!-- 右侧盒子内容 -->
             <div class="activity_manage_page">
                 <div class="breadcrumb_group">
@@ -43,6 +43,10 @@
                         <a href="javascript:;">系统管理</a>
                         <a href="javascript:;">访问统计</a>
                     </span>
+                </div>
+                <div class="operate_btns">
+                    <button type="button" class="layui-btn">正常</button>
+                    <button type="button" class="layui-btn">排列</button>
                 </div>
                 <div class="charts_container">
                     <div class="view_charts" id="viewEcharts"></div>
@@ -136,29 +140,82 @@
     function renderViewCharts(){
         var viewEchart = echarts.init(document.getElementById('viewEcharts'));
         var option = {
-            tooltip: {},
+            tooltip: {
+                formatter:(data) => {
+                    console.log(data,'data')
+                    return `<div class="tooltip_container">
+                        <p>${data.name}</p>
+                        <p>${data.seriesName}:${data.value}</p>
+                    </div>`
+                }
+            },
             legend: {
+                width:48,
+                height:20,
+                textStyle:{
+                    fontSize:16,
+                },
                 data: ['访问次数']
             },
             grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
+                left: 0,
+                right: 0,
+                bottom: '6%',
                 containLabel: true
             },
             xAxis: {
                 type: 'value',
-                boundaryGap: [0, 0.01]
+                axisTick:{
+                    show:false,
+                },
+                splitLine:{
+                    show:false
+                },
+                axisLabel:{
+                    show:false,
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#FFAB33'
+                    }
+                },
             },
             yAxis: {
                 type: 'category',
-                data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
+                axisTick:{
+                    show:false,
+                },
+                axisLabel:{
+                    fontSize:16,
+                    color:'#333'
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#FFAB33'
+                    }
+                },
+                data: ['资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委','资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委']
             },
             series: [
                 {
                     name: '访问次数',
                     type: 'bar',
-                    data: [18203, 23489, 29034, 104970, 131744, 630230]
+                    barWidth:32,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                0, 1, 1, 0,
+                                [
+                                    {offset: 0, color: '#FFAB33'},
+                                    {offset: 1, color: '#E74933'}
+                                ]
+                            )
+                        },
+                        emphasis: {
+                            color: '#E74933'
+                        }
+                    },
+                    data: [18203, 23489, 29034, 104970, 131744, 630230,18203, 23489, 29034, 104970, 131744, 630230]
                 },
             ]
         };
