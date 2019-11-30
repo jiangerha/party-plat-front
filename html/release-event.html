@@ -123,6 +123,7 @@
         var tree = layui.tree;
         tree.render({
             elem: '#partyTree', //指定元素
+            id:'partyTree',  //定义索引
             data:[
                 {
                 title: '重庆大学党委',
@@ -131,10 +132,30 @@
                     {
                         title: '马克思主义学院党委',
                         id: 1000,
+                        children:[
+                            {
+                                title: '马克思主义学院党委test',
+                                id: 10000,
+                            },
+                            {
+                                title: '马克思主义学院党委test11',
+                                id: 10001,
+                            },
+                        ]
                     },
                     {
                         title: '政治与公共管理学院党委',
                         id: 1001,
+                        children:[
+                            {
+                                title: '政治与公共管理学院党委test',
+                                id: 10010,
+                            },
+                            {
+                                title: '政治与公共管理学院党委test11',
+                                id: 10011,
+                            },
+                        ]
                     },
                     {
                         title: '经济管理学院党委',
@@ -160,12 +181,25 @@
             }],
             showLine:false,
             showCheckbox: true,
+            // oncheck:function(e){ //复选框选中事件
+            //     var checkData = tree.getChecked('partyTree');
+            //     e.checked && selectedNode.push(e.data.title)
+            //     !e.checked && (selectedNode.filter((i, idx) => i === e.data.title && selectedNode.splice(idx, 1)));
+            //     console.log(checkData, selectedNode,'selectedNode')
+            //     var selectedDom = '';
+            //     selectedNode.map(i => selectedDom += `<span>${i};</span>`);
+            //     $(".box_item").html(selectedDom);
+            // },
             oncheck:function(e){ //复选框选中事件
-                e.checked && selectedNode.push(e.data.title)
-                !e.checked && (selectedNode.filter((i, idx) => i === e.data.title && selectedNode.splice(idx, 1)));
-                console.log(selectedNode,'selectedNode')
+                var checkData = tree.getChecked('partyTree');
                 var selectedDom = '';
-                selectedNode.map(i => selectedDom += `<span>${i};</span>`);
+                var getTitle = (data) => {
+                    data.length && data.map(i => {
+                        i.title && (selectedDom += `<span>${i.title};</span>`);
+                        return i.children && i.children.length && getTitle(i.children);
+                    });
+                }
+                getTitle(checkData);
                 $(".box_item").html(selectedDom);
             },
         });

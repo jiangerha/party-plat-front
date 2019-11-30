@@ -50,7 +50,78 @@
                         <button type="button" class="layui-btn custom_btn search_btn">查询</button>
                         <button type="button" class="layui-btn custom_btn publish_acti_btn">发布活动</button>
                     </div>
-                    <table id="activityTable" lay-filter="activityTable" class="custom_table"></table>
+                    <div class="table_outer_box">
+                        <!-- 模拟顶部表头 style 控制表头宽度 -->
+                        <ul class="fixed_thead">
+                            <li style="width:33.33%">昵称</li>
+                            <li style="width:33.33%">加入时间</li>
+                            <li style="width:33.33%">签名</li>
+                        </ul>
+                        <div class="table_scroll_box">
+                            <table class="layui-table custom_table">
+                                <!-- <thead>
+                                    <tr>
+                                    <th>昵称</th>
+                                    <th>加入时间</th>
+                                    <th>签名</th>
+                                    </tr> 
+                                </thead> -->
+                                <tbody>
+                                    <tr>
+                                    <td>贤心</td>
+                                    <td>2016-11-29</td>
+                                    <td>人生就像是一场修行</td>
+                                    </tr>
+                                    <tr>
+                                    <td>许闲心</td>
+                                    <td>2016-11-28</td>
+                                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                    </tr>
+                                    <tr>
+                                    <td>贤心</td>
+                                    <td>2016-11-29</td>
+                                    <td>人生就像是一场修行</td>
+                                    </tr>
+                                    <tr>
+                                    <td>许闲心</td>
+                                    <td>2016-11-28</td>
+                                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                    </tr>
+                                    <tr>
+                                    <td>贤心</td>
+                                    <td>2016-11-29</td>
+                                    <td>人生就像是一场修行</td>
+                                    </tr>
+                                    <tr>
+                                    <td>许闲心</td>
+                                    <td>2016-11-28</td>
+                                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                    </tr>
+                                    <tr>
+                                    <td>贤心</td>
+                                    <td>2016-11-29</td>
+                                    <td>人生就像是一场修行</td>
+                                    </tr>
+                                    <tr>
+                                    <td>许闲心</td>
+                                    <td>2016-11-28</td>
+                                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                    </tr>
+                                    <tr>
+                                    <td>贤心</td>
+                                    <td>2016-11-29</td>
+                                    <td>人生就像是一场修行</td>
+                                    </tr>
+                                    <tr>
+                                    <td>许闲心</td>
+                                    <td>2016-11-28</td>
+                                    <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- <table id="activityTable" lay-filter="activityTable" class="custom_table"></table> -->
                 </div>
             </div>
             <!-- 右侧盒子内容 -->
@@ -59,10 +130,13 @@
 </div>
 <script src="../js/layui.js"></script>
 <script type="text/html" id="operateBtns">
-    <div class="operate_btns">
-        <span class="blue_text" onclick="test();">编辑</span>    
-        <span class="red_text">删除</span>
-    </div>
+    <!-- 模版语法  判断按钮是否显示 -->
+    {{#  if(d.isEdit){ }}
+        <div class="operate_btns">
+            <span class="blue_text" onclick="test();">编辑</span>    
+            <span class="red_text">删除</span>
+        </div>
+    {{#  } }}
 </script>
 <script>
     //编辑按钮 测试
@@ -85,7 +159,7 @@
         var data = [];
         var getData = (num) => {
             if(num < 200){
-                data.push({...mockItem,name:num});
+                data.push({...mockItem,name:num, isEdit: num % 2 === 0});
                 return getData(num+1)
             }
         }
