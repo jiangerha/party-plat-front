@@ -241,6 +241,78 @@ body .layui-laydate .layui-this {
   font-size: 16px;
 }
 
+.table_form_content .custom_table.layui-table .layui-form-checkbox[lay-skin=primary]:hover i {
+  border-color: #FFAB33;
+}
+
+.table_form_content .custom_table.layui-table .layui-form-checked[lay-skin=primary] i {
+  background-color: #FFAB33;
+  border-color: #FFAB33;
+}
+
+.table_form_content .custom_table.layui-table th, .table_form_content .custom_table.layui-table td {
+  border-right: 0;
+  border-color: #E6E6E6;
+  font-size: 16px;
+  box-sizing: border-box;
+  border-left: none;
+}
+
+.table_form_content .custom_table.layui-table th .operate_btns > span, .table_form_content .custom_table.layui-table td .operate_btns > span {
+  margin-right: 10%;
+  float: left;
+  cursor: pointer;
+}
+
+.table_form_content .custom_table.layui-table th .operate_btns > span:last-child, .table_form_content .custom_table.layui-table td .operate_btns > span:last-child {
+  margin-right: 0;
+}
+
+.table_form_content .custom_table.layui-table th .operate_btns .blue_text, .table_form_content .custom_table.layui-table td .operate_btns .blue_text {
+  color: #2E87FF;
+}
+
+.table_form_content .custom_table.layui-table th .operate_btns .red_text, .table_form_content .custom_table.layui-table td .operate_btns .red_text {
+  color: #FE4D4D;
+}
+
+.table_form_content .custom_table.layui-table th .reject_color, .table_form_content .custom_table.layui-table td .reject_color {
+  color: #FF523A;
+}
+
+.table_form_content .custom_table.layui-table th .allow_color, .table_form_content .custom_table.layui-table td .allow_color {
+  color: #11D43B;
+}
+
+.table_form_content .custom_table.layui-table th .blue_title, .table_form_content .custom_table.layui-table td .blue_title {
+  color: #5161FF;
+}
+
+.table_form_content .custom_table.layui-table thead th {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  height: 48px;
+  background-color: #e5e5e5;
+}
+
+.table_form_content .custom_table.layui-table tbody tr:hover {
+  background: transparent;
+}
+
+.table_form_content .custom_table.layui-table tbody tr:nth-child(2n) {
+  background: #EDF3FF;
+}
+
+.table_form_content .custom_table.layui-table tbody tr:nth-child(2n):hover {
+  background: #EDF3FF;
+}
+
+.table_form_content .custom_table.layui-table tbody td {
+  color: #666;
+  height: 48px;
+}
+
 .table_form_content .operate_form_group {
   height: 40px;
   margin: 0 0 1.85vh 0;

@@ -66,6 +66,33 @@
   float: right;
 }
 
+.activity_manage_container .activity_manage_page .table_outer_box {
+  height: calc(100% - 72px - 6.29vh);
+  position: relative;
+}
+
+.activity_manage_container .activity_manage_page .table_outer_box .fixed_thead {
+  width: 100%;
+  height: 48px;
+}
+
+.activity_manage_container .activity_manage_page .table_outer_box .fixed_thead li {
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  height: 48px;
+  background-color: #e5e5e5;
+  line-height: 48px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.activity_manage_container .activity_manage_page .table_outer_box .table_scroll_box {
+  height: 100%;
+  overflow: auto;
+}
+
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view {
   height: calc(100% - 32px - 1.85vh) !important;
   margin: 0;
@@ -164,6 +191,16 @@
 .activity_manage_container .activity_manage_page .custom_table + .layui-table-view .layui-table-page .layui-laypage-curr em {
   color: #5161FF;
   font-size: 14px;
+}
+
+.activity_manage_container .activity_manage_page .custom_table.layui-table {
+  height: 100%;
+  margin: 0;
+  border: 0;
+}
+
+.activity_manage_container .activity_manage_page .custom_table.layui-table thead {
+  display: none;
 }
 
 @media screen and (max-width: 1536px) {
