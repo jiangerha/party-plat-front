@@ -4,38 +4,36 @@
     position: relative;
     background-size: cover;
     .user_info_container{
-        // width: 1140px;
-        // height: 500px;
-        width: 60%;
-        height: 46%;
+        width: 1140px;
+        height: 500px;
         background: #fff;
         position: absolute;
-        top: 27%;
-        left: 20%;
-        // margin-left: -570px;
-        // margin-top: -250px;
+        top: 50%;
+        left: 50%;
+        margin-left: -570px;
+        margin-top: -250px;
         >div{
             float: left;
             display: inline-block;
         }
         .title_container{
-            width: 65%;
+            width: 740px;
             height: 100%;
             background-image: url('../images/login-title.png');
             background-size: cover;
         }
         .info_container{
-            width: 35%;
+            width: 400px;
             height: 100%;
-            padding: 6.5% 3.5% 0 3.5%;
+            padding: 74px 40px 0 40px;
             .info_title{
                 span{
                     width: 50%;
                     float: left;
                     display: inline-block;
                     cursor: pointer;
-                    font-size: 1.3vw;
-                    line-height: 6vh;
+                    font-size: 20px;
+                    line-height: 64px;
                     color: #CBCBCB;
                     border-bottom: 1px solid #E5E5E5;
                     &.active{
@@ -45,17 +43,17 @@
                 }
             }
             .login_form{
-                padding:4vh 1.5vw 0 3.7vh;
+                padding:44px 30px 0 30px;
                 clear: both;
                 .user_container{
                     position: relative;
                 }
                 .input_icon{
                     position: absolute;
-                    width: 2.2vh;
-                    height: 2.2vh;
-                    top: 1vh;
-                    left: 0.75vh;
+                    width: 24px;
+                    height: 24px;
+                    top: 10px;
+                    left: 10px;
                     background-size: cover;
                     background-image: url('../images/user-icon.png');
                     &::after{
@@ -65,31 +63,44 @@
                         content: '';
                         display: inline-block;
                         position: absolute;
-                        margin-left: 2.5vh;
+                        margin-left: 33px;
                     }
                 }
                 .pwd_container{
                     position: relative;
                     input{
-                        margin: 3.2vh 0 3.4vh 0;
+                        margin: 35px 0 37px 0;
                     }
                     .input_icon{
-                        top: 4.2vh;
+                        top: 45px;
                         background-image: url('../images/pwd-icon.png');
                     }
                 }
                 input{
                     width: 100%;
-                    height: 3.7vh;
+                    height: 40px;
                     border-radius: 10px;
-                    text-indent: 3.5vh;
+                    text-indent: 45px;
                     border: 1px solid #CDCDCD;
+                    &::-webkit-input-placeholder {
+                        color: #ccc;
+                        font-size: 14px;
+                        padding-left: 16px;
+                    }
+                    &::-moz-placeholder {
+                        color: #ccc;
+                        font-size: 14px;
+                    }
+                    &::-ms-input-placeholder {
+                        color: #ccc;
+                        font-size: 14px;
+                    }
                 }
                 .submit_btn{
                     background: #E74933;
                     color: #fff;
                     cursor: pointer;
-                    font-size: 1vw;
+                    font-size: 16px;
                     border-color: #E74933;
                     text-indent: 0;
                     &:hover{
