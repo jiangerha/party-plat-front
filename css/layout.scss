@@ -28,6 +28,7 @@
                 }
                 span{
                     font-size: 18px;
+                    cursor: pointer;
                 }
             }
             .avatar_info{
@@ -58,6 +59,8 @@
                             font-size: 16px;
                             cursor: pointer;
                             padding: 0 10px;
+                            height: 48px;
+                            line-height: 48px;
                             a{
                                 color: #333;
                                 background: transparent;
@@ -95,7 +98,8 @@
             background: #F6F8FC;
             overflow: auto;
             float: left;
-            padding-top: 40px;
+            padding: 40px 0;
+            overflow: auto;
             > .layui-nav-item{
                 .layui-nav-child{
                     .menu_icon{
@@ -228,6 +232,12 @@
             .layui-nav-child{
                 background: #F6F8FC!important;
                 li{
+                    &.layui-this{
+                        background-color: transparent;
+                        a{
+                            background-color: transparent;
+                        }
+                    }
                     a{
                         color: #666;
                         padding-left: 100px;
@@ -250,7 +260,8 @@
             height: 100%;
             float: right;
             &.table_form_content{
-                padding: 3.7vh 2.08vw 1.85vh 1.04vw;
+                // padding: 3.7vh 2.08vw 1.85vh 1.04vw;
+                padding: 40px 40px 20px 20px;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -304,7 +315,7 @@
         }
         .content_container{
             .menu_tree{
-                padding-top: 20px;
+                padding: 20px 0;
                 .layui-nav-more{
                     right: 20px;
                 }

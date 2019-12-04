@@ -3,7 +3,8 @@
     height: 100%;
     .party_manage_content{
         height: 100%;
-        padding-top: 3.7vh;
+        // padding-top: 3.7vh;
+        padding-top: 40px;
         > div{
             display: inline-block;
             float: left;
@@ -12,7 +13,8 @@
             // width:17.34%;
             width:14.16vw;
             // height: calc(83.4vh - 20px);
-            height: 83.4vh;
+            // height: 83.4vh;
+            height: 100%;
             padding: 0 1.04vw 3.7vh 1.04vw;
             background: #EAEEF5;
             overflow: auto;
@@ -110,7 +112,7 @@
                 }
             }
             .table_content{
-                height: calc(100% - 34px - 5vh);
+                height: calc(100% - 34px - 55px);
                 padding-top:0;
                 .hidden_container{
                     display: none;
@@ -119,7 +121,7 @@
                     }
                 }
                 .table_btns{
-                    padding: 1.85vh 0;
+                    padding: 20px 0;
                     margin: 0;
                     button{
                         &:nth-child(n + 2){
@@ -128,7 +130,7 @@
                     }
                 }
                 .custom_table + .layui-table-view{
-                    height: calc(100% - 3.7vh - 32px);
+                    height: calc(100% - 40px - 32px);
                 }
             }
 
@@ -188,6 +190,9 @@
                 }
             }
             .party_table_container{
+                .table_content{
+                    height: calc(100% - 34px - 40px);
+                }
                 .breadcrumb_group{
                     font-size: 14px;
                     height: 34px;

@@ -48,6 +48,10 @@ a {
   text-decoration: none;
 }
 
+a:hover, a:focus {
+  text-decoration: none;
+}
+
 .full_screen {
   width: 100%;
   max-width: 1920px;
@@ -66,9 +70,9 @@ body .layui-laydate .layui-this {
 .table_form_content .bg_white_container {
   background: #fff;
   position: relative;
-  margin-top: 1.85vh;
-  padding: 1.85vh 1.04vw 7.4vh 1.04vw;
-  height: calc(100% - 20px - 1.85vh);
+  margin-top: 20px;
+  padding: 20px 20px 86px 20px;
+  height: calc(100% - 20px - 20px);
 }
 
 .table_form_content .custom_table + .layui-table-view {
@@ -144,6 +148,10 @@ body .layui-laydate .layui-this {
   height: calc(100% - 40px - 4.44vh);
 }
 
+.table_form_content .custom_table + .layui-table-view .layui-table-box .layui-table-header {
+  background: #e5e5e5;
+}
+
 .table_form_content .custom_table + .layui-table-view .layui-table-box .layui-table-body {
   height: calc(100% - 40px) !important;
 }
@@ -171,7 +179,7 @@ body .layui-laydate .layui-this {
 }
 
 .table_form_content .custom_table + .layui-table-view .layui-table-page button {
-  padding: 14px;
+  padding: 0 14px;
   background: #f5f5f5;
   border: 1px solid #ddd;
   height: 38px;
@@ -315,7 +323,7 @@ body .layui-laydate .layui-this {
 
 .table_form_content .operate_form_group {
   height: 40px;
-  margin: 0 0 1.85vh 0;
+  margin: 0 0 20px 0;
 }
 
 .table_form_content .operate_form_group .custom_input {
@@ -386,6 +394,7 @@ body .layui-laydate .layui-this {
 .table_form_content .custom_form .layui-textarea {
   height: 140px;
   resize: none;
+  padding: 15px 10px !important;
 }
 
 .table_form_content .custom_form .layui-btn {
@@ -469,7 +478,7 @@ body .layui-laydate .layui-this {
 
 /*设置滚动条样式*/
 div::-webkit-scrollbar-track-piece, textarea::-webkit-scrollbar-track-piece {
-  background-color: #f8f8f8;
+  background-color: #e5e5e5;
 }
 
 div::-webkit-scrollbar, textarea::-webkit-scrollbar {
@@ -478,7 +487,7 @@ div::-webkit-scrollbar, textarea::-webkit-scrollbar {
 }
 
 div::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
-  background-color: #dddddd;
+  background-color: #ddd;
   background-clip: padding-box;
   min-height: 28px;
 }

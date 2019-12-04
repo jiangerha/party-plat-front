@@ -9,7 +9,7 @@
 }
 
 .organ_retention_container .organ_retention_page .form_content {
-  padding-top: 3.7vh;
+  padding-top: 40px;
 }
 
 .organ_retention_container .organ_retention_page .form_content .form_title {
@@ -96,11 +96,11 @@
 }
 
 .organ_retention_container .organ_retention_page .form_content .table_form .custom_form .btn_group {
-  margin-left: -48px;
+  margin: 40px 0 0 -48px;
 }
 
 .organ_retention_container .organ_retention_page .form_content .table_form .custom_form .btn_group .layui-input-inline {
-  padding: 3.7vh 0 12.68vh 0;
+  padding: 0 0 12.68vh 0;
 }
 
 .organ_retention_container .organ_retention_page .form_content .table_form .custom_form .btn_group .layui-input-inline button:first-child {

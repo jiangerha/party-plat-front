@@ -6,7 +6,7 @@
 
 .release_event_container .release_event_page {
   width: 100%;
-  margin-bottom: 3.7vh;
+  margin-bottom: 40px;
 }
 
 .release_event_container .release_event_page .form_container {
@@ -15,13 +15,13 @@
 }
 
 .release_event_container .release_event_page .custom_form {
-  padding: 3.7vh 0 0 20px;
-  margin-top: 1.85vh;
+  padding: 40px 0 0 20px;
+  margin-top: 20px;
   max-width: 960px;
 }
 
 .release_event_container .release_event_page .custom_form .layui-inline {
-  height: 30px;
+  height: 40px;
   margin-bottom: 48px;
   width: 50%;
   clear: unset;

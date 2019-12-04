@@ -80,7 +80,8 @@
         }
         .custom_table{
             &  + .layui-table-view{
-                height: calc(100% - 32px - 1.85vh) !important;
+                // height: calc(100% - 32px - 1.85vh) !important;
+                height: calc(100% - 32px - 20px) !important;
                 margin: 0;
                 border: 0;
                 position: relative;
@@ -103,7 +104,7 @@
                         text-align: center;
                     }
                     button{
-                        padding: 14px;
+                        padding: 0 14px;
                         background: #f5f5f5;
                         border: 1px solid #ddd;
                         height: 38px;

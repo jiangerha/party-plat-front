@@ -48,6 +48,14 @@
   padding: 8px 9.5px;
 }
 
+.party_member_container.form_content .custom_form .layui-inline.btn_group {
+  margin-top: 40px;
+}
+
+.party_member_container.form_content .custom_form .layui-inline.btn_group .layui-input-inline {
+  padding: 0;
+}
+
 .party_member_container.form_content .custom_form .layui-btn:nth-child(1) {
   background: #FFAB33;
 }

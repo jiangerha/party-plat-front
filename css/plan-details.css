@@ -1,5 +1,5 @@
 .plan_details_container {
-  padding: 3.7vh 2.08vw 4.62vh 2.08vw !important;
+  padding: 40px 40px 60px 40xp !important;
 }
 
 .plan_details_container .plan_details_page {
@@ -34,10 +34,10 @@
 }
 
 .plan_details_container .plan_details_page .details_container .details_content {
-  margin: 3.7vh 0 2.41vh 0;
-  padding: 0 2.08vw 0 2.08vw;
+  margin: 40px 0 26px 0;
+  padding: 0 40px;
   overflow-y: auto;
-  max-height: calc(100% - 222px - 6.01vh);
+  max-height: calc(100% - 222px - 66px);
   font-size: 16px;
   color: #666;
   line-height: 20px;

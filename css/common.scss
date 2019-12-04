@@ -37,6 +37,9 @@ input{
 }
 a{
     text-decoration: none;
+    &:hover,&:focus{
+        text-decoration: none;
+    }
 }
 .full_screen{
     width: 100%;
@@ -53,9 +56,12 @@ body{
     .bg_white_container{
         background: #fff;
         position: relative;
-        margin-top: 1.85vh;
-        padding: 1.85vh 1.04vw 7.4vh 1.04vw;
-        height: calc(100% - 20px - 1.85vh);
+        // margin-top: 1.85vh;
+        margin-top: 20px;
+        // padding: 20px 20px 7.4vh 20px;
+        padding: 20px 20px 86px 20px;
+        // height: calc(100% - 20px - 1.85vh);
+        height: calc(100% - 20px - 20px);
     }
     /*公共列表样式*/
     .custom_table{
@@ -127,6 +133,9 @@ body{
             }
             .layui-table-box{
                 height: calc(100% - 40px - 4.44vh);
+                .layui-table-header{
+                    background: #e5e5e5;
+                }
                 .layui-table-body{
                     height: calc(100% - 40px)!important;
                     tr{
@@ -154,7 +163,7 @@ body{
                     text-align: center;
                 }
                 button{
-                    padding: 14px;
+                    padding: 0 14px;
                     background: #f5f5f5;
                     border: 1px solid #ddd;
                     height: 38px;
@@ -286,7 +295,8 @@ body{
     /*搜索表单*/
     .operate_form_group{
         height: 40px;
-        margin: 0 0 1.85vh 0;
+        // margin: 0 0 1.85vh 0;
+        margin: 0 0 20px 0;
         .custom_input{
             border-color: #ccc !important;
             width: 280px;
@@ -347,6 +357,7 @@ body{
         .layui-textarea{
             height: 140px;
             resize: none;
+            padding: 15px 10px!important;
         }
         .layui-btn{
             padding: 0 22px;
@@ -428,14 +439,14 @@ body{
 /*设置滚动条样式*/
 div, textarea{
     &::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
-        background-color:#f8f8f8;
+        background-color:#e5e5e5;
     }
     &::-webkit-scrollbar {//滚动条的宽度
         width:9px;
         height:9px;
     }
     &::-webkit-scrollbar-thumb {//滚动条的设置
-        background-color:#dddddd;
+        background-color:#ddd;
         background-clip:padding-box;
         min-height:28px;
     }

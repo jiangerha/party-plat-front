@@ -41,6 +41,12 @@
                 .layui-input-inline{
                     padding: 8px 9.5px;
                 }
+                &.btn_group{
+                    margin-top: 40px;
+                    .layui-input-inline{
+                        padding: 0;
+                    }
+                }
             }
             .layui-btn{
                 &:nth-child(1){

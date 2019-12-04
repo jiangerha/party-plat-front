@@ -5,7 +5,7 @@
 
 .party_manage_page .party_manage_content {
   height: 100%;
-  padding-top: 3.7vh;
+  padding-top: 40px;
 }
 
 .party_manage_page .party_manage_content > div {
@@ -15,7 +15,7 @@
 
 .party_manage_page .party_manage_content .party_tree_container {
   width: 14.16vw;
-  height: 83.4vh;
+  height: 100%;
   padding: 0 1.04vw 3.7vh 1.04vw;
   background: #EAEEF5;
   overflow: auto;
@@ -112,7 +112,7 @@
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content {
-  height: calc(100% - 34px - 5vh);
+  height: calc(100% - 34px - 55px);
   padding-top: 0;
 }
 
@@ -125,7 +125,7 @@
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content .table_btns {
-  padding: 1.85vh 0;
+  padding: 20px 0;
   margin: 0;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .party_manage_page .party_manage_content .party_table_container .table_content .custom_table + .layui-table-view {
-  height: calc(100% - 3.7vh - 32px);
+  height: calc(100% - 40px - 32px);
 }
 
 .party_manage_page .party_manage_content .party_table_container .admin_setting_container {
@@ -165,6 +165,9 @@
   .party_manage_page .party_manage_content .party_tree_container .layui-tree-entry {
     height: 30px;
     line-height: 30px;
+  }
+  .party_manage_page .party_manage_content .party_table_container .table_content {
+    height: calc(100% - 34px - 40px);
   }
   .party_manage_page .party_manage_content .party_table_container .breadcrumb_group {
     font-size: 14px;

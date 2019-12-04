@@ -35,6 +35,7 @@
 
 .layout_page .top_nav .user_info_group > p span {
   font-size: 18px;
+  cursor: pointer;
 }
 
 .layout_page .top_nav .user_info_group .avatar_info img {
@@ -69,6 +70,8 @@
   font-size: 16px;
   cursor: pointer;
   padding: 0 10px;
+  height: 48px;
+  line-height: 48px;
 }
 
 .layout_page .top_nav .user_info_group .user_nav_container.layui-nav .layui-nav-child dd a {
@@ -106,7 +109,8 @@
   background: #F6F8FC;
   overflow: auto;
   float: left;
-  padding-top: 40px;
+  padding: 40px 0;
+  overflow: auto;
 }
 
 .layout_page .content_container .menu_tree > .layui-nav-item .layui-nav-child .menu_icon {
@@ -217,6 +221,14 @@
   background: #F6F8FC !important;
 }
 
+.layout_page .content_container .menu_tree .layui-nav-child li.layui-this {
+  background-color: transparent;
+}
+
+.layout_page .content_container .menu_tree .layui-nav-child li.layui-this a {
+  background-color: transparent;
+}
+
 .layout_page .content_container .menu_tree .layui-nav-child li a {
   color: #666;
   padding-left: 100px;
@@ -240,7 +252,7 @@
 }
 
 .layout_page .content_container .main_content.table_form_content {
-  padding: 3.7vh 2.08vw 1.85vh 1.04vw;
+  padding: 40px 40px 20px 20px;
   position: absolute;
   right: 0;
   top: 0;
@@ -282,7 +294,7 @@
     font-size: 16px;
   }
   .layout_page .content_container .menu_tree {
-    padding-top: 20px;
+    padding: 20px 0;
   }
   .layout_page .content_container .menu_tree .layui-nav-more {
     right: 20px;
