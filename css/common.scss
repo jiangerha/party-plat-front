@@ -483,3 +483,25 @@ div, textarea{
         }
     }
 }
+
+
+body{
+    .layui-layer{
+        min-width: 400px;
+    }
+    .layui-layer-btn .layui-layer-btn0{
+        border-color: #FFAB33;
+        background-color: #FFAB33;
+    }
+    .layui-layer-prompt .layui-layer-btn{
+        padding-bottom: 20px;
+    }
+    .layui-layer-title{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .layui-layer-prompt .layui-layer-input{
+        padding: 0;
+        width: 100%;
+    }
+}
