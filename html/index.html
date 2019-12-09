@@ -137,6 +137,13 @@
         },4000);
     }
     auto();
+    //当我移上#attendContainer的时候停止轮播
+    $("#attendContainer").hover(function(){
+        clearInterval(timer);
+    },function(){
+        //移开重新调用播放
+        auto();
+    });
 </script>
 <script>
     $(document).ready(() => {
