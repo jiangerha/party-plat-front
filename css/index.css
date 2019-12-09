@@ -304,11 +304,33 @@
 .big_screen_container .bottom_container .attend_outer_container {
   width: 41.9%;
   height: 100%;
+  position: relative;
 }
 
 .big_screen_container .bottom_container .attend_outer_container .attend_container {
   width: 100%;
   height: calc(100% - 2.77vh);
+  overflow: hidden;
+}
+
+.big_screen_container .bottom_container .attend_outer_container .charts_dots {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.big_screen_container .bottom_container .attend_outer_container .charts_dots li {
+  width: 8px;
+  height: 8px;
+  background: #F3DFE5;
+  border-radius: 8px;
+  float: left;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.big_screen_container .bottom_container .attend_outer_container .charts_dots li.on {
+  background: #E60012;
 }
 
 .big_screen_container .bottom_container .activity_outer_container {

@@ -163,10 +163,11 @@
                 height: 50%;
                 margin-bottom: 40px;
                 padding: 5% 5% 3.25% 5%;
+                position: relative;
                 .attend_rate_container{
                     width: 100%;
-                    // height: 88.1%;
-                    height: 100%;
+                    // height: 100%;
+                    height: calc(90% - 24px);
                     >div{
                         padding: 0!important;
                     }
@@ -179,6 +180,13 @@
                             line-height: 18px;
                             font-size: 12px;
                         }
+                    }
+                }
+                .desc_text{
+                    right: 5%;
+                    bottom: 6%;
+                    a{
+                        color: #FFAB33;
                     }
                 }
             }

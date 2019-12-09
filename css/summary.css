@@ -179,11 +179,12 @@
   height: 50%;
   margin-bottom: 40px;
   padding: 5% 5% 3.25% 5%;
+  position: relative;
 }
 
 .summary_page .attend_views_activity .attend_views_group .attend_rate_group .attend_rate_container {
   width: 100%;
-  height: 100%;
+  height: calc(90% - 24px);
 }
 
 .summary_page .attend_views_activity .attend_views_group .attend_rate_group .attend_rate_container > div {
@@ -200,6 +201,15 @@
   color: #fff;
   line-height: 18px;
   font-size: 12px;
+}
+
+.summary_page .attend_views_activity .attend_views_group .attend_rate_group .desc_text {
+  right: 5%;
+  bottom: 6%;
+}
+
+.summary_page .attend_views_activity .attend_views_group .attend_rate_group .desc_text a {
+  color: #FFAB33;
 }
 
 .summary_page .attend_views_activity .attend_views_group .views_group {

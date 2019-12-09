@@ -437,7 +437,7 @@ body{
     padding: 0!important;
 }
 /*设置滚动条样式*/
-div, textarea{
+div, textarea, table tbody{
     &::-webkit-scrollbar-track-piece { //滚动条凹槽的颜色，还可以设置边框属性
         background-color:#e5e5e5;
     }
@@ -504,4 +504,22 @@ body{
         padding: 0;
         width: 100%;
     }
+}
+
+.table_outer_box > table tbody {
+    display:block;
+    height:calc(100% - 48px);
+    overflow-y:scroll;
+}
+
+
+.table_outer_box > table thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+
+.table_outer_box > table thead {
+    width: 100%;
 }

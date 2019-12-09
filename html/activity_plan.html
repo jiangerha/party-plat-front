@@ -10,9 +10,18 @@
 <link rel="stylesheet" type="text/css" href="../css/activity-manage.min.css" />
 <script src="../js/jquery.js"></script>
 <style>
-    .charts_container{
-        height: calc(100% - 20px)!important;
+    .charts_container.activity_charts_container{
         margin-top: 0!important;
+    }
+    .charts_container .view_charts.activity_plan_conteiner > div{
+        width: 33.33%;
+        height: 33.33%;
+        display: inline-block;
+        float: left;
+    }
+    .charts_container .view_charts.activity_plan_conteiner{
+        height: 100%;
+        width: 100%;
     }
 </style>
 </head>
@@ -47,15 +56,25 @@
                     当前位置：
                     <span class="layui-breadcrumb" lay-separator=">">
                         <a href="javascript:;">系统管理</a>
-                        <a href="javascript:;">访问统计</a>
+                        <a href="javascript:;">活动计划上报</a>
                     </span>
                 </div>
                 <!-- <div class="operate_btns">
                     <button type="button" class="layui-btn">正常</button>
                     <button type="button" class="layui-btn">排列</button>
                 </div> -->
-                <div class="charts_container">
-                    <div class="view_charts" id="viewEcharts"></div>
+                <div class="charts_container activity_charts_container">
+                    <div class="view_charts activity_plan_conteiner" id="activity_plan_conteiner">
+                        <div id="activity_plan_conteiner1"></div>
+                        <div id="activity_plan_conteiner2"></div>
+                        <div id="activity_plan_conteiner3"></div>
+                        <div id="activity_plan_conteiner4"></div>
+                        <div id="activity_plan_conteiner5"></div>
+                        <div id="activity_plan_conteiner6"></div>
+                        <div id="activity_plan_conteiner7"></div>
+                        <div id="activity_plan_conteiner8"></div>
+                        <div id="activity_plan_conteiner9"></div>
+                    </div>
                 </div>
             </div>
             <!-- 右侧盒子内容 -->
@@ -144,92 +163,59 @@
 
     //渲染echarts
     function renderViewCharts(){
-        var viewEchart = echarts.init(document.getElementById('viewEcharts'));
+        var isLg = window.innerWidth > 1536;
+        var data = [10,20,20,20,40,60,70,80,90];
+        var colorList = ['#FF523A', '#FFAB33', '#E74933', '#FFD233', '#FF7633', '#FF7133', '#FF523A', '#FFAB33', '#E74933'];
+        var titleList = ['国防生选拔培养办公室','国防生选拔培养办公','国防生选拔培养办','国防生选拔培养','国防生选拔培','国防生选拔','国防生选拔qqq','国防生选拔111','国防1111生选拔'];
         var option = {
-            tooltip: {
-                formatter:(data) => {
-                    return `<div class="tooltip_container">
-                        <p>${data.name}</p>
-                        <p>${data.seriesName}:${data.value}</p>
-                    </div>`
-                }
-            },
-            legend: {
-                width:48,
-                height:20,
-                textStyle:{
-                    fontSize:16,
-                },
-                data: ['访问次数']
-            },
-            grid: {
-                left: 0,
-                right: '4%',
-                bottom: '6%',
-                containLabel: true
-            },
-            xAxis: {
-                type: 'value',
-                min:0,
-                max:1000000,
-                axisTick:{
-                    show:false,
-                },
-                splitLine:{
-                    show:false
-                },
-                axisLabel:{
-                    fontSize:16,
-                    formatter:function(data){
-                        return (data / 1000000).toFixed(2) * 100 + '%'
+                title : {
+                    text: '',
+                    x:'center',
+                    bottom:'-2%',
+                    textStyle:{
+                        fontSize:16,
+                        fontWeight:'normal',
+                        color:'#000',
                     }
                 },
-                axisLine:{
-                    lineStyle:{
-                        color:'#FFAB33'
-                    }
+                grid:{
+                    bottom:0,
+                    right:0,
                 },
-            },
-            yAxis: {
-                type: 'category',
-                axisTick:{
-                    show:false,
-                },
-                axisLabel:{
-                    fontSize:16,
-                    color:'#333'
-                },
-                axisLine:{
-                    lineStyle:{
-                        color:'#FFAB33'
-                    }
-                },
-                data: ['资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委','资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委']
-            },
-            series: [
-                {
-                    name: '访问次数',
-                    type: 'bar',
-                    barWidth:32,
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(
-                                0, 1, 1, 0,
-                                [
-                                    {offset: 0, color: '#FFAB33'},
-                                    {offset: 1, color: '#E74933'}
-                                ]
-                            )
+                color:['#FF523A', '#E5E5E5'],
+                series: [
+                    {
+                        name:'',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        label: {
+                            normal: {
+                                show: true,
+                                position:'center',
+                                color:'#000',
+                                fontSize:30
+                            }
                         },
-                        emphasis: {
-                            color: '#E74933'
-                        }
-                    },
-                    data: [18203, 23489, 29034, 104970, 131744, 630230,18203, 23489, 29034, 104970, 131744, 630230]
-                },
+                        data:[
+                            {value:33,name:'33%'},
+                            {value:77}
+                        ]
+                    }
+                ]
+            };
+        data.map((i, idx) => {
+            var activityChart = echarts.init(document.getElementById(`activity_plan_conteiner${idx + 1}`));
+            var chartOpt = option;
+            var text = titleList[idx];
+            chartOpt.title.text = chartOpt.series[0].name = text;
+            var newData = [
+                {value:data[idx],name:`${data[idx]}%`},
+                {value:100 - data[idx]}
             ]
-        };
-        viewEchart.setOption(option);
+            chartOpt.series[0].data = newData;
+            chartOpt.color[0] = colorList[idx];
+            activityChart.setOption(chartOpt);
+        })
     }
 </script>
 </html>

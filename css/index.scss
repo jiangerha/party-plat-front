@@ -267,9 +267,28 @@
         .attend_outer_container{
             width: 41.9%;
             height: 100%;
+            position: relative;
             .attend_container{
                 width: 100%;
                 height: calc(100% - 2.77vh);
+                overflow: hidden;
+            }
+            .charts_dots{
+                position: absolute;
+                top: 0;
+                right: 0;
+                li{
+                    width: 8px;
+                    height: 8px;
+                    background: #F3DFE5;
+                    border-radius: 8px;
+                    float: left;
+                    margin-left: 4px;
+                    cursor: pointer;
+                    &.on{
+                        background: #E60012;
+                    }
+                }
             }
         }
         .activity_outer_container{

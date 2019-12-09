@@ -10,8 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../css/activity-manage.min.css" />
 <script src="../js/jquery.js"></script>
 <style>
-    .charts_container{
-        height: calc(100% - 20px)!important;
+    .charts_container.attend_charts_container{
         margin-top: 0!important;
     }
 </style>
@@ -47,15 +46,15 @@
                     当前位置：
                     <span class="layui-breadcrumb" lay-separator=">">
                         <a href="javascript:;">系统管理</a>
-                        <a href="javascript:;">访问统计</a>
+                        <a href="javascript:;">活动出勤率</a>
                     </span>
                 </div>
                 <!-- <div class="operate_btns">
                     <button type="button" class="layui-btn">正常</button>
                     <button type="button" class="layui-btn">排列</button>
                 </div> -->
-                <div class="charts_container">
-                    <div class="view_charts" id="viewEcharts"></div>
+                <div class="charts_container attend_charts_container">
+                    <div class="view_charts attend_charts" id="attendEcharts"></div>
                 </div>
             </div>
             <!-- 右侧盒子内容 -->
@@ -144,92 +143,87 @@
 
     //渲染echarts
     function renderViewCharts(){
-        var viewEchart = echarts.init(document.getElementById('viewEcharts'));
-        var option = {
-            tooltip: {
-                formatter:(data) => {
-                    return `<div class="tooltip_container">
-                        <p>${data.name}</p>
-                        <p>${data.seriesName}:${data.value}</p>
-                    </div>`
-                }
+        var AttendChart = echarts.init(document.getElementById('attendEcharts'));
+        option = {
+            title: {
+                // text: '活动出勤率统计图',
             },
-            legend: {
-                width:48,
-                height:20,
-                textStyle:{
-                    fontSize:16,
-                },
-                data: ['访问次数']
+            tooltip: {
+                formatter:(obj) => {
+                    return `<div class="attend_tooltip">
+                            <p>${obj.name}</p>
+                            <p>${obj.seriesName}:${obj.data}%</p>
+                        </div>`
+                }
             },
             grid: {
                 left: 0,
-                right: '4%',
+                right: '6%',
                 bottom: '6%',
                 containLabel: true
             },
             xAxis: {
-                type: 'value',
-                min:0,
-                max:1000000,
                 axisTick:{
-                    show:false,
+                    show:true,
                 },
-                splitLine:{
+                axisLabel: {  
+                    interval:0,
+                    rotate:-40,
+                    textStyle: {
+                        color: '#666',
+                        fontSize:16,
+                    },
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#f6f6f6',
+                            width:6,   //这里是坐标轴的宽度,可以去掉
+                    }
+                },
+                data: ["音乐学院委员会","物理科学与技术","音乐学院委员会","物理科学与技术","音乐学院委员会","物理科学与技术","音乐学院委员会","物理科学与技术","音乐学院委员会","物理科学与技术","音乐学院委员会","物理科学与技术","物理科学与技术","音乐学院委员会","物理科学与技术","音乐学院委员会","物理科学与技术"]
+            },
+            yAxis: {
+                // show:false,
+                // axisLine:{       //y轴
+                //     show:false
+                // },
+                axisTick:{       //y轴刻度线
                     show:false
+                },
+                splitLine: {     //网格线
+                    show: false
                 },
                 axisLabel:{
                     fontSize:16,
                     formatter:function(data){
-                        return (data / 1000000).toFixed(2) * 100 + '%'
+                        return data + '%'
                     }
                 },
                 axisLine:{
                     lineStyle:{
-                        color:'#FFAB33'
+                        color:'#FFAB33',
+                        // width:6,
                     }
                 },
             },
-            yAxis: {
-                type: 'category',
-                axisTick:{
-                    show:false,
-                },
-                axisLabel:{
-                    fontSize:16,
-                    color:'#333'
-                },
-                axisLine:{
-                    lineStyle:{
-                        color:'#FFAB33'
-                    }
-                },
-                data: ['资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委','资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委']
-            },
-            series: [
-                {
-                    name: '访问次数',
-                    type: 'bar',
-                    barWidth:32,
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(
-                                0, 1, 1, 0,
-                                [
-                                    {offset: 0, color: '#FFAB33'},
-                                    {offset: 1, color: '#E74933'}
-                                ]
-                            )
-                        },
-                        emphasis: {
-                            color: '#E74933'
-                        }
+            series: [{
+                name: '出勤率',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20,5, 20, 100, 10, 10, 20, 36, 10, 10, 20,5],
+                barWidth: 12,
+                itemStyle:{
+                    marginBottom:6,
+                    normal:{
+                        barBorderRadius:[7, 7, 7, 7],
+                        color:'#FFAB33',
                     },
-                    data: [18203, 23489, 29034, 104970, 131744, 630230,18203, 23489, 29034, 104970, 131744, 630230]
-                },
-            ]
+                    emphasis:{
+                        color:'#E74933'
+                    }
+                }
+            }]
         };
-        viewEchart.setOption(option);
+        AttendChart.setOption(option);
     }
 </script>
 </html>
