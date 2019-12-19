@@ -1,0 +1,22 @@
+.party_branch_page{
+    .total_account_group{
+        > li{
+            &:nth-child(1){
+                background-image: url('../images/account-bg2.png');
+            }
+            &:nth-child(2){
+                background-image: url('../images/account-bg3.png');
+            }
+        }
+    }
+    .branch_activity_plan_group{
+        &.attend_views_group{
+            div:first-child{
+                margin-bottom: 44px!important;
+            }
+        }
+        > div{
+            height: calc((100% - 44px) / 2)!important;
+        }
+    }
+}

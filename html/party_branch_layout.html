@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/summary.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/party_branch_layout.min.css" />
+<script src="../js/jquery.js"></script>
+<script src="../js/echarts.min.js"></script>
+</head>
+<div class="layout_page full_screen">
+    <div class="top_nav">
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <ul class="layui-nav user_nav_container">
+                        <li class="layui-nav-item">
+                            <a href="javascript:;">[组织部管理员]</a>
+                            <!-- <ul class="layui-nav-child">
+                                <li>组织部管理员</li>
+                                <li>二级党组织管理员</li>
+                                <li>党支部管理员</li>
+                            </ul> -->
+                            <dl class="layui-nav-child">
+                                <dd><a href="javascript:;">组织部管理员</a></a></dd>
+                                <dd><a href="javascript:;">二级党组织管理员</a></dd>
+                                <dd><a href="javascript:;">党支部管理员</a></dd>
+                            </dl>
+                        </li>
+                    </ul>
+                    
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
+        </ul>
+        <div class="main_content">
+            <!-- <iframe src="./data-statistics/summary.html"></iframe> -->
+            <!-- 右侧盒子内容 -->
+            <div class="summary_page party_branch_page">
+                <ul class="total_account_group">
+                    <li>
+                        <p class="title_group">
+                            <img class="title_icon" src="../images/account-icon3.png"></span>
+                            <span>支部党员人数</span>
+                        </p>
+                        <p class="total_num">
+                            <span>29999</span>个
+                        </p>
+                    </li>
+                    <li>
+                        <p class="title_group">
+                            <img class="title_icon" src="../images/account-icon4.png"></span>
+                            <span>全校党员数目</span>
+                        </p>
+                        <p class="total_num">
+                            <span>29999</span>个
+                        </p>
+                    </li>
+                </ul>
+                <div class="attend_views_activity">
+                    <div class="attend_views_group branch_activity_plan_group">
+                        <div class="attend_rate_group">
+                            <div class="operate_container">
+                                <p>
+                                    <img src="../images/charts-title1.png"/>
+                                </p>
+                                <form class="layui-form custom_form" id="selectForm1">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <select class="custom_select terms_select" lay-filter="attend-terms-select">
+                                                <option value="0">按学期</option>
+                                                <option value="1">22</option>
+                                                <option value="2">22</option>
+                                                <option value="3">22</option>
+                                                <option value="4">22222</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                        </div>
+                        <div class="views_group">
+                            <div class="operate_container">
+                                <p>
+                                    <img src="../images/branch-charts-title2.png"/>
+                                </p>
+                                <form class="layui-form custom_form" id="selectForm1">
+                                    <div class="layui-form-item">
+                                        <div class="layui-input-block">
+                                            <select class="custom_select terms_select" lay-filter="attend-terms-select">
+                                                <option value="0">按学期</option>
+                                                <option value="1">22</option>
+                                                <option value="2">22</option>
+                                                <option value="3">22</option>
+                                                <option value="4">22222</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                        </div>
+                    </div>
+                    <div class="activity_plan_group branch_activity_plan_group">
+                        <div class="attend_rate_group">
+                            <div class="operate_container">
+                                <p>
+                                    <img src="../images/branch-charts-title3.png"/>
+                                </p>
+                            </div>
+                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                        </div>
+                        <div class="views_group">
+                            <div class="operate_container">
+                                <p>
+                                    <img src="../images/branch-charts-title4.png"/>
+                                </p>
+                            </div>
+                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧盒子内容 -->
+        </div>
+    </div>
+</div>
+<script src="../js/layui.js"></script>
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+        // element.on('nav(menuTree)', function(data){
+        //     console.log(data);
+        // });
+    });
+    //菜单list
+    var menuData = [
+        {
+            title:'数据统计',
+            link:'',
+            isParent:true,
+            icon:'../images/tree-icon1.png',
+            children:[
+                {
+                    title:'数据汇总',
+                    icon:'../images/tree-icon1.png',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            isParent:true,
+            icon:'../images/tree-icon2.png',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                    icon:'../images/tree-icon2.png',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
+            isParent:true,
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                    icon:'../images/tree-icon2.png',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            icon:'../images/tree-icon4.png',
+            isParent:true,
+            link:'',
+            children:[
+                {
+                    title:'数据报送11',
+                    icon:'../images/tree-icon4.png',
+                }
+            ]
+        },
+        {
+            title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
+            isParent:true,
+            link:'',
+            children:[
+                {
+                    title:'基础数据管理11',
+                    icon:'../images/tree-icon5.png',
+                }
+            ]
+        },
+        {
+            title:'系统管理',
+            icon:'../images/tree-icon6.png',
+            isParent:true,
+            link:'',
+            children:[
+                {
+                    title:'系统管理11',
+                    icon:'../images/tree-icon6.png',
+                }
+            ]
+        },
+    ]
+    //表单
+    layui.use('form', function(){
+        var form = layui.form;
+        //出勤率 月份 监听select
+        form.on('select(attend-month-select)', function(data){
+            console.log(data.value); //得到被选中的值
+        });
+        form.on('select(attend-terms-select)', function(data){
+            console.log(data.value);
+        });
+        form.on('select(activity-month-select)', function(data){
+            console.log(data.value);
+        });
+        form.on('select(activity-terms-select)', function(data){
+            console.log(data.value);
+        });
+    });
+    $(document).ready(() => {
+        this.renderMenuTree();
+        this.renderAttendcharts();
+        this.renderViewCharts();
+        this.renderActivityCharts();
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
+        var treeNodes = '';
+        // var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? i.isParent ? `<img class="menu_icon" src=${i.icon} />` : `<span class="menu_icon"></span>` : ''}${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    }
+    //渲染出勤率图表
+    function renderAttendcharts(){
+        var AttendChart = echarts.init(document.getElementById('attend_rate_container'));
+        option = {
+            title: {
+                // text: '活动出勤率统计图',
+            },
+            tooltip: {
+                formatter:(obj) => {
+                    return `<div class="attend_tooltip">
+                            <p>${obj.name}</p>
+                            <p>${obj.seriesName}:${obj.data}%</p>
+                        </div>`
+                }
+            },
+            grid: {
+                left: 0,
+                right: '10%',
+                top:'15%',
+                bottom: '20%',
+                containLabel: true
+            },
+            xAxis: {
+                axisTick:{
+                    show:true,
+                },
+                axisLabel: {  
+                    interval:0,
+                    rotate:-40,
+                    textStyle: {
+                        color: '#666',
+                        fontSize:12,
+                    },
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#f6f6f6',
+                            width:6,   //这里是坐标轴的宽度,可以去掉
+                    }
+                },
+                data: ["音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术..."]
+            },
+            yAxis: {
+                show:false,
+                // axisLine:{       //y轴
+                //     show:false
+                // },
+                // axisTick:{       //y轴刻度线
+                //     show:false
+                // },
+                // splitLine: {     //网格线
+                //     show: false
+                // }
+            },
+            series: [{
+                name: '出勤率',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20,5, 20, 100, 10, 10, 20],
+                barWidth: 12,
+                itemStyle:{
+                    marginBottom:6,
+                    normal:{
+                        barBorderRadius:[7, 7, 7, 7],
+                        color:'#FFAB33',
+                    },
+                    emphasis:{
+                        color:'#E74933'
+                    }
+                }
+            }]
+        };
+        AttendChart.setOption(option);
+    }
+    //渲染访问量 图表
+    function renderViewCharts(){
+        var ViewChart = echarts.init(document.getElementById('view_conteiner'));
+        option = {
+            xAxis: {
+                show:false,
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            },
+            yAxis: {
+                type: 'value',
+                show:false,
+            },
+            series: [{
+                data: [1820, 9232, 9301, 1934, 11290, 13130, 13820],
+                type: 'line',
+                smooth: true,
+                itemStyle: {
+                    normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: '#E74933'},
+                                    // {offset: 0.4, color: '#EB5BAB'},
+                                    // {offset: 0.6, color: '#A152DE'},
+                                    {offset: 1, color: '#FFAB33'}
+                                ]
+                            )
+                         }
+                    }
+            }]
+        };
+        ViewChart.setOption(option);
+    }
+    //渲染计划上报 图表
+    function renderActivityCharts(){
+        var isLg = window.innerWidth > 1536;
+        var data = [10,20,20,20,40,60];
+        var colorList = ['#FF523A', '#FFAB33', '#E74933', '#FFD233', '#FF7633', '#FF7133'];
+        var titleList = ['国防生选拔培养办公室','国防生选拔培养办公','国防生选拔培养办','国防生选拔培养','国防生选拔培','国防生选拔'];
+        var option = {
+                title : {
+                    text: '',
+                    x:'center',
+                    // y:'bottom',
+                    bottom:isLg ? 0 : '-4%',
+                    textStyle:{
+                        fontSize:isLg ? 14 : 12,
+                        fontWeight:'normal',
+                        color:'#000',
+                    }
+                },
+                color:['#FF523A', '#E5E5E5'],
+                series: [
+                    {
+                        name:'',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        label: {
+                            normal: {
+                                show: true,
+                                position:'center',
+                                color:'#000',
+                                fontSize:isLg ? 30 : 20
+                            }
+                        },
+                        data:[
+                            {value:33,name:'33%'},
+                            {value:77}
+                        ]
+                    }
+                ]
+            };
+        data.map((i, idx) => {
+            var activityChart = echarts.init(document.getElementById(`activity_plan_conteiner${idx + 1}`));
+            var chartOpt = option;
+            var text = titleList[idx];
+            chartOpt.title.text = chartOpt.series[0].name = text;
+            var newData = [
+                {value:data[idx],name:`${data[idx]}%`},
+                {value:100 - data[idx]}
+            ]
+            chartOpt.series[0].data = newData;
+            chartOpt.color[0] = colorList[idx];
+            activityChart.setOption(chartOpt);
+        })
+    }
+</script>
+</html>
