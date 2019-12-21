@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>重庆大学智慧党建云平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/layui.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/activity-manage.min.css" />
+<script src="../js/jquery.js"></script>
+<style>
+    .personal_center_container{
+        background: #fff;
+        position: relative;
+    }
+    .personal_center_container .img_content_container .icon_container img{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    .personal_center_container .img_content_container .icon_container .right_line{
+        left: 100%!important;
+    }
+    .personal_center_container .img_content_container .icon_container .outer_line{
+        width: 1px;
+        background: #FFD8C9;
+        position: absolute;
+        height: 81.5%;
+        top: 9.5%;
+        left: 0;
+    }
+    .personal_center_container .img_content_container .icon_container .line{
+        height: 1px;
+        background: #FFD8C9;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    .personal_center_container .img_content_container .icon_container .person_name{
+        position: absolute;
+        bottom: -38px;
+        text-align: center;
+        width: 100%;
+        font-size: 18px;
+        color: #333;
+        font-weight: 600;
+    }
+    .personal_center_container .img_content_container .icon_container{
+        width: 36.8%;
+        height: 69.6%;
+        position: absolute;
+        top: 15.2%;
+        left: 31.6%;
+    }
+    .personal_center_container .text_container .text_title{
+        font-size: 24px;
+        color: #333;
+        line-height: 1;
+        font-weight: 600;
+        margin-bottom: 16px;
+        padding: 0 13.3%;
+    }
+    .personal_center_container .text_container .text_line{
+        height: 1px;
+        background: #FFD8C9;
+        position: absolute;
+        right: -21.6%;
+        width: 21.6%;
+        top: 50%;
+    }
+    .personal_center_container .text_container .text_content{
+        overflow-y: auto;
+        padding: 0 13.3%;
+        height: calc(100% - 36px);
+    }
+    .personal_center_container .text_container p{
+        font-size: 18px;
+        color: #666;
+        line-height: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    .personal_center_container .right_text_container{
+        left: unset;
+        right: 0;
+    }
+    .personal_center_container .right_bottom{
+        bottom: 0;
+    }
+    .personal_center_container .right_top{
+        top: 0;
+    }
+    .personal_center_container .left_bottom{
+        bottom: 0;
+        left: 0;
+    }
+    .personal_center_container .left_top{
+        top: 0;
+        left: 0;
+    }
+    .personal_center_container .text_container.right_text_container .text_line{
+        right: unset;
+        left: -21.6%;
+    }
+    .personal_center_container .text_container{
+        width: 26.2%;
+        height: 43.2%;
+        background: #FFFEF3;
+        border: 1px solid #FFAA17;
+        padding: 3.5% 0;
+        position: absolute;
+    }
+    .personal_center_container .img_content_container{
+        width: 72.8%;
+        height: 80.4%;
+        position: absolute;
+        top: 9.8%;
+        left: 13.6%;
+    }
+    @media screen and (max-width: 1536px){
+        .personal_center_container .text_container p{
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .personal_center_container .text_container .text_title{
+            font-size: 20px;
+        }
+        .personal_center_container .img_content_container .icon_container .person_name{
+            font-size: 14px;
+        }
+    }
+</style>
+</head>
+<div class="layout_page full_screen">
+    <div class="top_nav">
+        <img class="left_logo" src="../images/logo.png" alt="" title="logo"/>
+        <div class="user_info_group">
+            <p class="avatar_info">
+                <img src="../images/avatar.png" alt="" title="头像"/>
+                <span>
+                    用户昵称
+                    <span>[组织部管理员]</span>
+                </span>
+            </p>
+            <p>
+                <img src="../images/change-pwd.png" alt="" title="修改密码"/>
+                <span>修改密码</span>
+            </p>
+            <p>
+                <img src="../images/exit.png" alt="" title="退出系统"/>
+                <span>退出系统</span>
+            </p>
+        </div>
+    </div>
+    <div class="content_container">
+        <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
+        </ul>
+        <!-- <div class="main_content table_form_content activity_manage_container outer_charts_container"> -->
+        <div class="main_content table_form_content activity_manage_container">
+            <!-- 右侧盒子内容 -->
+            <div class="activity_manage_page personal_center_container">
+                <div class="img_content_container">
+                    <div class="icon_container">
+                        <img src="../images/person-icon1.png"/>
+                        <p class="line"></p>
+                        <p class="outer_line left_line"></p>
+                        <p class="outer_line right_line"></p>
+                        <p class="person_name">党员：杨广</p>
+                    </div>
+                    <div class="text_container left_top">
+                        <p class="text_title">组织生活</p>
+                        <div class="text_content">
+                            <p>参会情况：30次</p>
+                            <p>缺会情况：2次</p>
+                            <p>党费缴纳：266.79元</p>
+                        </div>
+                        <p class="text_line"></p>
+                    </div>
+                    <div class="text_container left_bottom">
+                        <p class="text_title">党课学习</p>
+                        <div class="text_content">
+                            <p>学习课程：我读《习近平谈治国理政</p>
+                            <p>缺会情况：2次</p>
+                            <p>党费缴纳：266.79元</p>
+                        </div>
+                        <p class="text_line"></p>
+                    </div>
+                    <div class="text_container right_text_container right_top">
+                        <p class="text_title">我的基础信息</p>
+                        <div class="text_content">
+                            <p>姓名：杨怡颖</p>
+                            <p>性别：女</p>
+                            <p>入党时间：2015-12-16</p>
+                            <p>党内职务：支部书记</p>
+                            <p>联系电话：14124325590</p>
+                        </div>
+                        <p class="text_line"></p>
+                    </div>
+                    <div class="text_container right_text_container right_bottom">
+                        <p class="text_title">我的任务</p>
+                        <div class="text_content">
+                            <p>1.体育学院研究生第一党支部活动抽查</p>
+                            <p>缺会情况：2次</p>
+                            <p>党费缴纳：266.79元</p>
+                        </div>
+                        <p class="text_line"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- 右侧盒子内容 -->
+        </div>
+    </div>
+</div>
+<script src="../js/layui.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script>
+    //左侧菜单
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+    //菜单list
+    var menuData = [
+        {
+            title:'个人中心',
+            link:'',
+            icon:'../images/tree-icon1.png',
+            children:[
+                {
+                    title:'个人中心',
+                }
+            ]
+        },
+        {
+            title:'组织生活管理',
+            link:'',
+            icon:'../images/tree-icon2.png',
+            children:[
+                {
+                    title:'活动管理',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'组织关系转接',
+            icon:'../images/tree-icon3.png',
+            link:'',
+            children:[
+                {
+                    title:'组织关系转出',
+                    link:'./data-statistics/summary.html',
+                }
+            ]
+        },
+        {
+            title:'数据报送',
+            icon:'../images/tree-icon4.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'基础数据管理',
+            icon:'../images/tree-icon5.png',
+            link:'',
+            children:[]
+        },
+        {
+            title:'系统管理',
+            icon:'../images/tree-icon6.png',
+            link:'',
+            children:[]
+        },
+    ]
+    $(document).ready(() => {
+        this.renderMenuTree();
+        this.renderViewCharts();
+    });
+    //渲染左侧菜单
+    function renderMenuTree(){
+        var treeNodes = '';
+        var getNode = (i) => `<a href=${i.link ? i.link : 'javascript:;'}>${i.icon ? `<img class="menu_icon" src=${i.icon} />` : ''}${i.title}</a>`;
+        menuData.map(i => {
+            var treeNode = `<li class=${`${(i.children || []).length ? 'layui-nav-item' : ''}`}>${getNode(i)}${
+                ((i.children || []).length) ? `<ul class="layui-nav-child">${i.children.map(ii => {
+                    return `<li>${getNode(ii)}</li>`;
+                })}</ul>` : ''
+            }</li>`;
+            treeNodes += treeNode;
+        })
+        $("#menu_tree").html(treeNodes);
+    }
+
+    //渲染echarts
+    function renderViewCharts(){
+        var viewEchart = echarts.init(document.getElementById('viewEcharts'));
+        var option = {
+            tooltip: {
+                formatter:(data) => {
+                    return `<div class="tooltip_container">
+                        <p>${data.name}</p>
+                        <p>${data.seriesName}:${data.value}</p>
+                    </div>`
+                }
+            },
+            legend: {
+                width:48,
+                height:20,
+                textStyle:{
+                    fontSize:16,
+                },
+                data: ['访问次数']
+            },
+            grid: {
+                left: 0,
+                right: '4%',
+                bottom: '6%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                min:0,
+                max:1000000,
+                axisTick:{
+                    show:false,
+                },
+                splitLine:{
+                    show:false
+                },
+                axisLabel:{
+                    fontSize:16,
+                    formatter:function(data){
+                        return (data / 1000000).toFixed(2) * 100 + '%'
+                    }
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#FFAB33'
+                    }
+                },
+            },
+            yAxis: {
+                type: 'category',
+                axisTick:{
+                    show:false,
+                },
+                axisLabel:{
+                    fontSize:16,
+                    color:'#333'
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'#FFAB33'
+                    }
+                },
+                data: ['资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委','资源环境学院党委','植物保护学院党委','园艺园林学院党委','音乐学院党委','医院总支学院党委','新闻传媒学院党委']
+            },
+            series: [
+                {
+                    name: '访问次数',
+                    type: 'bar',
+                    barWidth:32,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(
+                                0, 1, 1, 0,
+                                [
+                                    {offset: 0, color: '#FFAB33'},
+                                    {offset: 1, color: '#E74933'}
+                                ]
+                            )
+                        },
+                        emphasis: {
+                            color: '#E74933'
+                        }
+                    },
+                    data: [18203, 23489, 29034, 104970, 131744, 630230,18203, 23489, 29034, 104970, 131744, 630230]
+                },
+            ]
+        };
+        viewEchart.setOption(option);
+    }
+</script>
+</html>

@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/summary.min.css" />
-<link rel="stylesheet" type="text/css" href="../css/party_branch_layout.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/party_branch_layout.css" />
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
 </head>
@@ -51,7 +51,7 @@
     <div class="content_container">
         <ul class="layui-nav layui-nav-tree menu_tree" id="menu_tree" lay-filter="menuTree">
         </ul>
-        <div class="main_content">
+        <div class="main_content party_branch_outer_page">
             <!-- <iframe src="./data-statistics/summary.html"></iframe> -->
             <!-- 右侧盒子内容 -->
             <div class="summary_page party_branch_page">
@@ -117,17 +117,17 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                            <div class="attend_rate_container" id="party_class_container"></div>
                         </div>
                     </div>
-                    <div class="activity_plan_group branch_activity_plan_group">
+                    <div class="attend_views_group branch_activity_plan_group branch_party_relation_group">
                         <div class="attend_rate_group">
                             <div class="operate_container">
                                 <p>
                                     <img src="../images/branch-charts-title3.png"/>
                                 </p>
                             </div>
-                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                            <div class="attend_rate_container" id="party_relation_container"></div>
                         </div>
                         <div class="views_group">
                             <div class="operate_container">
@@ -135,7 +135,7 @@
                                     <img src="../images/branch-charts-title4.png"/>
                                 </p>
                             </div>
-                            <div class="attend_rate_container" id="attend_rate_container"></div>
+                            <div class="attend_rate_container" id="party_age_container"></div>
                         </div>
                     </div>
                 </div>
@@ -252,6 +252,7 @@
         this.renderAttendcharts();
         this.renderViewCharts();
         this.renderActivityCharts();
+        this.renderPartyAgeCharts();
     });
     //渲染左侧菜单
     function renderMenuTree(){
@@ -278,7 +279,7 @@
             tooltip: {
                 formatter:(obj) => {
                     return `<div class="attend_tooltip">
-                            <p>${obj.name}</p>
+                            <p>支部${obj.name}出勤率</p>
                             <p>${obj.seriesName}:${obj.data}%</p>
                         </div>`
                 }
@@ -287,12 +288,12 @@
                 left: 0,
                 right: '10%',
                 top:'15%',
-                bottom: '20%',
+                bottom: '15%',
                 containLabel: true
             },
             xAxis: {
                 axisTick:{
-                    show:true,
+                    show:false,
                 },
                 axisLabel: {  
                     interval:0,
@@ -304,23 +305,35 @@
                 },
                 axisLine:{
                     lineStyle:{
-                        color:'#f6f6f6',
-                            width:6,   //这里是坐标轴的宽度,可以去掉
+                        color:'FFD8C9',
                     }
                 },
-                data: ["音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术...","音乐学院委员会","物理科学与技术..."]
+                data: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
             },
             yAxis: {
-                show:false,
-                // axisLine:{       //y轴
-                //     show:false
-                // },
-                // axisTick:{       //y轴刻度线
-                //     show:false
-                // },
-                // splitLine: {     //网格线
-                //     show: false
-                // }
+                min:0,
+                max:100,
+                interval:25,
+                splitNumber:5,
+                axisLine:{       //y轴
+                    lineStyle:{
+                        color:'#FFD8C9'
+                    }
+                },
+                axisLabel: {  
+                    formatter:function(i){
+                        return i + '%'
+                    },
+                    textStyle:{
+                        color:'#666'
+                    }
+                },
+                axisTick:{       //y轴刻度线
+                    show:false
+                },
+                splitLine: {     //网格线
+                    show: false
+                }
             },
             series: [{
                 name: '出勤率',
@@ -343,89 +356,212 @@
     }
     //渲染访问量 图表
     function renderViewCharts(){
-        var ViewChart = echarts.init(document.getElementById('view_conteiner'));
+        var ViewChart = echarts.init(document.getElementById('party_class_container'));
         option = {
+            title: {
+                // text: '活动出勤率统计图',
+            },
+            tooltip: {
+                formatter:(obj) => {
+                    return `<div class="attend_tooltip">
+                            <p>支部${obj.name}党课开课情况</p>
+                            <p>${obj.seriesName}:${obj.data}学时</p>
+                        </div>`
+                }
+            },
+            grid: {
+                left: 0,
+                right: '10%',
+                top:'15%',
+                bottom: '15%',
+                containLabel: true
+            },
             xAxis: {
-                show:false,
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                axisTick:{
+                    show:false,
+                },
+                axisLabel: {  
+                    interval:0,
+                    rotate:-40,
+                    textStyle: {
+                        color: '#666',
+                        fontSize:12,
+                    },
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'FFD8C9',
+                    }
+                },
+                data: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
             },
             yAxis: {
-                type: 'value',
-                show:false,
+                min:0,
+                max:40,
+                interval:10,
+                splitNumber:5,
+                axisLine:{       //y轴
+                    lineStyle:{
+                        color:'#FFD8C9'
+                    }
+                },
+                axisLabel: {  
+                    formatter:function(i){
+                        return i + '学时'
+                    },
+                    textStyle:{
+                        color:'#666'
+                    }
+                },
+                axisTick:{       //y轴刻度线
+                    show:false
+                },
+                splitLine: {     //网格线
+                    show: false
+                }
             },
             series: [{
-                data: [1820, 9232, 9301, 1934, 11290, 13130, 13820],
-                type: 'line',
-                smooth: true,
-                itemStyle: {
-                    normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1,
-                                [
-                                    {offset: 0, color: '#E74933'},
-                                    // {offset: 0.4, color: '#EB5BAB'},
-                                    // {offset: 0.6, color: '#A152DE'},
-                                    {offset: 1, color: '#FFAB33'}
-                                ]
-                            )
-                         }
+                name: '开课学时',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20,5, 20, 40, 10, 10, 20],
+                barWidth: 12,
+                itemStyle:{
+                    marginBottom:6,
+                    normal:{
+                        barBorderRadius:[7, 7, 7, 7],
+                        color:'#FFAB33',
+                    },
+                    emphasis:{
+                        color:'#E74933'
                     }
+                }
             }]
         };
         ViewChart.setOption(option);
     }
-    //渲染计划上报 图表
+    //渲染党员组织关系转接 图表
     function renderActivityCharts(){
-        var isLg = window.innerWidth > 1536;
-        var data = [10,20,20,20,40,60];
-        var colorList = ['#FF523A', '#FFAB33', '#E74933', '#FFD233', '#FF7633', '#FF7133'];
-        var titleList = ['国防生选拔培养办公室','国防生选拔培养办公','国防生选拔培养办','国防生选拔培养','国防生选拔培','国防生选拔'];
-        var option = {
-                title : {
-                    text: '',
-                    x:'center',
-                    // y:'bottom',
-                    bottom:isLg ? 0 : '-4%',
-                    textStyle:{
-                        fontSize:isLg ? 14 : 12,
-                        fontWeight:'normal',
-                        color:'#000',
+        var AttendChart = echarts.init(document.getElementById('party_relation_container'));
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter:(obj) => {
+                    return `<div class="attend_tooltip">
+                            <p>${obj.name}:${obj.percent}%</p>
+                        </div>`
+                }
+            },
+            legend: {
+                show:false
+            },
+            color:['#FF523A', '#FFAA17'],
+            series: [
+                {
+                    name:'支部党员组织关系转接情况',
+                    type:'pie',
+                    avoidLabelOverlap: false,
+                    label: {
+                        show:true,
+                        position:'outside'
+                    },
+                    labelLine: {
+                        normal: {
+                            show: true
+                        }
+                    },
+                    data:[
+                        {value:200, name:'女'},
+                        {value:200, name:'男'},
+                    ]
+                }
+            ]
+        };
+        AttendChart.setOption(option);
+    }
+    //渲染 党龄 图表
+    function renderPartyAgeCharts(){
+        var AgeChart = echarts.init(document.getElementById('party_age_container'));
+        option = {
+            title: {
+                // text: '活动出勤率统计图',
+            },
+            tooltip: {
+                formatter:(obj) => {
+                    return `<div class="attend_tooltip">
+                            <p>支部党员党龄</p>
+                            <p>${obj.name}:${obj.data}人</p>
+                        </div>`
+                }
+            },
+            grid: {
+                left: 0,
+                right: '10%',
+                top:'15%',
+                bottom: '15%',
+                containLabel: true
+            },
+            xAxis: {
+                axisTick:{
+                    show:false,
+                },
+                axisLabel: {  
+                    interval:0,
+                    rotate:-40,
+                    textStyle: {
+                        color: '#666',
+                        fontSize:12,
+                    },
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:'FFD8C9',
                     }
                 },
-                color:['#FF523A', '#E5E5E5'],
-                series: [
-                    {
-                        name:'',
-                        type:'pie',
-                        radius: ['50%', '70%'],
-                        label: {
-                            normal: {
-                                show: true,
-                                position:'center',
-                                color:'#000',
-                                fontSize:isLg ? 30 : 20
-                            }
-                        },
-                        data:[
-                            {value:33,name:'33%'},
-                            {value:77}
-                        ]
+                data: ["小于1年","1-5年","5-10年","10-15年","15-20年","大于20年"]
+            },
+            yAxis: {
+                min:0,
+                max:100,
+                interval:25,
+                splitNumber:5,
+                axisLine:{       //y轴
+                    lineStyle:{
+                        color:'#FFD8C9'
                     }
-                ]
-            };
-        data.map((i, idx) => {
-            var activityChart = echarts.init(document.getElementById(`activity_plan_conteiner${idx + 1}`));
-            var chartOpt = option;
-            var text = titleList[idx];
-            chartOpt.title.text = chartOpt.series[0].name = text;
-            var newData = [
-                {value:data[idx],name:`${data[idx]}%`},
-                {value:100 - data[idx]}
-            ]
-            chartOpt.series[0].data = newData;
-            chartOpt.color[0] = colorList[idx];
-            activityChart.setOption(chartOpt);
-        })
+                },
+                axisLabel: {  
+                    formatter:function(i){
+                        return i + '人'
+                    },
+                    textStyle:{
+                        color:'#666'
+                    }
+                },
+                axisTick:{       //y轴刻度线
+                    show:false
+                },
+                splitLine: {     //网格线
+                    show: false
+                }
+            },
+            series: [{
+                name: '支部党员党龄分布情况',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 100],
+                barWidth: 12,
+                itemStyle:{
+                    marginBottom:6,
+                    normal:{
+                        barBorderRadius:[7, 7, 7, 7],
+                        color:'#FFAB33',
+                    },
+                    emphasis:{
+                        color:'#E74933'
+                    }
+                }
+            }]
+        };
+        AgeChart.setOption(option);
     }
 </script>
 </html>

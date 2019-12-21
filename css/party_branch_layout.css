@@ -1,15 +1,53 @@
-.party_branch_page .total_account_group > li:nth-child(1) {
+.party_branch_outer_page {
+  background: #f5f5f5 !important;
+}
+
+.party_branch_outer_page .party_branch_page .total_account_group > li:nth-child(1) {
   background-image: url("../images/account-bg2.png");
 }
 
-.party_branch_page .total_account_group > li:nth-child(2) {
+.party_branch_outer_page .party_branch_page .total_account_group > li:nth-child(2) {
   background-image: url("../images/account-bg3.png");
 }
 
-.party_branch_page .branch_activity_plan_group.attend_views_group div:first-child {
+.party_branch_outer_page .party_branch_page .branch_activity_plan_group.attend_views_group > div {
+  padding-bottom: 0 !important;
+}
+
+.party_branch_outer_page .party_branch_page .branch_activity_plan_group.attend_views_group > div:first-child {
   margin-bottom: 44px !important;
 }
 
-.party_branch_page .branch_activity_plan_group > div {
+.party_branch_outer_page .party_branch_page .branch_activity_plan_group > div {
   height: calc((100% - 44px) / 2) !important;
+}
+
+.party_branch_outer_page .party_branch_page .branch_party_relation_group {
+  width: 44.99% !important;
+  float: right !important;
+  margin-right: 0 !important;
+}
+
+.party_branch_outer_page .party_branch_page .attend_rate_container {
+  width: 100%;
+  height: calc(90% - 24px);
+}
+
+.party_branch_outer_page .party_branch_page .attend_rate_container > div {
+  padding: 0 !important;
+}
+
+.party_branch_outer_page .party_branch_page .attend_tooltip {
+  padding: 10px 50px 10px 10px !important;
+  border-radius: 10px !important;
+}
+
+.party_branch_outer_page .party_branch_page .attend_tooltip > p {
+  color: #fff;
+  line-height: 18px;
+  font-size: 12px;
+}
+
+.party_branch_outer_page .party_branch_page .attend_rate_group, .party_branch_outer_page .party_branch_page .views_group {
+  background: #fff;
 }
