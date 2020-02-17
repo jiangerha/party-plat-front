@@ -9,6 +9,11 @@
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/activity-manage.min.css" />
 <script src="../js/jquery.js"></script>
+<style>
+    .layui-table-cell + .layui-table-grid-down{
+        display: none;
+    }
+</style>
 </head>
 <div class="layout_page full_screen">
     <div class="top_nav">
@@ -103,10 +108,16 @@
                 groups:4,
             }, 
             cols: [[ //表头
-            {field: 'name', title: '活动名称', width:'20%'},
-            {field: 'createdDate', title: '发布时间', width:'20%'},
-            {field: 'content', title: '发布内容', width:'40%'},
-            {field: 'operate', title: '操作', width: '20%', toolbar: '#operateBtns'}
+            {field: 'name', title: '活动名称', unresize:true, templet: function(d){
+                return '<span title="'+ d.name +'" style="width:80px">'+ d.name +'</span>'
+            }},
+            {field: 'createdDate', title: '发布时间', unresize:true, templet: function(d){
+                return '<span title="'+ d.createdDate +'">'+ d.createdDate +'</span>'
+            }},
+            {field: 'content', title: '发布内容', unresize:true, templet: function(d){
+                return '<span title="'+ d.content +'">'+ d.content +'</span>'
+            }},
+            {field: 'operate', title: '操作', toolbar: '#operateBtns', unresize:true}
             ]]
         });
     });

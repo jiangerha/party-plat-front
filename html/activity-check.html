@@ -75,6 +75,7 @@
         <span class="blue_text" onclick="test();">抽查</span>    
     </div>
 </script>
+  
 <script>
     //按钮 测试
     test = function(){
@@ -114,10 +115,13 @@
                 groups:4,
             }, 
             cols: [[ //表头
-            {field: 'name', title: '活动名称', width:'20%'},
-            {field: 'createdDate', title: '发布时间', width:'20%'},
-            {field: 'content', title: '发布内容', width:'40%'},
-            {field: 'operate', title: '操作', width: '20%', toolbar: '#operateBtns'}
+            {field: 'name', title: '活动名称', width:'20%', unresize:true, templet:function(d){
+                console.log(d,'jjj')
+                return '<span title='+d.content+'>'+ d.content +'</span>'
+            }},
+            {field: 'createdDate', title: '发布时间', width:'20%', unresize:true},
+            {field: 'content', title: '发布内容', width:'40%', unresize:true},
+            {field: 'operate', title: '操作', width: '20%', toolbar: '#operateBtns', unresize:true}
             ]]
         });
     });

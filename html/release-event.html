@@ -4,11 +4,166 @@
 <title>重庆大学智慧党建云平台</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../css/layui.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/release-event.min.css" />
+<link rel="stylesheet" type="text/css" href="../js/css/multiSelect.css" />
 <script src="../js/jquery.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- IE11 support -->
+<script src="../js/polyfill.js"></script>
+<style>
+    .mult_input_container .form-control.focus, .mult_input_container .form-control.active{
+        outline: none!important;
+    }
+    .mult_input_container .form-control .badge span{
+        padding: 2px 4px;
+    }
+    .mult_input_container .form-control .badge{
+        background-color: #FFAB33;
+        padding: 3px;
+        margin: 0 2px 3px 0;
+    }
+    .mult_input_container .form-control{
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        max-height: 80px;
+        overflow-y: auto;
+        padding: 0;
+        height: auto;
+        min-height: 40px!important;
+    }
+    .mult_input_container .dropdown-menu{
+        padding: 5px;
+    }
+    .mult_input_container .text-primary{
+        color: #FFAB33!important;
+    }
+    .mult_input_container .expand_arrow + .list_container{
+        display: block;
+    }
+    .edit_group_member{
+        padding: 4px 10px!important;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+    .mult_input_container .list_container span{
+        color: #FFF;
+        background: #FFAB33;
+        padding: 4px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 5px;
+        max-width: 80px;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .mult_input_container .list_container span:hover{
+        background: rgba(225, 171, 51, 0.8)!important;
+    }
+    .mult_input_container .list_container .list_item_container{
+        padding-top: 10px;
+        max-height: 80px;
+        overflow-y: auto;
+    }
+    .mult_input_container .layui-form-select, .mult_input_container .layui-form-checkbox{
+        display: none;
+    }
+    .mult_input_container .list_container{
+        display: none;
+        margin-top: 10px;
+    }
+    .mult_input_container .mult_input{
+        height: auto;
+        border-bottom: 1px solid #ddd;
+        outline: none;
+        font-size: 14px;
+        line-height: 38px;
+        overflow-y: auto;
+        max-height: 80px;
+    }
+    .mult_input_container{
+        width: 100%!important;
+        height: auto!important;
+    }
+    .mult_input_container .layui-input-inline .drop_arrow.expand_arrow{
+        transform: rotate(180deg);
+    }
+    .mult_input_container .layui-input-inline .drop_arrow{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        content: '';
+        background: url("../images/tree-arrow.png");
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        cursor: pointer;
+    }
+    .mult_input_container .layui-input-inline{
+        height: 100%;
+        width: calc(100% - 150px)!important;
+        position: relative;
+    }
+    .modal_content_container .left_list_container .custom_table+.layui-table-view .layui-table-body{
+        max-height: 300px!important;
+    }
+    .modal_content_container >div .custom_table+.layui-table-view{
+        padding-bottom: 60px;
+    }
+    .modal_content_container >div .layui-table-page{
+        overflow-x: auto;
+    }
+    .modal_content_container >div .layui-laypage-count, .modal_content_container >div .layui-laypage-skip{
+        display: none;
+    }
+    .modal_content_container .left_list_container .custom_btn{
+        margin: 10px 0;
+    }
+    .modal_content_container .left_list_container{
+        width: 50%;
+        margin-right: 5%;
+    }
+    .modal_content_container .right_member_container{
+        width: 45%;
+    }
+    .member_modal .modal-footer{
+        clear: both;
+    }
+    .member_modal button{
+        outline: none;
+    }
+    .modal_content_container > div{
+        display: inline-block;
+        float: left;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .member_modal .modal-dialog{
+        width: 800px!important;
+    }
+    .layui-table-cell + .layui-table-grid-down{
+        display: none;
+    }
+    .list_item_container span:hover{
+        color: #fff!important;
+    }
+    .list_item_container span{
+        background: #fff!important;
+        color: #ffab33!important;
+        border: 1px solid #ffab33!important;
+    }
+</style>
 </head>
 <div class="layout_page full_screen">
     <div class="top_nav">
@@ -72,6 +227,40 @@
                                 <div class="box_item"></div>
                             </div>
                         </div>
+                         <!-- 参会人员   参会人员  参会人员  参会人员-->
+                        <div class="layui-inline mult_input_container">
+                            <label class="layui-form-label">参会对象：</label>
+                            <div class="layui-input-inline">
+                                <select name="attendMember" id="attend_member_select" class="mult_input" multiple="multiple" style="display: none;">
+                                    <!-- <option selected value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option selected value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option> -->
+                                </select>
+                                <i class="drop_arrow"></i>
+                                <div class="list_container">
+                                    <p>
+                                        常用列表
+                                        <span class="edit_group_member" data-toggle="modal" data-target="#memberModal">编辑</span>
+                                    </p>
+                                    <p class="list_item_container">
+                                        <span id="group1"  title="ggroup1group1group1roup1人员" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom">group1</span>
+                                        <span id="group2" title="group2人员" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom">group2</span>
+                                        <span id="group3" title="group3人员" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom">group3</span>
+                                        <span id="group4" title="group4人员" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom">group4</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- 参会人员   参会人员  参会人员  参会人员-->
                         <div class="layui-inline ueditor_container">
                             <label class="layui-form-label">发布内容：</label>
                             <div class="layui-input-inline">
@@ -88,11 +277,67 @@
                       </form>
                 </div>
             </div>
+            <!-- 常用列表弹窗   常用列表弹窗  常用列表弹窗  常用列表弹窗-->
+            <div class="modal member_modal" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="memberModalLabel">
+                                常用列表
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                        </div>
+                        <div class="modal-body modal_content_container">
+                            <div class="left_list_container">
+                                <p class="">常用列表</p>
+                                <button class="layui-btn custom_btn add_group_btn">添加</button>
+                                <div class="table_container">
+                                    <table id="groupTable" lay-filter="groupTable" class="custom_table"></table>
+                                </div>
+                            </div>
+                            <div class="right_member_container">
+                                <p class="">常用人员</p>
+                                <form class="layui-form" action="">
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                    <select name="city" lay-search="" lay-filter="member" placeholder="可搜索可输入">
+                                        <option value="0">北京</option>
+                                        <option value="1">上海</option>
+                                        <option value="2">广州</option>
+                                        <option value="3">深圳</option>
+                                        <option value="4">杭州</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                </form>
+                                <div class="table_container">
+                                    <table id="memberTable" lay-filter="memberTable" class="custom_table"></table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="layui-btn custom_btn" data-dismiss="modal">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </div>
             <!-- 右侧盒子内容 -->
+            </div>
+             <!-- 常用列表弹窗   常用列表弹窗  常用列表弹窗  常用列表弹窗-->
         </div>
     </div>
 </div>
 <script src="../js/layui.js"></script>
+<script src="../js/BsMultiSelect.min.js"></script>
+
+<script type="text/html" id="operateBtns">
+    <div class="operate_btns">
+    <span class="red_text delete_td" title="删除" onclick="deleteTd(event)">删除</span>
+    </div>
+</script>
 <script>
     //左侧菜单
     layui.use('element', function(){
@@ -276,5 +521,124 @@
         })
         $("#menu_tree").html(treeNodes);
     }
+    $(".mult_input_container .drop_arrow").on("click", '', function(e){
+        $(e.target).hasClass("expand_arrow") ? $(e.target).removeClass("expand_arrow") : $(e.target).addClass("expand_arrow");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 参会人员 组件
+    var mockMember = {
+        group1:['test1', 'test2', 'test3'],
+        group2:['2test1', '2test2', '2test3'],
+        group3:['3test1', '3test2', '3test3'],
+        group4:['4test1', '4test2', '4test3'],
+    };
+    $(function () { 
+        //添加popver
+        $("[data-toggle='popover']").popover();
+        //给组添加人员信息
+        $(".list_item_container span").each(function(e){
+            $(this).attr("data-content", mockMember[$(this).attr("id")].join(','))
+        });
+
+        //select 添加option
+        var selectOpts = '';
+        Object.keys(mockMember).forEach(function(i){
+            mockMember[i].forEach(function(ii){
+                selectOpts += "<option value='"+ ii +"'>"+ ii + 'ss' +"</option>"
+            });
+        });
+        $("#attend_member_select").html(selectOpts);
+        //使用插件
+        $("#attend_member_select").bsMultiSelect({q:'e'}, {a:'x'});
+    });
+    
+    //点击组名 默认选中人员
+    $(".list_item_container span").on("click", '', function(e){
+        var groupName = e.target.innerHTML;
+        var originVal = $("#attend_member_select").val();
+        var bsMultiSelect = $('#attend_member_select').BsMultiSelect();
+        $('.dashboardcode-bsmultiselect .dropdown-menu li').each(function(idx, e){
+            var val = $(e).attr("data-option-id");
+            (($("#attend_member_select").val()).indexOf(val) === -1 && mockMember[groupName].indexOf(val) > -1) && $(e).click();
+        });
+    });
+
+    //常用列表 弹窗列表
+    layui.use('table', function(){
+        var table = layui.table;
+        var data = [];
+        var getData = (num) => {
+            if(num < 10){
+                data.push({name:num});
+                return getData(num+1)
+            }
+        }
+        getData(0);
+        var commonOpts = function(id, className){
+            return {
+                elem: id,
+                data:data,
+                page: {
+                    limit:5,
+                    prev:'&lt;上一页',
+                    next:'下一页&gt;',
+                }, 
+                cols: [[ //表头
+                {field: 'name', title: '名字', unresize:true, templet: function(d){
+                    return '<span class="'+ className +'" title="'+ d.name +'" style="width:80px;display:inline-block" onclick="addMember(event)">'+ d.name +'</span>'
+                }},
+                {field: 'operate', title: '操作', toolbar: '#operateBtns', unresize:true}
+                ]]
+            };
+        };
+        //常用组列表
+        table.render(commonOpts('#groupTable', 'group_td_name'));
+        //常用人员列表
+        table.render(commonOpts('#memberTable'));
+    });
+    //常用列表添加按钮
+    $(".add_group_btn").on("click", '', function(){
+        layer.prompt({title: '添加列表', formType: 0}, function(text, index){
+            layer.close(index);
+            alert(text);
+            console.log(text, 'pass', index);
+        });
+    });
+
+    //删除按钮
+    function deleteTd(e){
+        console.log(e,'e')
+    };
+
+    //点击组名 添加人员
+    function addMember(e){
+        //判断是否是常用列表 名字列
+        if($(e.target).hasClass("group_td_name")){
+            console.log(e,'e ')
+        };
+    };
+    //监听人员选择
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听人员选择框
+        form.on('select(member)', function(data){
+            console.log(data.elem); //得到select原始DOM对象
+            console.log(data.value); //得到被选中的值
+            console.log(data.othis); //得到美化后的DOM对象
+        });
+    });
+    
 </script>
 </html>
