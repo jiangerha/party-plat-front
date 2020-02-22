@@ -1,0 +1,55 @@
+[
+    {
+      "id": 1,
+      "name": "重庆大学党委",
+      "open": true,
+      "children": [
+        {
+          "id": 2,
+          "name": "马克思主义学院党委",
+          "open": false,
+          "checked": false,
+          "children": [
+            {
+              "id": 21,
+              "name": "马克思主义1",
+              "checked": true
+            },
+            {
+              "id": 22,
+              "name": "马克思主义2",
+              "checked": true
+            },
+            {
+              "id": 23,
+              "name": "马克思主义3",
+              "checked": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "政治与公共管理学院党委",
+          "open": false,
+          "children": [
+            {
+              "id": 31,
+              "name": "政治与公共1",
+              "checked": true
+            },
+            {
+              "id": 32,
+              "name": "政治与公共2",
+              "checked": true
+            },
+            {
+              "id": 33,
+              "name": "政治与公共3",
+              "checked": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+

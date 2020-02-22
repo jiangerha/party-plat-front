@@ -4,11 +4,57 @@
 <title>重庆大学智慧党建云平台</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../css/layui.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/layout.min.css" />
 <link rel="stylesheet" type="text/css" href="../css/party-info-manage.min.css" />
 <script src="../js/jquery.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .party_organ_member_modal .layui-input-block{
+        margin: 0;
+    }
+    .party_organ_member_modal .default_btn{
+        float: right;
+        margin-left: 10px;
+    }
+    .layui-table-cell + .layui-table-grid-down{
+        display: none;
+    }
+    .table_form_content .custom_table+.layui-table-view .layui-form-checked[lay-skin=primary] i{
+        border-color: #FFAB33!important;
+    }
+    .admin_setting_container{
+        width: 100%!important;
+    }
+    .party_tree_container .tree_select_label{
+        line-height: 40px;
+        width: 110px;
+        display: inline-block;
+    }
+    .party_tree_container{
+        overflow: visible!important;
+        height: 40px!important;
+        background: transparent!important;
+        width: 400px!important;
+        margin-bottom: 20px;
+        padding: 0!important;
+    }
+    .party_tree_container .layui-treeSelect .ico_docu.button{
+        display: none;
+    }
+    .party_tree_container .layui-treeSelect .layui-select-title input{
+        padding-right: 30px!important;
+    }
+    .party_tree_container .layui-treeSelect{
+        float: right;
+        width: calc(100% - 110px);
+    }
+    .party_tree_container .layui-treeSelect .ztree li a.curSelectedNode{
+        color: #FFAB33;
+    }
+</style>
 </head>
 <div class="layout_page full_screen">
     <div class="top_nav">
@@ -45,8 +91,14 @@
                     </span>
                 </div>
                 <div class="party_manage_content">
-                    <div id="partyManageTree" class="party_tree_container"></div>
-                    <div class="party_table_container">
+                    <!-- <div id="partyManageTree" class="party_tree_container">
+                        <input type="text" id="tree" lay-filter="tree" class="layui-input">
+                    </div> -->
+                    <div class="party_table_container admin_setting_container">
+                            <div id="partyManageTree" class="party_tree_container">
+                                <span class="tree_select_label">请选择组织:</span>
+                                <input type="text" id="tree" lay-filter="tree" class="layui-input">
+                            </div>
                             <div class="breadcrumb_group">
                                 当前组织：
                                 <span class="layui-breadcrumb" lay-separator=">">
@@ -54,7 +106,49 @@
                                     <a href="javascript:;">机关党委</a>
                                 </span>
                             </div>
-                            <div class="form_content admin_setting_container">
+                            <div class="table_content bg_white_container">
+                                <div  id="partyMemberBtns" class="layui-btn-group table_btns">
+                                    <button data-toggle="modal" data-target="#memberModal" type="button" class="layui-btn custom_btn">新增</button>
+                                    <button type="button" class="layui-btn custom_btn default_btn" data-type="getCheckData">删除</button>
+                                </div>
+                                <table id="partyInfoTable" lay-filter="partyInfoTable" class="custom_table" lay-filter="partyInfoTable"></table>
+                            </div>
+                            <div class="modal party_organ_member_modal" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="memberModalLabel">
+                                                新增
+                                            </h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                        </div>
+                                        <div class="modal-body modal_content_container">
+                                            <form class="layui-form" action="" lay-filter="member">
+                                                <div class="layui-form-item">
+                                                    <div class="layui-input-block">
+                                                    <select name="member" lay-search placeholder="可搜索可输入">
+                                                        <option value="0">北京</option>
+                                                        <option value="1">上海</option>
+                                                        <option value="2">广州</option>
+                                                        <option value="3">深圳</option>
+                                                        <option value="4">杭州</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button id="addMember" type="button" class="custom_btn">确定</button>
+                                            <button type="button" class="layui-btn custom_btn default_btn" data-dismiss="modal">
+                                                关闭
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="form_content admin_setting_container">
                                 <form class="layui-form custom_form" id="adminForm">
                                     <div class="layui-form-item">
                                         <label class="layui-form-label edit_label">编辑管理员：</label>
@@ -73,7 +167,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                     </div>
                 </div>
             </div>
@@ -82,6 +176,7 @@
     </div>
 </div>
 <script src="../js/layui.js"></script>
+<script src="../js/module/common.js"></script>
 <script type="text/html" id="operateBtns">
     <div class="operate_btns">
         <span class="blue_text">编辑</span>    
@@ -92,142 +187,107 @@
     layui.use('element', function(){
         var element = layui.element;
     });
-    //tree
-    layui.use('tree', function(){
-        var tree = layui.tree;
-        tree.render({
-            elem: '#partyManageTree', //指定元素
-            data:[
-                {
-                title: '重庆大学党委',
-                id: 1,
-                children: [
-                    {
-                        title: '马克思主义学院党委',
-                        id: 1000,
-                        children:[
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10001,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10002,
-                            },
-                        ]
-                    },
-                    {
-                        title: '政治与公共管理学院党委',
-                        id: 1001,
-                        children:[
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10011,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10012,
-                            },
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10013,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10014,
-                            },
-                        ]
-                    },
-                    {
-                        title: '经济管理学院党委',
-                        id: 1002,
-                        children:[
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10021,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10022,
-                            },
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10023,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10024,
-                            },
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10025,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10026,
-                            },
-                            {
-                                title: '政治与公共管理学院党委',
-                                id: 10027,
-                            },
-                            {
-                                title: '经济管理学院党委',
-                                id: 10028,
-                            },
-                        ]
-                    },
-                    {
-                        title: '马克思主义学院党委11',
-                        id: 1004,
-                    },
-                    {
-                        title: '马克思主义学院党委22',
-                        id: 1005,
-                    },
-                    {
-                        title: '政治与公共管理学院党委33',
-                        id: 1006,
-                    },
-                    {
-                        title: '经济管理学院党委555',
-                        id: 1007,
-                    },
-                ]
-            }],
-            showLine:false,
-            click:(obj) => {
-                console.log(obj,'s');
-                //左侧tree控制右侧显示
-                if(obj.data.children){
-                    $("#partyInfoTable").addClass("hidden_container");
-                    $("#partyMemberBtns").addClass("hidden_container");
-                    $("#partyOrganBtns").removeClass("hidden_container");
-                }else{
-                    $("#partyInfoTable").removeClass("hidden_container");
-                    $("#partyMemberBtns").removeClass("hidden_container");
-                    $("#partyOrganBtns").addClass("hidden_container");
-                }
-                //点击节点选中
-                [...($("#partyManageTree .layui-tree-set"))].map(i => {
-                    $(i).removeClass("active_node");
-                    if($(i).attr("data-id") == obj.data.id){
-                        $(i).addClass("active_node");
-                    }
-                })
+    //treeselect
+    layui.use(['treeSelect','form'], function () {
+        var treeSelect= layui.treeSelect;
+
+        treeSelect.render({
+            // 选择器
+            elem: '#tree',
+            // 数据
+            data: '../data/treeSelect.json',
+            // 异步加载方式：get/post，默认get
+            type: 'get',
+            // 占位符
+            placeholder: '请选择',
+            // 是否开启搜索功能：true/false，默认false
+            search: true,
+            // 点击回调
+            click: function(d){
+                console.log(d);
+                if(d.current.isParent) return false;
+            },
+            // 加载完成后的回调函数
+            success: function (d) {
+                console.log(d);
+//                选中节点，根据id筛选
+//                treeSelect.checkNode('tree', 3);
+
+//                获取zTree对象，可以调用zTree方法
+//                var treeObj = treeSelect.zTree('tree');
+//                console.log(treeObj);
+
+//                刷新树结构
+//                treeSelect.refresh();
             }
         });
-        //限制可展开树节点 宽度
-        [...($("#partyManageTree .layui-tree-set"))].map(i => {
-           if($(i).children(".layui-tree-pack").length){
-               $(i).addClass("limit_width");
-           }
-        });
-        //添加title 属性
-        [...$("#partyManageTree .layui-tree-txt")].map(i => {
-            $(i).attr("title", $(i).text());
-        })
     });
-     
+    
+    //新增弹窗 点击确定
+    $("#addMember").on("click", '', function(){
+        var form = layui.form;
+        var data1 = form.val("member");
+        console.log(data1, 'data1');
+        alert(JSON.stringify(data1));
+        //关闭弹窗
+        $('#memberModal').modal('hide');
+    });
+
+     //列表
+    layui.use('table', function(){
+        var table = layui.table;
+        var mockItem = {
+            name:'111111',
+            createdDate:'2019-08-20  09：00',
+            content:'.....党的十九大把习近平新时代中国特色社会党的十九大把习近平新时代中国特色社会',
+        };
+        var data = [];
+        var getData = (num) => {
+            if(num < 200){
+                data.push({...mockItem,name:num});
+                return getData(num+1)
+            }
+        }
+        getData(0);
+        //第一个实例
+        table.render({
+            elem: '#partyInfoTable',
+            // url: '/demo/table/user/', //数据接口
+            data:data,
+            page: {
+                limit:10,   //每页条数
+                limits:[],
+                prev:'&lt;上一页',
+                next:'下一页&gt;',
+                groups:4,
+            }, 
+            cols: [[ //表头
+            {type:'checkbox'},
+            {field: 'name', title: '活动名称', unresize:true, templet: function(d){
+                return '<span title="'+ d.name +'">'+ d.name +'</span>'
+            }},
+            {field: 'createdDate', title: '发布时间', unresize:true, templet: function(d){
+                return '<span title="'+ d.createdDate +'">'+ d.createdDate +'</span>'
+            } },
+            {field: 'content', title: '发布内容', unresize:true, templet: function(d){
+                return '<span title="'+ d.content +'">'+ d.content +'</span>'
+            } },
+            ]]
+        });
+        var $ = layui.$, active = {
+            //人员名册导出
+            getCheckData: function(){ //获取选中数据
+                var checkStatus = table.checkStatus('partyInfoTable');
+                var data = checkStatus.data;
+                console.log(data, '选中的人员');
+                layer.alert(JSON.stringify(data));
+            },
+        };
+        $('.table_content .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
     //菜单list
     var menuData = [
         {
