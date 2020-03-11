@@ -154,10 +154,19 @@
         this.renderActivityChart();
         this.renderViewChart();
         this.autoScroll();
+        //resize echarts
+        setTimeout(function (){
+            window.onresize = function () {
+                var chartsList = [inspectorEchart, mapEchart, attendChart1, attendChart2, attendChart3, activityEchart, viewEchart];
+                chartsList.map(function(i){
+                    i.resize();
+                });
+            }
+        },200)
     });
     //渲染活动督察情况
     function renderInspectorChart(){
-        var inspectorEchart = echarts.init(document.getElementById('inspectorChart'));
+        inspectorEchart = echarts.init(document.getElementById('inspectorChart'));
         var heightNum = $("#inspectorChart").height();
         var legendDom = $(".echarts_legend");
         var domStr = '';
@@ -283,7 +292,7 @@
     };
     //渲染地图 动画效果
     function renderMap(){
-        var mapEchart = echarts.init(document.getElementById('mapContainer'));
+        mapEchart = echarts.init(document.getElementById('mapContainer'));
         var toolTipData = [
             {
                 name:'A区',
@@ -363,9 +372,9 @@
     }
     //渲染活动出勤率
     function renderAttendChart(){
-        var attendChart1 = echarts.init(document.getElementById('attendContainer1'));
-        var attendChart2 = echarts.init(document.getElementById('attendContainer2'));
-        var attendChart3 = echarts.init(document.getElementById('attendContainer3'));
+        attendChart1 = echarts.init(document.getElementById('attendContainer1'));
+        attendChart2 = echarts.init(document.getElementById('attendContainer2'));
+        attendChart3 = echarts.init(document.getElementById('attendContainer3'));
         var mockData1 = [];
         var mockData2 = [];
         var defaultData = ['音乐学院',  '音乐学院1', '音乐学院2', '音乐学院',  '音乐学院1', '音乐学院2', '音乐学院',  '音乐学院1', '音乐学院2', '音乐学院',  '音乐学院1', '音乐学院2'];
@@ -448,7 +457,7 @@
         attendChart3.setOption(option2);
     };
     function renderActivityChart(){
-        var activityEchart = echarts.init(document.getElementById('activityContainer'));
+        activityEchart = echarts.init(document.getElementById('activityContainer'));
         var fontSize = (14 / 1920) * window.innerWidth;
         option = {
             xAxis: {
@@ -505,7 +514,7 @@
         var numDom = '';
         num.split(',').map(i => numDom += `<span class="num_item">${i}</span>`);
         $(".view_num").html(numDom);
-        var viewEchart = echarts.init(document.getElementById('viewContainer'));
+        viewEchart = echarts.init(document.getElementById('viewContainer'));
         option = {
             tooltip:{
                 formatter:(params) => {
