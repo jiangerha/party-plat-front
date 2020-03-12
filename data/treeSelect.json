@@ -13,7 +13,41 @@
             {
               "id": 21,
               "name": "马克思主义1",
-              "checked": true
+              "checked": true,
+              "children": [
+                {
+                  "id": 211,
+                  "name": "马克思主义test11",
+                  "checked": true,
+                  "children": [
+                    {
+                      "id": 211,
+                      "name": "马克思主义test11",
+                      "checked": true
+                    },
+                    {
+                      "id": 212,
+                      "name": "马克思主义test22",
+                      "checked": true
+                    },
+                    {
+                      "id": 213,
+                      "name": "马克思主义test22",
+                      "checked": true
+                    }
+                  ]
+                },
+                {
+                  "id": 212,
+                  "name": "马克思主义test22",
+                  "checked": true
+                },
+                {
+                  "id": 213,
+                  "name": "马克思主义test22",
+                  "checked": true
+                }
+              ]
             },
             {
               "id": 22,

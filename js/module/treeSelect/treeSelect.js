@@ -4015,17 +4015,21 @@ layui.define(['form', 'jquery'], function (exports) { //提示：模块也可以
       },
       checkNodes: function (nodes) {
         for (var i = 0; i < nodes.length; i++) {
-          var o = nodes[i],
-              pid = o.parentTId,
-              tid = o.tId;
+          a.checkParentNodes(nodes[i]);
+        };
+      },
+      checkParentNodes: function(node){
+        var pid = node.parentTId,
+              tid = node.tId;
           if (pid !== null){
             // 获取父节点
             $('#' + pid).addClass(TREE_SELECT_SEARCHED_CLASS);
             var pNode = TREE_OBJ.getNodesByParam("tId", pid, null);
             TREE_OBJ.expandNode(pNode[0], true, false, true);
-          }
+            //递归处理父级节点
+            a.checkParentNodes(pNode[0]);
+          };
           $('#' + tid).addClass(TREE_SELECT_SEARCHED_CLASS);
-        }
       },
       // 阻止Layui的一些默认事件
       preventEvent: function() {
