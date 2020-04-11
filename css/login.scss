@@ -4,28 +4,33 @@
     position: relative;
     background-size: cover;
     .user_info_container{
-        width: 1140px;
-        height: 500px;
-        background: #fff;
+        width: 100%;
         position: absolute;
+        left: 0;
         top: 50%;
-        left: 50%;
-        margin-left: -570px;
-        margin-top: -250px;
-        >div{
-            float: left;
-            display: inline-block;
-        }
+        margin-top: calc(-6.8vh - 260px);
         .title_container{
-            width: 740px;
-            height: 100%;
-            background-image: url('../images/login-title.png');
-            background-size: cover;
+            height: 6.66vh;
+            margin: 0 auto 6.94vh auto;
+            text-align: center;
+            img{
+                height: 100%;
+            }
         }
         .info_container{
-            width: 400px;
-            height: 100%;
-            padding: 74px 40px 0 40px;
+            width: 480px;
+            height: 520px;
+            padding: 70px 40px 0 40px;
+            background: #fff;
+            margin: auto;
+            .form-title{
+                font-size: 36px;
+                font-weight: bold;
+                line-height: 1;
+                color: #E74933;
+                margin-bottom: 38px;
+                text-align: center;
+            }
             .info_title{
                 span{
                     width: 50%;
